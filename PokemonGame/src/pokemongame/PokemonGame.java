@@ -18,6 +18,8 @@ public class PokemonGame {
      */
     public static void main(String[] args) {
         
+        
+        // Player class test
        Player playerOne = new Player();
         
        playerOne.setName("Ashh");
@@ -26,6 +28,7 @@ public class PokemonGame {
        String playerInfo= playerOne.toString();
        System.out.println(playerInfo); 
         
+       // Character class test
         
     }
     
