@@ -6,6 +6,7 @@
 package pokemongame;
 
 import byui.cit260.pokemongame.model.Player;
+import byui.cit260.pokemongame.model.Character;
 
 /**
  *
@@ -19,7 +20,7 @@ public class PokemonGame {
     public static void main(String[] args) {
         
         
-        // Player class test
+       // Player class test
        Player playerOne = new Player();
         
        playerOne.setName("Ashh");
@@ -29,7 +30,7 @@ public class PokemonGame {
        System.out.println(playerInfo); 
         
        // Character class test
-        
+        Character characterOne = new Character();
     }
     
 }
