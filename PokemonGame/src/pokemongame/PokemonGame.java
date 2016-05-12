@@ -17,6 +17,7 @@ public class PokemonGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
        Player playerOne = new Player();
         
        playerOne.setName("Ashh");
@@ -29,6 +30,7 @@ public class PokemonGame {
        String playerInfo= playerOne.toString();
        System.out.println(playerInfo); 
         
+       Character characterOne = new Character();
         
     }
     
