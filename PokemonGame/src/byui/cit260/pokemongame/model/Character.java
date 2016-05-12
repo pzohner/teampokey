@@ -17,12 +17,12 @@ public class Character implements Serializable {
     
     private String name;
     private String position[][];
-    private int    numberOfPokemon;
-    private int    numberOfItems;
+    private int numberOfPokemon;
+    private int numberOfItems;
 
-    public Character() {    // default constructor
+    public Character() {
     }
-    
+
     public String getName() {
         return name;
     }
@@ -54,6 +54,10 @@ public class Character implements Serializable {
     public void setNumberOfItems(int numberOfItems) {
         this.numberOfItems = numberOfItems;
     }
+
+    
+    
+    
 
     
     // These are the hashcode and the equals functions

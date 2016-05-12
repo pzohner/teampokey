@@ -17,7 +17,11 @@ public class PokemonGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
        Player playerOne = new Player();
+        
+       Character characterOne = new Character();
+       
         
         
         
