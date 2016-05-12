@@ -5,6 +5,8 @@
  */
 package pokemongame;
 
+import byui.cit260.pokemongame.model.Player;
+
 /**
  *
  * @author porterzohner
@@ -15,7 +17,7 @@ public class PokemonGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Create model layer objects
+       Player playerOne = new Player();
         
         
         
