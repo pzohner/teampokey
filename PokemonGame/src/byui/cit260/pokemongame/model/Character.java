@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Character implements Serializable {
     
     private String name;
-    private String position[][];
+    private int[][] position;
     private int numberOfPokemon;
     private int numberOfItems;
 
@@ -31,11 +31,11 @@ public class Character implements Serializable {
         this.name = name;
     }
 
-    public String[][] getPosition() {
+    public int[][] getPosition() {
         return position;
     }
 
-    public void setPosition(String[][] position) {
+    public void setPosition(int[][] position) {
         this.position = position;
     }
 
@@ -55,16 +55,9 @@ public class Character implements Serializable {
         this.numberOfItems = numberOfItems;
     }
 
-    
-    
-    
-
-    
-    // These are the hashcode and the equals functions
-    
     @Override
     public int hashCode() {
-        int hash = 5;
+        int hash = 3;
         hash = 67 * hash + Objects.hashCode(this.name);
         hash = 67 * hash + Arrays.deepHashCode(this.position);
         hash = 67 * hash + this.numberOfPokemon;
@@ -101,10 +94,10 @@ public class Character implements Serializable {
 
     @Override
     public String toString() {
-        return "Character{" + "name=" + name + ", position=" + position + 
-                ", numberOfPokemon=" + numberOfPokemon + ", numberOfItems=" 
-                + numberOfItems + '}';
+        return "Character{" + "name=" + name + ", position=" + position + ", numberOfPokemon=" + numberOfPokemon + ", numberOfItems=" + numberOfItems + '}';
     }
+
+        
     
     
     

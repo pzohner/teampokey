@@ -31,6 +31,17 @@ public class PokemonGame {
         
        // Character class test
         Character characterOne = new Character();
+        
+        characterOne.setName("Ash fluggerbutter");
+        int[][] multidimentionalArray = new int[0][0];
+        characterOne.setPosition(multidimentionalArray);
+        characterOne.setNumberOfPokemon(4);
+        characterOne.setNumberOfItems(2);
+        
+        String characterInfo = characterOne.toString();
+        System.out.println(characterInfo);
+                
+                
     }
     
 }
