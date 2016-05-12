@@ -26,6 +26,7 @@ public class PokemonGame {
        String playerInfo= playerOne.toString();
        System.out.println(playerInfo); 
         
+       Character characterOne = new Character();
         
     }
     
