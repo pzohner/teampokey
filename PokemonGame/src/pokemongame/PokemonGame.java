@@ -19,7 +19,11 @@ public class PokemonGame {
     public static void main(String[] args) {
        Player playerOne = new Player();
         
-        
+       playerOne.setName("Ashh");
+       playerOne.setTimeCompleted(7.00); 
+       
+       String playerInfo= playerOne.toString();
+       System.out.println(playerInfo); 
         
         
     }
