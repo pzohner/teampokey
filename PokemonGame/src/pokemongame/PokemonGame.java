@@ -22,6 +22,10 @@ public class PokemonGame {
        playerOne.setName("Ashh");
        playerOne.setTimeCompleted(7.00); 
        
+      
+       
+       
+       
        String playerInfo= playerOne.toString();
        System.out.println(playerInfo); 
         
