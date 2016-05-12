@@ -20,10 +20,11 @@ public class PokemonGame {
         
        Player playerOne = new Player();
         
-       Character characterOne = new Character();
+       playerOne.setName("Ashh");
+       playerOne.setTimeCompleted(7.00); 
        
-        
-        
+       String playerInfo= playerOne.toString();
+       System.out.println(playerInfo); 
         
         
     }
