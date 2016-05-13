@@ -7,7 +7,9 @@ package pokemongame;
 
 import byui.cit260.pokemongame.model.Player;
 import byui.cit260.pokemongame.model.Character;
+import byui.cit260.pokemongame.model.Location;
 import byui.cit260.pokemongame.model.Map;
+import java.awt.Point;
 
 /**
  *
@@ -34,9 +36,11 @@ public class PokemonGame {
         Character characterOne = new Character();
         
         characterOne.setName("Ash fluggerbutter");
-        int[][] multidimentionalArray = {{5, 6, 7, 8}, {1, 2, 3, 4}};
+        Point characterPositionTest = new Point();
+        characterPositionTest.x = 1;
+        characterPositionTest.y = 2;
         
-        characterOne.setPosition(multidimentionalArray);
+        characterOne.setPosition(characterPositionTest);
         characterOne.setNumberOfPokemon(4);
         characterOne.setNumberOfItems(2);
         
@@ -53,6 +57,16 @@ public class PokemonGame {
         
         String mapInfo = map.toString();
         System.out.println(mapInfo);
+        
+        // Location test
+        Location location = new Location();
+        
+        location.setRow(1);
+        location.setColumn(2);
+        location.setVisited(false);
+        
+        String locationTest = location.toString();
+        System.out.println(locationTest);
         
        
         

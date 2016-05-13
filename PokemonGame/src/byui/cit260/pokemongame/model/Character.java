@@ -5,6 +5,7 @@
  */
 package byui.cit260.pokemongame.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
@@ -16,7 +17,7 @@ import java.util.Objects;
 public class Character implements Serializable {
     
     private String name;
-    private int[][] position;
+    private Point position;
     private int numberOfPokemon;
     private int numberOfItems;
 
@@ -31,13 +32,15 @@ public class Character implements Serializable {
         this.name = name;
     }
 
-    public int[][] getPosition() {
+    public Point getPosition() {
         return position;
     }
 
-    public void setPosition(int[][] position) {
+    public void setPosition(Point position) {
         this.position = position;
     }
+
+    
 
     public int getNumberOfPokemon() {
         return numberOfPokemon;
@@ -57,11 +60,11 @@ public class Character implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + Arrays.deepHashCode(this.position);
-        hash = 67 * hash + this.numberOfPokemon;
-        hash = 67 * hash + this.numberOfItems;
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + Objects.hashCode(this.position);
+        hash = 79 * hash + this.numberOfPokemon;
+        hash = 79 * hash + this.numberOfItems;
         return hash;
     }
 
@@ -86,7 +89,7 @@ public class Character implements Serializable {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Arrays.deepEquals(this.position, other.position)) {
+        if (!Objects.equals(this.position, other.position)) {
             return false;
         }
         return true;
@@ -96,6 +99,8 @@ public class Character implements Serializable {
     public String toString() {
         return "Character{" + "name=" + name + ", position=" + position + ", numberOfPokemon=" + numberOfPokemon + ", numberOfItems=" + numberOfItems + '}';
     }
+
+   
 
         
     
