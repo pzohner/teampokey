@@ -7,8 +7,10 @@ package pokemongame;
 
 import byui.cit260.pokemongame.model.Player;
 import byui.cit260.pokemongame.model.Character;
+import byui.cit260.pokemongame.model.Game;
 import byui.cit260.pokemongame.model.Location;
 import byui.cit260.pokemongame.model.Map;
+import byui.cit260.pokemongame.model.Scene;
 import java.awt.Point;
 
 /**
@@ -67,6 +69,25 @@ public class PokemonGame {
         
         String locationTest = location.toString();
         System.out.println(locationTest);
+        
+     // Game test
+        
+        Game game = new Game();
+        
+        game.setCharacterOnField("Bob the Deer");
+        
+        String gameTest = game.toString();
+        System.out.println(gameTest);
+        
+     // Scene test
+        
+        Scene scene = new Scene();
+        
+        scene.setNameOfScene("TG");
+        scene.setDescription("Tall grass scene description");
+        
+        String sceneInfo = scene.toString();
+        System.out.println(sceneInfo);
         
         
        
