@@ -68,6 +68,7 @@ public class PokemonGame {
         String locationTest = location.toString();
         System.out.println(locationTest);
         
+        
        
         
                 
