@@ -7,6 +7,7 @@ package pokemongame;
 
 import byui.cit260.pokemongame.model.Player;
 import byui.cit260.pokemongame.model.Character;
+import byui.cit260.pokemongame.model.Item;
 
 /**
  *
@@ -45,7 +46,14 @@ public class PokemonGame {
         String characterInfo = characterOne.toString();
         System.out.println(characterInfo);
                 
+        ///test of item class//
+        
+        Item itemOne = new Item();
+        itemOne.setAmountOfItem(7); 
                 
+        
+        String itemInfo = itemOne.toString();
+        System.out.println(itemInfo); 
     }
     
 }
