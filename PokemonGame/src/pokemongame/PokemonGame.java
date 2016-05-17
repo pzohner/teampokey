@@ -6,12 +6,18 @@
 package pokemongame;
 
 import byui.cit260.pokemongame.model.Player;
-import byui.cit260.pokemongame.model.Character;
+import byui.cit260.pokemongame.model.Character;////
+import byui.cit260.pokemongame.model.Item;
+//////
 import byui.cit260.pokemongame.model.Game;
 import byui.cit260.pokemongame.model.Location;
 import byui.cit260.pokemongame.model.Map;
+import byui.cit260.pokemongame.model.Pokeball;
+import byui.cit260.pokemongame.model.Pokemon;
+import byui.cit260.pokemongame.model.Potion;
 import byui.cit260.pokemongame.model.Scene;
-import java.awt.Point;
+import java.awt.Point; 
+
 
 /**
  *
@@ -49,6 +55,14 @@ public class PokemonGame {
         String characterInfo = characterOne.toString();
         System.out.println(characterInfo);
                 
+        ///test of item class//
+        
+        Item itemOne = new Item();
+        itemOne.setAmountOfItem(7); 
+
+        String itemInfo = itemOne.toString();
+        System.out.println(itemInfo); 
+        
         // This is the map test
         Map map = new Map();
         
@@ -87,7 +101,39 @@ public class PokemonGame {
         scene.setDescription("Tall grass scene description");
         
         String sceneInfo = scene.toString();
-        System.out.println(sceneInfo);    
+        System.out.println(sceneInfo);
+                
+        
+        Pokeball pokeball = new Pokeball();
+        
+        pokeball.setIsMaster(false);
+        
+        String isMaster= game.toString();
+        System.out.println(isMaster);
+        
+        
+        Pokemon pokemon = new Pokemon();
+        ///asked to set boolen instead///
+        pokemon.setType("false");
+        pokemon.setStrength(7); 
+        pokemon.setAttackType("false");
+        pokemon.setDefense(7);
+        pokemon.setHealth(7);
+        
+        String Pokemon = pokemon.toString();
+        System.out.println(Pokemon);
+        
+        
+       Potion potion = new Potion ();
+       //asked to set boolean isntead///
+       potion.setHealPower("true");
+       
+       String Potion = pokemon.toString();
+       System.out.println(Potion); 
+        
+        
+        
+        
     }
     
 }
