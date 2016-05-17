@@ -87,12 +87,7 @@ public class PokemonGame {
         scene.setDescription("Tall grass scene description");
         
         String sceneInfo = scene.toString();
-        System.out.println(sceneInfo);
-        
-        
-       
-        
-                
+        System.out.println(sceneInfo);    
     }
     
 }
