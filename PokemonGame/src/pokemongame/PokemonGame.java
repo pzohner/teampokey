@@ -129,11 +129,8 @@ public class PokemonGame {
        potion.setHealPower("true");
        
        String Potion = pokemon.toString();
-       System.out.println(Potion); 
-        
-        
-        
-        
+       System.out.println(Potion);   
+       
     }
     
 }
