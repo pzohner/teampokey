@@ -126,7 +126,7 @@ public class PokemonGame {
         
        Potion potion = new Potion ();
        //asked to set boolean isntead///
-       potion.setHealPower("true");
+       potion.setHealPower(20);
        
        String Potion = pokemon.toString();
        System.out.println(Potion);   

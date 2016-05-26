@@ -6,6 +6,7 @@
 package byui.cit260.pokemongame.control;
 
 import byui.cit260.pokemongame.model.Pokemon;
+import byui.cit260.pokemongame.model.Potion;
 import java.util.Random;
 
 /**
@@ -34,6 +35,34 @@ int finalHealth = pokemonDefender.getHealth() - damageDealt;
 pokemonDefender.setHealth(finalHealth);
     
     return 0;
+    }
+    
+    public int usePotion(Potion potion, Pokemon pokemonHealed) {
+        
+        if (potion.getHealPower() < 1 || potion.getHealPower() > 50) {
+            
+            return -1;
+        }
+        
+        if (pokemonHealed.getHealth() > 100) {
+            
+            return -1;
+        }
+        
+        Random rand = new Random(); 
+        int randomValue = rand.nextInt(10)+1;
+
+        pokemonHealed.setHealth(pokemonHealed.getHealth() + potion.getHealPower() + randomValue); 
+        
+        if (pokemonHealed.getHealth() > 100) {
+            
+            pokemonHealed.setHealth(100);
+            
+            return 0;
+        }
+            
+        return 0;
+            
     }
 }
     

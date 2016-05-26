@@ -16,18 +16,18 @@ import java.util.Objects;
  */
 public class Potion implements Serializable {
 
-    private String healPower ; 
+    private int healPower ; 
 
     public Potion() {
     }
     
  
 
-    public String getHealPower() {
+    public int getHealPower() {
         return healPower;
     }
 
-    public void setHealPower(String healPower) {
+    public void setHealPower(int healPower) {
         this.healPower = healPower;
     }
 

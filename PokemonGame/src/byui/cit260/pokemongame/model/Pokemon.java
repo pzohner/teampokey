@@ -16,8 +16,8 @@ public class Pokemon implements Serializable {
     
  
     private String type;
-    private int strength;
     private String attackType;
+    private int strength;
     private int defense;
     private int health; 
     // add another variable called totalhealth or currenthealth
