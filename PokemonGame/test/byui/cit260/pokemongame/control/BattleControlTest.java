@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
  * @author porterzohner
  */
 public class BattleControlTest {
-    
+
     public BattleControlTest() {
     }
 
@@ -25,15 +25,112 @@ public class BattleControlTest {
     @Test
     public void testAttack() {
         System.out.println("attack");
-        Pokemon pokemonAttacker = null;
-        Pokemon pokemonDefender = null;
+        Pokemon pokemonAttacker = new Pokemon();
+        Pokemon pokemonDefender = new Pokemon();
         BattleControl instance = new BattleControl();
-        int expResult = 0;
+
+        pokemonAttacker.setStrength(10);
+        pokemonDefender.setHealth(40);
+        pokemonDefender.setDefense(10);
+
+        int expectedResult = 0;
         int result = instance.attack(pokemonAttacker, pokemonDefender);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-        
+        assertEquals(expectedResult, result);
+
+        int min = 30;
+        int max = 39;
+        int expectedHealth = 34;
+        int health = pokemonDefender.getHealth();
+        assertEquals(true, health >= min && health <= max);
+
+        //valid
+        System.out.println("attackT2");
+        pokemonAttacker = new Pokemon();
+        pokemonDefender = new Pokemon();
+        instance = new BattleControl();
+
+        pokemonAttacker.setStrength(35);
+        pokemonDefender.setHealth(0);
+        pokemonDefender.setDefense(1);
+
+        expectedResult = 0;
+        result = instance.attack(pokemonAttacker, pokemonDefender);
+        assertEquals(expectedResult, result);
+
+        min = -44;
+        max = -35;
+        expectedHealth = 34;
+        health = pokemonDefender.getHealth();
+        assertEquals(true, health >= min && health <= max);
+
+        //invalid
+        System.out.println("attackT2");
+        pokemonAttacker = new Pokemon();
+        pokemonDefender = new Pokemon();
+        instance = new BattleControl();
+
+        pokemonAttacker.setStrength(0);
+        pokemonDefender.setHealth(40);
+        pokemonDefender.setDefense(10);
+
+        expectedResult = -1;
+        result = instance.attack(pokemonAttacker, pokemonDefender);
+        assertEquals(expectedResult, result);
+
+        ///invalid2
+        System.out.println("attackT2");
+        pokemonAttacker = new Pokemon();
+        pokemonDefender = new Pokemon();
+        instance = new BattleControl();
+
+        pokemonAttacker.setStrength(36);
+        pokemonDefender.setHealth(40);
+        pokemonDefender.setDefense(10);
+
+        expectedResult = -1;
+        result = instance.attack(pokemonAttacker, pokemonDefender);
+        assertEquals(expectedResult, result);
+
+        //invalid3
+        System.out.println("attackT2");
+        pokemonAttacker = new Pokemon();
+        pokemonDefender = new Pokemon();
+        instance = new BattleControl();
+
+        pokemonAttacker.setStrength(20);
+        pokemonDefender.setHealth(40);
+        pokemonDefender.setDefense(-1);
+
+        expectedResult = -1;
+        result = instance.attack(pokemonAttacker, pokemonDefender);
+        assertEquals(expectedResult, result);
+        //invalid4
+        System.out.println("attackT2");
+        pokemonAttacker = new Pokemon();
+        pokemonDefender = new Pokemon();
+        instance = new BattleControl();
+
+        pokemonAttacker.setStrength(20);
+        pokemonDefender.setHealth(40);
+        pokemonDefender.setDefense(11);
+
+        expectedResult = -1;
+        result = instance.attack(pokemonAttacker, pokemonDefender);
+        assertEquals(expectedResult, result);
+
+        //invalid5
+        System.out.println("attackT2");
+        pokemonAttacker = new Pokemon();
+        pokemonDefender = new Pokemon();
+        instance = new BattleControl();
+
+        pokemonAttacker.setStrength(20);
+        pokemonDefender.setHealth(101);
+        pokemonDefender.setDefense(10);
+
+        expectedResult = -1;
+        result = instance.attack(pokemonAttacker, pokemonDefender);
+        assertEquals(expectedResult, result);
     }
 
     /**
@@ -41,35 +138,32 @@ public class BattleControlTest {
      */
     @Test
     public void testUsePotion() {
-        
+
         System.out.println("usePotion");
-        
-        
+
         // test case 1
         System.out.println("\tTest case 1");
-        
+
         // creating objects for test
         Potion potion = new Potion();
         Pokemon pokemonHealed = new Pokemon();
-        
+
         //setting values for healpower and health
         potion.setHealPower(20);
         pokemonHealed.setHealth(40);
-        
+
         // calling the battle control function to test it
         BattleControl instance = new BattleControl();
         instance.usePotion(potion, pokemonHealed);
         int newHealth = pokemonHealed.getHealth();
-               
-         // setting the minimum and maximum values for the test case
+
+        // setting the minimum and maximum values for the test case
         int minimum = 61;
         int maximum = 70;
-        
+
         assertEquals(true, newHealth >= minimum && newHealth <= maximum);
-        
+
         // test case 2 -- valid
-        
-        
         // test case 3 -- invalid
         System.out.println("\tTest case 3");
         potion = new Potion();
@@ -78,10 +172,9 @@ public class BattleControlTest {
 
         int result = instance.usePotion(potion, pokemonHealed);
         int expectedResult = -1;
-       
+
         assertEquals(expectedResult, result);
-        
-        
+
         // test case 4 -- invalid
         System.out.println("\tTest case 4");
         potion = new Potion();
@@ -90,33 +183,33 @@ public class BattleControlTest {
 
         result = instance.usePotion(potion, pokemonHealed);
         expectedResult = -1;
-       
+
         assertEquals(expectedResult, result);
-        
+
         // test case 4 -- invalid
         System.out.println("\tTest case 5");
         potion = new Potion();
-        
+
         potion.setHealPower(20);
         pokemonHealed.setHealth(101);
 
         result = instance.usePotion(potion, pokemonHealed);
         expectedResult = -1;
-       
+
         assertEquals(expectedResult, result);
-        
-         // test case 6 -- invalid
+
+        // test case 6 -- invalid
         System.out.println("\tTest case 6");
         potion = new Potion();
-        
+
         potion.setHealPower(50);
         pokemonHealed.setHealth(50);
 
         result = instance.usePotion(potion, pokemonHealed);
         expectedResult = 0;
-       
+
         assertEquals(expectedResult, result);
-        
+
     }
-    
+
 }

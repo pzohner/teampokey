@@ -17,13 +17,13 @@ public class BattleControl {
     
     public int attack (Pokemon pokemonAttacker, Pokemon pokemonDefender){
             
-if (pokemonAttacker.getStrength() < 1 || pokemonAttacker.getStrength() >20) {
+if (pokemonAttacker.getStrength() < 10 || pokemonAttacker.getStrength() > 35) {
 	return -1;
 }
 if (pokemonDefender.getDefense() <1 || pokemonDefender.getDefense()> 10){ 
 	return -1;
 }
-if (pokemonDefender.getHealth()>100 || pokemonDefender.getHealth()< 1) {
+if (pokemonDefender.getHealth() > 100) {
         return -1;
 }
 
@@ -33,9 +33,15 @@ int randomValue = rand.nextInt(10)+1;
 int damageDealt = pokemonAttacker.getStrength() + randomValue-pokemonDefender.getDefense();
 int finalHealth = pokemonDefender.getHealth() - damageDealt;
 pokemonDefender.setHealth(finalHealth);
-    
-    return 0;
+
+        return 0;
     }
+    
+    
+    
+    
+    
+    
     
     public int usePotion(Potion potion, Pokemon pokemonHealed) {
         
