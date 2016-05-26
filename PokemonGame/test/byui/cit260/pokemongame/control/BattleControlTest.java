@@ -44,7 +44,7 @@ public class BattleControlTest {
         assertEquals(true, health >= min && health <= max);
 
         //valid
-        System.out.println("attackT2");
+        System.out.println("attackTest2");
         pokemonAttacker = new Pokemon();
         pokemonDefender = new Pokemon();
         instance = new BattleControl();
@@ -64,7 +64,7 @@ public class BattleControlTest {
         assertEquals(true, health >= min && health <= max);
 
         //invalid
-        System.out.println("attackT2");
+        System.out.println("attackTest3");
         pokemonAttacker = new Pokemon();
         pokemonDefender = new Pokemon();
         instance = new BattleControl();
@@ -78,7 +78,7 @@ public class BattleControlTest {
         assertEquals(expectedResult, result);
 
         ///invalid2
-        System.out.println("attackT2");
+        System.out.println("attackTest4");
         pokemonAttacker = new Pokemon();
         pokemonDefender = new Pokemon();
         instance = new BattleControl();
@@ -92,7 +92,7 @@ public class BattleControlTest {
         assertEquals(expectedResult, result);
 
         //invalid3
-        System.out.println("attackT2");
+        System.out.println("attackTest5");
         pokemonAttacker = new Pokemon();
         pokemonDefender = new Pokemon();
         instance = new BattleControl();
@@ -105,7 +105,7 @@ public class BattleControlTest {
         result = instance.attack(pokemonAttacker, pokemonDefender);
         assertEquals(expectedResult, result);
         //invalid4
-        System.out.println("attackT2");
+        System.out.println("attackTest6");
         pokemonAttacker = new Pokemon();
         pokemonDefender = new Pokemon();
         instance = new BattleControl();
@@ -119,7 +119,7 @@ public class BattleControlTest {
         assertEquals(expectedResult, result);
 
         //invalid5
-        System.out.println("attackT2");
+        System.out.println("attackTest7");
         pokemonAttacker = new Pokemon();
         pokemonDefender = new Pokemon();
         instance = new BattleControl();
