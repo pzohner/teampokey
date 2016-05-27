@@ -14,55 +14,57 @@ import java.util.Random;
  * @author savannahkei
  */
 public class BattleControl {
-    
-    public int attack (Pokemon pokemonAttacker, Pokemon pokemonDefender){
-            
-if (pokemonAttacker.getStrength() < 1 || pokemonAttacker.getStrength() >20) {
-	return -1;
-}
-if (pokemonDefender.getDefense() <1 || pokemonDefender.getDefense()> 10){ 
-	return -1;
-}
-if (pokemonDefender.getHealth()>100 || pokemonDefender.getHealth()< 1) {
-        return -1;
-}
 
-Random rand = new Random(); 
-int randomValue = rand.nextInt(10)+1;
+    public int attack(Pokemon pokemonAttacker, Pokemon pokemonDefender) {
 
-int damageDealt = pokemonAttacker.getStrength() + randomValue-pokemonDefender.getDefense();
-int finalHealth = pokemonDefender.getHealth() - damageDealt;
-pokemonDefender.setHealth(finalHealth);
-    
-    return 0;
+        if (pokemonAttacker.getStrength() < 1 || pokemonAttacker.getStrength() > 20) {
+            return -1;
+        }
+        if (pokemonDefender.getDefense() < 1 || pokemonDefender.getDefense() > 10) {
+            return -1;
+        }
+        if (pokemonDefender.getHealth() > 100 || pokemonDefender.getHealth() < 1) {
+            return -1;
+        }
+
+        Random rand = new Random();
+        int randomValue = rand.nextInt(10) + 1;
+
+        int damageDealt = pokemonAttacker.getStrength() + randomValue - pokemonDefender.getDefense();
+        int finalHealth = pokemonDefender.getHealth() - damageDealt;
+        pokemonDefender.setHealth(finalHealth);
+
+        return 0;
+
     }
-    
-    public int usePotion(Potion potion, Pokemon pokemonHealed) {
-        
-        if (potion.getHealPower() < 1 || potion.getHealPower() > 50) {
-            
-            return -1;
-        }
-        
-        if (pokemonHealed.getHealth() > 100) {
-            
-            return -1;
-        }
-        
-        Random rand = new Random(); 
-        int randomValue = rand.nextInt(10)+1;
 
-        pokemonHealed.setHealth(pokemonHealed.getHealth() + potion.getHealPower() + randomValue); 
-        
+    public int usePotion(Potion potion, Pokemon pokemonHealed) {
+
+        if (potion.getHealPower() < 1 || potion.getHealPower() > 50) {
+
+            return -1;
+        }
+
         if (pokemonHealed.getHealth() > 100) {
-            
+
+            return -1;
+        }
+
+        Random rand = new Random();
+        int randomValue = rand.nextInt(10) + 1;
+
+        pokemonHealed.setHealth(pokemonHealed.getHealth() + potion.getHealPower() + randomValue);
+
+        if (pokemonHealed.getHealth() > 100) {
+
             pokemonHealed.setHealth(100);
-            
+
             return 0;
         }
-            
+
         return 0;
-            
+
     }
-}
     
+    
+}
