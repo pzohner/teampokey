@@ -53,9 +53,9 @@ public class BattleControlTest {
         pokemonDefender.setHealth(0);
         pokemonDefender.setDefense(1);
 
-        /*expectedResult = 0;
+        expectedResult = 0;
         result = instance.attack(pokemonAttacker, pokemonDefender);
-        assertEquals(expectedResult, result);*/
+        assertEquals(expectedResult, result);
 
         min = -44;
         max = -35;
