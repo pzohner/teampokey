@@ -5,10 +5,28 @@
  */
 package byui.cit260.pokemongame.control;
 
+import byui.cit260.pokemongame.model.Player;
+import pokemongame.PokemonGame;
+
 /**
  *
  * @author savannahkei
  */
 public class GameControl {
+
+    public static Player createPlayer(String name) {
+            
+        if (name == null) {
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(name);
+        
+        PokemonGame.setPlayer(player);
+        
+        return player;
+   
+    }
     
 }

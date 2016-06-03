@@ -16,6 +16,7 @@ import byui.cit260.pokemongame.model.Pokeball;
 import byui.cit260.pokemongame.model.Pokemon;
 import byui.cit260.pokemongame.model.Potion;
 import byui.cit260.pokemongame.model.Scene;
+import byui.cit260.pokemongame.view.StartProgramView;
 import java.awt.Point; 
 
 
@@ -25,12 +26,37 @@ import java.awt.Point;
  */
 public class PokemonGame {
 
+    
+    private static Game currentGame = null;
+    private static Player player = null;
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        PokemonGame.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        PokemonGame.player = player;
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
         
+        
+       StartProgramView testView = new StartProgramView();
+       testView.displayStartProgramView();
+       
+       
        // Player class test
        Player playerOne = new Player();
         
