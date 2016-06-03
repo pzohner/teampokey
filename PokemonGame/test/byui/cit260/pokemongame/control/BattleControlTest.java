@@ -212,4 +212,41 @@ public class BattleControlTest {
 
     }
 
+    /**
+     * Test of captureSuccess method, of class BattleControl.
+     */
+    @Test
+    public void testCaptureSuccess() {
+        System.out.println("captureSuccess");
+        Pokemon captured = new Pokemon();
+        captured.setHealth(70);
+        
+        BattleControl instance = new BattleControl();
+        int expResult = 1;
+        int result = instance.captureSuccess(captured);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+      
+        System.out.println("captureSuccess");
+        captured = new Pokemon();
+        captured.setHealth(103);
+        
+        instance = new BattleControl();
+        expResult = -1;
+        result = instance.captureSuccess(captured);
+        assertEquals(expResult, result);
+        // less than 25 expected 0
+        
+        System.out.println("captureSuccess");
+        captured = new Pokemon();
+        captured.setHealth(23);
+        
+        instance = new BattleControl();
+        expResult = 0;
+        result = instance.captureSuccess(captured);
+        assertEquals(expResult, result);
+    }
+
+    
+    
 }

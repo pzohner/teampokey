@@ -65,4 +65,24 @@ public class BattleControl {
 
     }
 
-}
+    public int captureSuccess (Pokemon captured){
+            
+            if (captured.getHealth()<0 || captured.getHealth() >100) {
+            
+                return -1; 
+            } 
+      
+     Random rand = new Random();
+     int randomValue = rand.nextInt(25) + 1;       
+        
+        if (captured.getHealth() + randomValue <50) {
+            return 0;
+        }
+        
+        else {
+            return 1;
+        }
+        }
+    
+    }
+ 
