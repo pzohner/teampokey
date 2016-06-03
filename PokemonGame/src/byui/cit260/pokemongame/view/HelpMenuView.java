@@ -5,34 +5,29 @@
  */
 package byui.cit260.pokemongame.view;
 
-import byui.cit260.pokemongame.control.GameControl;
 import java.util.Scanner;
-import pokemongame.PokemonGame;
 
 /**
  *
  * @author porterzohner
  */
-public class MainMenuView {
+public class HelpMenuView {
     
     private String menu;
     
-    public MainMenuView() {
+        public HelpMenuView() {
         
         this.menu = "\n"
-                + "\n--------------------------------------------"
-                + "\n| Main Menu                                |"
-                + "\n--------------------------------------------"
-                + "\nN - Start new game"
-                + "\nG - Get and Start Saved Game"
-                + "\nH - Get help on how to play the game"
-                + "\nS - Save Game"
-                + "\nQ - Quite "
-                + "\n--------------------------------------------";
+                    + "\n--------------------------------------------"
+                    + "\n| Help Menu                         |"
+                    + "\n--------------------------------------------"
+                    + "\nG - What is the goal of the game?"
+                    + "\nM - How to move"
+                    + "\nQ - Quit help menu"
+                    + "\n--------------------------------------------";
         
-    }
-
-    void displayMainMenuView() {
+        }  
+        void displayHelpMenuView() {
         
         boolean done = false;
         do {
@@ -50,8 +45,8 @@ public class MainMenuView {
         } while (!done);
         
     }
-
-    private String getMenuOption() {
+        
+        private String getMenuOption() {
         
         Scanner keyboard = new Scanner(System.in);
         String value = "";
@@ -72,24 +67,18 @@ public class MainMenuView {
         break;
     }
      return value;  
-    }
-
+    }   
+        
     private boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
         
         switch (choice) {
-            case "N":
-                this.startNewGame();
-                break;
             case "G":
-                this.startExistingGame();
+                this.displayGoalView();
                 break;
-            case "H":
-                this.displayHelpMenu();
-                break;
-            case "S":
-                this.saveGame();
+            case "M":
+                this.displayHowToMoveView();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -97,29 +86,14 @@ public class MainMenuView {
             
         }
         return false;
+    }    
+
+    private void displayGoalView() {
+        System.out.println("\n The function displayGoalView was called!");
     }
 
-    private void startNewGame() {
-        
-        GameControl.createNewGame(PokemonGame.getPlayer());
-        
-        GameMenuView gameMenu = new GameMenuView();
-        
-        gameMenu.displayMenu();
-        
-    }
-
-    private void startExistingGame() {
-        System.out.println("\n *** startExisting() function called");
-    }
-
-    private void saveGame() {
-        System.out.println("\n *** saveGame() function called");
-    }
-
-    private void displayHelpMenu() {
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenuView();
+    private void displayHowToMoveView() {
+        System.out.println("\n The function displayHowToMoveView was called!");
     }
     
 }
