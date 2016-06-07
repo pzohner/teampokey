@@ -75,19 +75,6 @@ public class StartProgramView {
 
     private String getPlayerName() {
         
-        /*BEGIN
-            WHILE a valid value has not been entered
-            DISPLAY a message prompting the user to enter a value
-            GET the value entered from keyboard
-            Trim front and trailing blanks off of the value
-            IF the length of the value is blank THEN
-            DISPLAY “Invalid value: The value cannot be blank”
-            CONTINUE
-            ENDIF
-            BREAK
-            ENDWHILE
-            RETURN value
-        END */
         
         Scanner keyboard = new Scanner(System.in);
         String value = "";
@@ -109,19 +96,7 @@ public class StartProgramView {
 }
 
     private boolean doAction(String playersName) {
-        /*BEGIN
-            if the length of the playersName < 2 then
-            display “Invalid name: The name must be > 1 character”
-        return false
-
-            create Player with specified name
-            if unsuccessful then
-            display “Invalid name: The name is too short”
-        return false
-            display customized welcome message
-            display mainMenuView
-        return true
-        END*/
+      
         
         if (playersName.length() < 2) {
             System.out.println("\nInvalid players name: "
