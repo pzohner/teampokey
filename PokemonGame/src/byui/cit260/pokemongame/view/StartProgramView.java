@@ -101,10 +101,9 @@ public class StartProgramView {
         
         if(value.length() < 1) {
             System.out.println("\n Invalid value: value cannot be blank");
-            continue;
-            
+            continue;         
         }
-        break;
+       break;
     }
      return value;   
 }
