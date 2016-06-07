@@ -103,11 +103,14 @@ public class GameMenuView {
     }
 
     private void displayMap() {
-        System.out.println("\n*** displaymap called");
+        
+        MapMenuView mapMenu = new MapMenuView();
+        mapMenu.displayMapMenuView();
     }
 
     private void displayItemList() {
-        System.out.println("\n*** displayItemList called");
+       
+        
     }
 
     private void displayPokemonList() {
