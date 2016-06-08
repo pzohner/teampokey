@@ -109,7 +109,8 @@ public class GameMenuView {
     }
 
     private void displayItemList() {
-       
+       ItemListView listView = new ItemListView();
+       listView.displayMapMenuView();
         
     }
 
