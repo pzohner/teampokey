@@ -73,7 +73,33 @@ public class PokemonListView {
     }
 
     private boolean doAction(String input) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        input = input.toUpperCase();
+        
+        switch (input) {
+            case "P":
+                System.out.println("\n*** You've selected Pikachu");
+                break;
+            case "R":
+                System.out.println("\n*** Youve selected Rattata");
+                break;
+            case "S":
+                System.out.println("\n*** You've selected Spearow");
+                break;
+            case "C":
+                System.out.println("\n*** You've selected Charizard");
+                break;
+            case "G":
+                System.out.println("\n*** You've selected Gayardos");
+                break;
+            case "M":
+                System.out.println("\n*** You've selected Mewtwo");
+                break;
+            default:
+                System.out.println("\n*** Invalid selection *** Try again");
+                break;
+            
+        }
+        return false;
     }
     
 }

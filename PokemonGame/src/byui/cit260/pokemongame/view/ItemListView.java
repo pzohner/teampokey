@@ -129,7 +129,11 @@ private boolean doAction(String menuOption) {
     }
 
     private void viewPokemon() {
-        System.out.println("\n *** viewPokemon () function called");
+        
+        PokemonListView pokemonList = new PokemonListView();
+        
+        pokemonList.displayPokemonList();
+        
     }
 
     private void itemNumberOfMasterBalls() {
