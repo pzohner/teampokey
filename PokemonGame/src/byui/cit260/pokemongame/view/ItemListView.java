@@ -11,13 +11,13 @@ import java.util.Scanner;
  *
  * @author savannahkei
  */
-public class ItemListView {
+public class ItemListView extends View {
      
     private String menu;
     
     ItemListView() {
         
-        this.menu = "\n"
+        super("\n"
                 + "\n--------------------------------------------"
                 + "\n| Item List                             |"
                 + "\n--------------------------------------------"
@@ -29,51 +29,11 @@ public class ItemListView {
                 + "\nU - Use Items"
                 + "\nV - View Pokemon"
                 + "\nQ - Quit"
-                +" \n  -----------------------------------------";
+                +" \n  -----------------------------------------");
     }
     
- void displayMapMenuView() {
-        
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            
-            if(menuOption.toUpperCase().equals("Q")) {
-            
-                return;
-            
-            }
-            
-            done = this.doAction(menuOption);
-            
-            
-        } while (!done);
-        
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            //MainMenuView mainMenuView = new MainMenuView();
-            System.out.println(this.menu);
-        
-        value = keyboard.nextLine();
-        value = value.trim();
-        
-        if(value.length() < 1) {
-            System.out.println("\n Invalid value: value cannot be blank");
-            continue;
-            
-        }
-        break;
-    }
-     return value;  
-    }   
-
-private boolean doAction(String menuOption) {
+    @Override
+public boolean doAction(String menuOption) {
         
      menuOption = menuOption.toUpperCase();
         
@@ -132,7 +92,7 @@ private boolean doAction(String menuOption) {
         
         PokemonListView pokemonList = new PokemonListView();
         
-        pokemonList.displayPokemonList();
+        pokemonList.display();
         
     }
 

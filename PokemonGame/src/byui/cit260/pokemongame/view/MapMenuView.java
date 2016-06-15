@@ -11,13 +11,13 @@ import java.util.Scanner;
  *
  * @author savannahkei
  */
-public class MapMenuView {
+public class MapMenuView extends View {
     
      private String menu;
     
     public MapMenuView() {
         
-        this.menu = "\n"
+        super ("\n"
                 + "\n--------------------------------------------"
                 + "\n| Map Menu                                |"
                 + "\n--------------------------------------------"
@@ -27,52 +27,12 @@ public class MapMenuView {
                 + "\nMW - Move West"
                 + "\nE - Explore Square "
                 + "\nQ - Quit"
-                + "\n --------------------------------------------";
+                + "\n --------------------------------------------");
         
     }
-    void displayMapMenuView() {
-        
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            
-            if(menuOption.toUpperCase().equals("Q")) {
-            
-                return;
-            
-            }
-            
-            done = this.doAction(menuOption);
-            
-            
-        } while (!done);
-        
-    }
-
-    private String getMenuOption() {
-     Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            //MainMenuView mainMenuView = new MainMenuView();
-            System.out.println(this.menu);
-        
-        value = keyboard.nextLine();
-        value = value.trim();
-        
-        if(value.length() < 1) {
-            System.out.println("\n Invalid value: value cannot be blank");
-            continue;
-            
-        }
-        break;
-    }
-     return value;  
-    }   
- 
-
-private boolean doAction(String menuOption) {
+    
+    @Override
+public boolean doAction(String menuOption) {
         
      menuOption = menuOption.toUpperCase();
         

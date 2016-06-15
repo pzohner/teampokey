@@ -11,13 +11,13 @@ import java.util.Scanner;
  *
  * @author porterzohner
  */
-public class PokemonListView {
+public class PokemonListView extends View {
     
     private String menu;
     
     PokemonListView() {
         
-        this.menu = "\n"
+        super("\n"
                 + "\n--------------------------------------------"
                 + "\n| Pokemon List                             |"
                 + "\n--------------------------------------------"
@@ -27,52 +27,13 @@ public class PokemonListView {
                 + "\nC - Charizard - 100"
                 + "\nG - Gayardos  - 100"
                 + "\nM - MewTwo    - 100"
-                + "\n--------------------------------------------";
+                + "\nQ - Quit"
+                + "\n--------------------------------------------");
     }
     
-    public void displayPokemonList() {
-        
-        boolean done = false;
-        do {
-            String input = this.getInput();
-            
-            if(input.toUpperCase().equals("Q")) {
-            
-                return;
-            
-            }
-            
-            done = this.doAction(input);
-            
-            
-        } while (!done);
-        
-    }
-
-    private String getInput() {
-        
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            //MainMenuView mainMenuView = new MainMenuView();
-            System.out.println(this.menu);
-        
-        value = keyboard.nextLine();
-        value = value.trim();
-        
-        if(value.length() < 1) {
-            System.out.println("\n Invalid value: value cannot be blank");
-            continue;
-            
-        }
-        break;
-    }
-     return value;  
-    }
-
-    private boolean doAction(String input) {
+   
+    @Override
+    public boolean doAction(String input) {
         input = input.toUpperCase();
         
         switch (input) {

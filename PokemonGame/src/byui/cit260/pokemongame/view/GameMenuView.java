@@ -11,13 +11,13 @@ import java.util.Scanner;
  *
  * @author porterzohner
  */
-public class GameMenuView {
+public class GameMenuView extends View {
 
     private String menu;
     
     public GameMenuView() {
         
-        this.menu = "\n"
+        super ("\n"
                 + "\n--------------------------------------------"
                 + "\n| Game Menu                                |"
                 + "\n--------------------------------------------"
@@ -28,51 +28,11 @@ public class GameMenuView {
                 + "\n S - Save Game"
                 + "\n H - Help Menu"
                 + "\n Q - Quit"
-                + "\n--------------------------------------------";
+                + "\n--------------------------------------------");
     }
     
-    void displayGameMenu() {
-    
-        boolean done = false;
-        
-        do {
-            
-            String menuOption = getMenuOption();
-            
-            if(menuOption.toUpperCase().equals("Q")) {
-                return;        
-        }
-            
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-    }
-
-    private String getMenuOption() {
-        
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            //MainMenuView mainMenuView = new MainMenuView();
-            System.out.println(this.menu);
-        
-        value = keyboard.nextLine();
-        value = value.trim();
-        
-        if(value.length() < 1) {
-            System.out.println("\n Invalid value: value cannot be blank");
-            continue;
-            
-        }
-        break;
-    }
-     return value;  
-    }
-    
-
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase();
         
         switch (choice) {
@@ -105,17 +65,18 @@ public class GameMenuView {
     private void displayMap() {
         
         MapMenuView mapMenu = new MapMenuView();
-        mapMenu.displayMapMenuView();
+        mapMenu.display();
     }
 
     private void displayItemList() {
        ItemListView listView = new ItemListView();
-       listView.displayMapMenuView();
+       listView.display();
         
     }
 
     private void displayPokemonList() {
-        System.out.println("\n*** displayPokemonList called");
+        PokemonListView pokemonListView = new PokemonListView();
+        pokemonListView.display();
     }
 
     private void displayExploreSquare() {
@@ -127,7 +88,8 @@ public class GameMenuView {
     }
 
     private void displayHelpMenu() {
-        System.out.println("\n*** displayHelpMenu");
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.display();
     }
     
 }

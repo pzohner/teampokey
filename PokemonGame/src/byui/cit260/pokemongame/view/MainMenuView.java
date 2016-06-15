@@ -13,13 +13,12 @@ import pokemongame.PokemonGame;
  *
  * @author porterzohner
  */
-public class MainMenuView {
+public class MainMenuView extends View {
     
-    private String menu;
     
     public MainMenuView() {
         
-        this.menu = "\n"
+        super(  "\n"
                 + "\n--------------------------------------------"
                 + "\n| Main Menu                                |"
                 + "\n--------------------------------------------"
@@ -28,51 +27,12 @@ public class MainMenuView {
                 + "\nH - Get help on how to play the game"
                 + "\nS - Save Game"
                 + "\nQ - Quit"
-                + "\n--------------------------------------------";
+                + "\n--------------------------------------------");
         
     }
-
-    void displayMainMenuView() {
-        
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            
-            if(menuOption.toUpperCase().equals("Q")) {
-                return;
-            }
-            
-            done = this.doAction(menuOption);
-            
-            
-        } while (!done);
-        
-    }
-
-    private String getMenuOption() {
-        
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            //MainMenuView mainMenuView = new MainMenuView();
-            System.out.println(this.menu);
-        
-        value = keyboard.nextLine();
-        value = value.trim();
-        
-        if(value.length() < 1) {
-            System.out.println("\n Invalid value: value cannot be blank");
-            continue;
-            
-        }
-        break;
-    }
-     return value;  
-    }
-
-    private boolean doAction(String choice) {
+    
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
         
@@ -103,7 +63,7 @@ public class MainMenuView {
         
         GameMenuView gameMenu = new GameMenuView();
         
-        gameMenu.displayGameMenu();
+        gameMenu.display();
         
     }
 
@@ -117,7 +77,7 @@ public class MainMenuView {
 
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenuView();
+        helpMenu.display();
     }
     
 }
