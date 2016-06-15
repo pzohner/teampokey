@@ -46,16 +46,49 @@ public class PokemonGame {
         PokemonGame.player = player;
     }
     
+    public int examplePassByValue(int value) {
+        
+        value = 0;
+        return value;
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
         
-        
+       int testValue = 5;
+       
+       if (testValue == 5) {
+           
+           System.out.println("Hey, if testValue = 5");
+       }
+       else if (testValue == 6) {
+           
+           System.out.println("testValue = 6");
+           
+       }
+       else if (testValue == 7) {
+           
+           System.out.println("testValue = 7");
+       }
+       else {
+           
+           System.out.println("the else statement ran");
+       }
+       
+       
+       
+       
+       
+       
+       
+       
        StartProgramView testView = new StartProgramView();
        testView.displayStartProgramView();
        
+       
+      
        
        // Player class test
        Player playerOne = new Player();

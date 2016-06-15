@@ -217,7 +217,7 @@ public class BattleControlTest {
      */
     @Test
     public void testCaptureSuccess() {
-        System.out.println("captureSuccess");
+        System.out.println("captureSuccesstest1");
         Pokemon captured = new Pokemon();
         captured.setHealth(70);
         
@@ -227,7 +227,7 @@ public class BattleControlTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
       
-        System.out.println("captureSuccess");
+        System.out.println("captureSuccesstest2");
         captured = new Pokemon();
         captured.setHealth(103);
         
@@ -237,7 +237,7 @@ public class BattleControlTest {
         assertEquals(expResult, result);
         // less than 25 expected 0
         
-        System.out.println("captureSuccess");
+        System.out.println("captureSuccesstest3");
         captured = new Pokemon();
         captured.setHealth(23);
         
