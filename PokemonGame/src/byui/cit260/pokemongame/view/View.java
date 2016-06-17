@@ -43,6 +43,11 @@ public abstract class View implements ViewInterface {
             
         } while (!done);
     }
+    @Override
+    public boolean doAction(String value)
+    {
+       return false;
+    }
     
     @Override
     public String getInput() {
