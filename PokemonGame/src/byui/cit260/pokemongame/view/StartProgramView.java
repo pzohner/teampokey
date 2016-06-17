@@ -19,7 +19,7 @@ public class StartProgramView {
     
     public StartProgramView() {
         // prompt message
-        this.promptMessage = "/n Please enter your name: ";
+        this.promptMessage = "\n Please enter your name: ";
         
         //display a banner
         this.displayBanner();
@@ -29,34 +29,33 @@ public class StartProgramView {
     private void displayBanner() {
         System.out.println(
         "\n ***************************************************************"
-      + "\nThis game is a text based role-playing game. In this game, you will "
-      + "\nbe creating your very own Pokémon Trainer. You will be starting"
+      + "\n This game is a text based role-playing game. In this game, you will "
+      + "\n be creating your very own Pokémon Trainer. You will be starting "
       + "\n in your hometown of Pallet Town and will be able to explore the "
-      + "\nmap to try and become the best there ever was. You will be traveling" 
+      + "\n map to try and become the best there ever was. You will be traveling" 
       + "\n around the map to catch Pokémon and fill your backpack with "
-      + "\nantidotes and potions in order to become the champion of the Pokémon "
-      + "\nLeague. You will be preparing yourself to battle the most recent"
-      + "\n champion and best Pokémon Master, Lance, in order to win the"
-      + "\n title of Pokémon Master.\n" 
-      + "\nAfter growing up your whole childhood watching Pokémon trainers come in and out "
-      + "\nof your town battling to become the best, and have fantasized"
+      + "\n antidotes and potions in order to become the champion of the Pokémon "
+      + "\n League. You will be preparing yourself to battle the most recent "
+      + "\n champion and best Pokémon Master, Lance, in order to win the "
+      + "\n title of Pokémon Master.\n " 
+      + "\n After growing up your whole childhood watching Pokémon trainers come in and out "
+      + "\n of your town battling to become the best, and have fantasized "
       + "\n of doing the same. A professor in your town is generous enough "
-      + "\nto give you a Pokéball and with that you are able to begin your"
+      + "\n to give you a Pokéball and with that you are able to begin your "
       + "\n quest. The Pokémon Master Lance is always waiting for new "
-      + "\nchallengers but if you aren't properly prepared he will send"
-      + "\n you and your Pokémon packing to the Pokémon Center to revive "
-      + "\nyour fainted Pokémon.\n" +
-        "\n" + "Everything you need you can find around your town. There is a forest full of "
-      + "\nPokémon for you to catch, as well as items other trainers have"
+      + "\n challengers but if you aren't properly prepared he will send "
+      + "\n  you and your Pokémon packing to the Pokémon Center to revive "
+      + "\n your fainted Pokémon.\n " 
+      + "\n Everything you need you can find around your town. There is a forest full of "
+      + "\n Pokémon for you to catch, as well as items other trainers have "
       + "\n dropped in their journey that you can pick up and find. Your "
-      + "\ntask is to battle Lance and become the new Pokémon Master. The "
-      + "\ngame is over when you have successfully defeated Lance.\n" +
-      "\n" +
-      "\nThe game begins in your hometown of Pallet Town with Professor Oak who gives you "
-      + "\na map and a Pokéball and encourages you to start your journey "
-      + "\nand fulfill your destiny. During the game you will need to catch"
-      + "\n 4 Pokémon and find any helpful items you can in order to be prepared"
-      + "\nto challenge Lance and become the new Pokémon Master.");
+      + "\n task is to battle Lance and become the new Pokémon Master. The "
+      + "\n game is over when you have successfully defeated Lance.\n " 
+      + "\n The game begins in your hometown of Pallet Town with Professor Oak who gives you "
+      + "\n a map and a Pokéball and encourages you to start your journey "
+      + "\n and fulfill your destiny. During the game you will need to catch "
+      + "\n 4 Pokémon and find any helpful items you can in order to be prepared "
+      + "\n to challenge Lance and become the new Pokémon Master.");
         
     }
 
@@ -81,7 +80,7 @@ public class StartProgramView {
         boolean valid = false;
         
         while(!valid) {
-            System.out.println("/n" + this.promptMessage);
+            System.out.println("\n" + this.promptMessage);
         
         value = keyboard.nextLine();
         value = value.trim();
@@ -122,7 +121,7 @@ public class StartProgramView {
     private void displayNextView(Player player) {
         
         System.out.println("\n======================================"
-                         + "\n Welcome to the game" + player.getName() 
+                         + "\n Welcome to the game " + player.getName() 
                          + "\n We hope you have a lot of fun!"
                          + "\n======================================");
        

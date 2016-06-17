@@ -13,11 +13,10 @@ import java.util.Scanner;
  */
 public class GameMenuView extends View {
 
-    private String menu;
     
     public GameMenuView() {
         
-        super ("\n"
+        super("\n"
                 + "\n--------------------------------------------"
                 + "\n| Game Menu                                |"
                 + "\n--------------------------------------------"
