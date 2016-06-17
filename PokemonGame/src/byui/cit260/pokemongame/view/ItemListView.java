@@ -86,6 +86,10 @@ public boolean doAction(String menuOption) {
 
     private void useItem() {
        System.out.println("\nU *** useItem() function called");
+               HealingMenuView healingMenu = new HealingMenuView(); 
+               
+               healingMenu.display(); 
+               
     }
 
     private void viewPokemon() {
