@@ -6,6 +6,7 @@
 package byui.cit260.pokemongame.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Location implements Serializable{
     private boolean visited;
     private Scene scene;
     private Pokemon pokemon;
+    private ArrayList<Character> characters;
     
     public Location() {
     }

@@ -21,6 +21,7 @@ public class Pokemon implements Serializable {
     private int defense;
     private int health; 
     private Location[][] pokemonLocation;
+    private Character[] character;
     
     public Pokemon() {
     }
