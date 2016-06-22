@@ -16,7 +16,9 @@ public class Location implements Serializable{
     private int row;
     private int column;
     private boolean visited;
-
+    private Scene scene;
+    private Pokemon pokemon;
+    
     public Location() {
     }
 
@@ -44,6 +46,23 @@ public class Location implements Serializable{
         this.visited = visited;
     }
 
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public Pokemon getPokemon() {
+        return pokemon;
+    }
+
+    public void setPokemon(Pokemon pokemon) {
+        this.pokemon = pokemon;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 3;

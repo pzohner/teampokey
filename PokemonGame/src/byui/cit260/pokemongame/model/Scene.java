@@ -16,7 +16,7 @@ public class Scene implements Serializable {
     
     private String nameOfScene;
     private String description;
-
+    private Location[][] location; // each scene has many locations // CHECK!
     
     public Scene() {
     }

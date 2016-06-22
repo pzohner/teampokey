@@ -20,7 +20,8 @@ public class Pokemon implements Serializable {
     private int strength;
     private int defense;
     private int health; 
-    // add another variable called totalhealth or currenthealth
+    private Location[][] pokemonLocation;
+    
     public Pokemon() {
     }
 

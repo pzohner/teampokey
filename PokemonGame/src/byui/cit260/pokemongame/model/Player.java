@@ -6,6 +6,7 @@
 package byui.cit260.pokemongame.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -15,8 +16,10 @@ import java.util.Objects;
 public class Player implements Serializable {
     
     private String name;
-    private double timeCompleted; 
-
+    private double timeCompleted;
+    private ArrayList<Game> game;
+    private Character character;
+    
     public Player() {
     }
     
@@ -37,6 +40,24 @@ public class Player implements Serializable {
     public void setTimeCompleted(double timeCompleted) {
         this.timeCompleted = timeCompleted;
     }
+
+    public ArrayList<Game> getGame() {
+        return game;
+    }
+
+    public void setGame(ArrayList<Game> game) {
+        this.game = game;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+    
+    
 
     @Override
     public int hashCode() {
