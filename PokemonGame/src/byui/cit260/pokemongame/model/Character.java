@@ -7,6 +7,7 @@ package byui.cit260.pokemongame.model;
 
 import java.awt.Point;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -20,7 +21,10 @@ public class Character implements Serializable {
     private Point position;
     private int numberOfPokemon;
     private int numberOfItems;
-
+    private Pokemon[] pokemon;
+    private ArrayList<Item> itemList;
+    private Location[][] location;
+    
     public Character() {
     }
 

@@ -16,6 +16,7 @@ public class Map implements Serializable {
     
     private int[] numberOfRows;
     private int[] numberOfColumns;
+    private Location[][] mapLocations;
 
     public Map() {
     }
@@ -36,6 +37,15 @@ public class Map implements Serializable {
     public void setNumberOfColumns(int[] numberOfColumns) {
         this.numberOfColumns = numberOfColumns;
     }
+
+    public Location[][] getMapLocations() {
+        return mapLocations;
+    }
+
+    public void setMapLocations(Location[][] mapLocations) {
+        this.mapLocations = mapLocations;
+    }
+    
 
     @Override
     public int hashCode() {
