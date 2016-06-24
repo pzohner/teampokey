@@ -44,8 +44,6 @@ public class Character implements Serializable {
         this.position = position;
     }
 
-    
-
     public int getNumberOfPokemon() {
         return numberOfPokemon;
     }
@@ -61,6 +59,32 @@ public class Character implements Serializable {
     public void setNumberOfItems(int numberOfItems) {
         this.numberOfItems = numberOfItems;
     }
+
+    public Pokemon[] getPokemon() {
+        return pokemon;
+    }
+
+    public void setPokemon(Pokemon[] pokemon) {
+        this.pokemon = pokemon;
+    }
+
+    public ArrayList<Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(ArrayList<Item> itemList) {
+        this.itemList = itemList;
+    }
+
+    public Location[][] getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location[][] location) {
+        this.location = location;
+    }
+    
+    
 
     @Override
     public int hashCode() {
