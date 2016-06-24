@@ -125,10 +125,10 @@ public class PokemonGame {
         // This is the map test
         Map map = new Map();
         
-        int[] columnTest = {5};
-        map.setNumberOfColumns(columnTest);
-        int[] rowTest = {5};
-        map.setNumberOfRows(rowTest);
+        //int[] columnTest = {5};
+        //map.setNumberOfColumns(columnTest);
+        //int[] rowTest = {5};
+        //map.setNumberOfRows(rowTest);
         
         String mapInfo = map.toString();
         System.out.println(mapInfo);

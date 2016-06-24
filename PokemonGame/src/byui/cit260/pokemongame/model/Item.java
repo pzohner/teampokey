@@ -12,7 +12,9 @@ import java.io.Serializable;
  */
 public class Item  implements Serializable {
     private int amountOfItem;
-
+    private Item[] totalItemList;
+    private String description;
+    
     public Item() {
 
         }
@@ -24,6 +26,24 @@ public class Item  implements Serializable {
     public void setAmountOfItem(int amountOfItem) {
         this.amountOfItem = amountOfItem;
     }
+
+    public Item[] getTotalItemList() {
+        return totalItemList;
+    }
+
+    public void setTotalItemList(Item[] totalItemList) {
+        this.totalItemList = totalItemList;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    
     
     
 }

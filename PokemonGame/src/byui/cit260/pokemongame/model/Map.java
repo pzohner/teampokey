@@ -14,27 +14,53 @@ import java.util.Arrays;
  */
 public class Map implements Serializable {
     
-    private int[] numberOfRows;
-    private int[] numberOfColumns;
+    private int numberOfRows;
+    private int numberOfColumns;
     private Location[][] mapLocations;
 
     public Map() {
+        
     }
     
+    public Map(int noOfRows, int noOfColumns) {
+        
+        if (noOfRows < 1 || noOfColumns < 1) {
+            
+            System.out.println("The number of rows and columns must be > than zero");
+            return;
+        }
+        
+        this.numberOfRows = noOfRows;
+        this.numberOfColumns = noOfColumns;
+        
+        this.mapLocations = new Location[numberOfRows][numberOfColumns];
+        
+        for (int row = 0; row > numberOfRows; row++) {
+            for (int column = 0; column < numberOfColumns; column++) {
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                
+                mapLocations[row][column] = location;
+            }
+            
+        }
+        
+    }
     
-    public int[] getNumberOfRows() {
+    public int getNumberOfRows() {
         return numberOfRows;
     }
 
-    public void setNumberOfRows(int[] numberOfRows) {
+    public void setNumberOfRows(int numberOfRows) {
         this.numberOfRows = numberOfRows;
     }
 
-    public int[] getNumberOfColumns() {
+    public int getNumberOfColumns() {
         return numberOfColumns;
     }
 
-    public void setNumberOfColumns(int[] numberOfColumns) {
+    public void setNumberOfColumns(int numberOfColumns) {
         this.numberOfColumns = numberOfColumns;
     }
 
@@ -45,13 +71,13 @@ public class Map implements Serializable {
     public void setMapLocations(Location[][] mapLocations) {
         this.mapLocations = mapLocations;
     }
-    
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + Arrays.hashCode(this.numberOfRows);
-        hash = 29 * hash + Arrays.hashCode(this.numberOfColumns);
+        int hash = 3;
+        hash = 13 * hash + this.numberOfRows;
+        hash = 13 * hash + this.numberOfColumns;
+        hash = 13 * hash + Arrays.deepHashCode(this.mapLocations);
         return hash;
     }
 
@@ -67,14 +93,24 @@ public class Map implements Serializable {
             return false;
         }
         final Map other = (Map) obj;
-        if (!Arrays.equals(this.numberOfRows, other.numberOfRows)) {
+        if (this.numberOfRows != other.numberOfRows) {
             return false;
         }
-        if (!Arrays.equals(this.numberOfColumns, other.numberOfColumns)) {
+        if (this.numberOfColumns != other.numberOfColumns) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.mapLocations, other.mapLocations)) {
             return false;
         }
         return true;
     }
+    
+    
+    
+
+    
+
+    
 
     @Override
     public String toString() {

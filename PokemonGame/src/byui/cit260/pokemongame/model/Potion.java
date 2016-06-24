@@ -14,7 +14,7 @@ import java.util.Objects;
  *
  * @author savannahkei
  */
-public class Potion implements Serializable {
+public class Potion extends Item implements Serializable {
 
     private int healPower ; 
 

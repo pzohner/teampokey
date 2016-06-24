@@ -64,6 +64,14 @@ public class Location implements Serializable{
         this.pokemon = pokemon;
     }
 
+    public ArrayList<Character> getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(ArrayList<Character> characters) {
+        this.characters = characters;
+    }
+
     
     @Override
     public int hashCode() {

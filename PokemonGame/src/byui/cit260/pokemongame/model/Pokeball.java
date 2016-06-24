@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author savannahkei
  */
-public class Pokeball implements Serializable {
+public class Pokeball extends Item implements Serializable {
   
 
 private boolean isMaster; 
