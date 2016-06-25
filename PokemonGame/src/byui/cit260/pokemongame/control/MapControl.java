@@ -5,6 +5,7 @@
  */
 package byui.cit260.pokemongame.control;
 
+import byui.cit260.pokemongame.model.Location;
 import byui.cit260.pokemongame.model.Map;
 import byui.cit260.pokemongame.model.Scene;
 
@@ -16,12 +17,12 @@ public class MapControl {
 
     public static Map createMap() {
         // creating the map
-        Map map = new Map(4, 4);
+        Map map = new Map(5, 5);
         
         //create a list of the different scenes in the game
         Scene[] scenes = createScenes();
         
-        GameControl.assignScenesToLocations(map, scenes);
+        MapControl.assignScenesToLocations(map, scenes);
         
         return map;
     }
@@ -78,6 +79,37 @@ public class MapControl {
         boss
     }
     
+    private static void assignScenesToLocations(Map map, Scene[] scenes) {
+       
+        Location[][] locations = map.getMapLocations();
+        
+        locations[0][0].setScene(scenes[SceneType.home.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.forest.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.tallGrass.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.tallGrass.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.tallGrass.ordinal()]);
+        locations[1][0].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.forest.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.forest.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.forest.ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.tallGrass.ordinal()]);
+        locations[2][0].setScene(scenes[SceneType.tallGrass.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.tallGrass.ordinal()]);
+        locations[2][2].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.forest.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[3][0].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.forest.ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.tallGrass.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.tallGrass.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.tallGrass.ordinal()]);
+        locations[4][0].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.tallGrass.ordinal()]);
+        locations[4][2].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.tallGrass.ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.boss.ordinal()]);
+        
+    }           
     
     
     

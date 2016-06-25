@@ -7,6 +7,7 @@ package byui.cit260.pokemongame.view;
 
 import byui.cit260.pokemongame.model.Game;
 import byui.cit260.pokemongame.model.Item;
+import byui.cit260.pokemongame.model.Pokeball;
 import byui.cit260.pokemongame.model.Pokemon;
 import byui.cit260.pokemongame.model.Potion;
 import java.util.ArrayList;
@@ -23,19 +24,17 @@ public class ItemListView extends View {
     
     ItemListView() {
         
+        
         super("\n"
                 + "\n--------------------------------------------"
                 + "\n| Item List                             |"
                 + "\n--------------------------------------------"
-                + "\n#P - Number Of Pokeballs"
-                + "\n#PO - Number Of Potions "
-                + "\n#SP - Number Super Potions"
-                + "\n#A - Number of Antidotes"
-                + "\n#M - Number of Master Balls"
+                + "\n" 
                 + "\nU - Use Items"
                 + "\nV - View Pokemon"
                 + "\nQ - Quit"
                 +" \n  -----------------------------------------");
+        viewCurrentItemList(); 
     }
     
     @Override
@@ -120,23 +119,25 @@ public boolean doAction(String menuOption) {
         line.insert(30, "MasterPokeball");
         System.out.println(line.toString());
         
-        for (Object item: itemList ) {
+        for (Object item: itemList) {
            line = new StringBuilder("                                      ");
-           if (item.getClass() == Pokemon.class) {
-               System.out.println(Item.getDescription());
+            if (item.getClass() == Pokeball.class) {
+               Pokeball pokeball = (Pokeball) item;
+               System.out.println(pokeball.getDescription());
            }
            if (item.getClass() == Potion.class) {
-               System.out.println(Item.getDescription());
+               Potion potion = (Potion) item;
+               System.out.println(potion.getDescription());
            }
            
            }
            
 //line.insert(0, items.getDescription());
             
-           System.out.println(line.toString());
+           //System.out.println(line.toString());
         }
+}
     
-    }
 
    
 

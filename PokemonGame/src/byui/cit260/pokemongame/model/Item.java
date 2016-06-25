@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Item  implements Serializable {
     private int amountOfItem;
     private static ArrayList<Object> totalItemList;
-    protected static String description;
+    protected String description;
     
     public Item() {
 
@@ -32,16 +32,16 @@ public class Item  implements Serializable {
         return totalItemList;
     }
 
-    public void setTotalItemList(ArrayList<Object> totalItemList) {
-        this.totalItemList = totalItemList;
+    public static void setTotalItemList(ArrayList<Object> totalItemList) {
+        Item.totalItemList = totalItemList;
     }
 
-    public static String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public static void setDescription(String description) { // changed this to Item.description to see if it works
-        Item.description = description;
+    public void setDescription(String description) { // changed this to Item.description to see if it works
+        this.description = description;
     }
     
 }

@@ -57,8 +57,8 @@ public class GameControl {
         game.setMap(map);
         
 
-    //     ArrayList<Object> itemList = GameControl.createItemList();
-   //      item.setTotalItemList(itemList); 
+         ArrayList<Object> itemList = GameControl.createItemList();
+         item.setTotalItemList(itemList); 
         
    //     MapControl.moveCharactersToStartingLocation(map);
         
@@ -71,37 +71,7 @@ public class GameControl {
                 return null;
     }
 
-    static void assignScenesToLocations(Map map, Scene[] scenes) {
-       
-        Location[][] locations = map.getMapLocations();
-        
-        locations[0][0].setScene(scenes[SceneType.home.ordinal()]);
-        locations[0][1].setScene(scenes[SceneType.forest.ordinal()]);
-        locations[0][2].setScene(scenes[SceneType.tallGrass.ordinal()]);
-        locations[0][3].setScene(scenes[SceneType.tallGrass.ordinal()]);
-        locations[0][4].setScene(scenes[SceneType.tallGrass.ordinal()]);
-        locations[1][0].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[1][1].setScene(scenes[SceneType.forest.ordinal()]);
-        locations[1][2].setScene(scenes[SceneType.forest.ordinal()]);
-        locations[1][3].setScene(scenes[SceneType.forest.ordinal()]);
-        locations[1][4].setScene(scenes[SceneType.tallGrass.ordinal()]);
-        locations[2][0].setScene(scenes[SceneType.tallGrass.ordinal()]);
-        locations[2][1].setScene(scenes[SceneType.tallGrass.ordinal()]);
-        locations[2][2].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[2][3].setScene(scenes[SceneType.forest.ordinal()]);
-        locations[2][4].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[3][0].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[3][1].setScene(scenes[SceneType.forest.ordinal()]);
-        locations[3][2].setScene(scenes[SceneType.tallGrass.ordinal()]);
-        locations[3][3].setScene(scenes[SceneType.tallGrass.ordinal()]);
-        locations[3][4].setScene(scenes[SceneType.tallGrass.ordinal()]);
-        locations[4][0].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[4][1].setScene(scenes[SceneType.tallGrass.ordinal()]);
-        locations[4][2].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[4][3].setScene(scenes[SceneType.tallGrass.ordinal()]);
-        locations[4][4].setScene(scenes[SceneType.boss.ordinal()]);
-        
-    }           
+   
 
     private static ArrayList<Object> createItemList() {
         
@@ -124,7 +94,7 @@ public class GameControl {
         // potion in position 3
         itemList.add(new Potion("Potion", 20));
         
-        // superPotion in position 4
+         // superPotion in position 4
         itemList.add(new Potion("superPotion", 60));
         
         return itemList;
