@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class Item  implements Serializable {
     private int amountOfItem;
-    private ArrayList<Object> totalItemList;
-    protected String description;
+    private static ArrayList<Object> totalItemList;
+    protected static String description;
     
     public Item() {
 
@@ -28,7 +28,7 @@ public class Item  implements Serializable {
         this.amountOfItem = amountOfItem;
     }
 
-    public ArrayList<Object> getTotalItemList() {
+    public static ArrayList<Object> getTotalItemList() {
         return totalItemList;
     }
 
@@ -36,12 +36,12 @@ public class Item  implements Serializable {
         this.totalItemList = totalItemList;
     }
 
-    public String getDescription() {
+    public static String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public static void setDescription(String description) { // changed this to Item.description to see if it works
+        Item.description = description;
     }
     
 }

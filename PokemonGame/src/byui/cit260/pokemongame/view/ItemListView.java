@@ -7,6 +7,8 @@ package byui.cit260.pokemongame.view;
 
 import byui.cit260.pokemongame.model.Game;
 import byui.cit260.pokemongame.model.Item;
+import byui.cit260.pokemongame.model.Pokemon;
+import byui.cit260.pokemongame.model.Potion;
 import java.util.ArrayList;
 import java.util.Scanner;
 import pokemongame.PokemonGame;
@@ -104,12 +106,36 @@ public boolean doAction(String menuOption) {
     }
 
     private void viewCurrentItemList() {
-        StringBuilder Line;
+        
+        StringBuilder line;
         
         Game game = PokemonGame.getCurrentGame();
-        ArrayList<Object> itemList = Item.getTotalItemList();
+        ArrayList<Object> itemList = Item.getTotalItemList(); // in order for this to work, I had to 
+                                                              // change the item model layer class
+                                                              // getTotalItemList to static
+        System.out.println("\n  List of Items");
+        line = new StringBuilder("                                          ");
+        line.insert(0, "Description");
+        line.insert(20, "SuperPotion");
+        line.insert(30, "MasterPokeball");
+        System.out.println(line.toString());
         
-    }
+        for (Object item: itemList ) {
+           line = new StringBuilder("                                      ");
+           if (item.getClass() == Pokemon.class) {
+               System.out.println(Item.getDescription());
+           }
+           if (item.getClass() == Potion.class) {
+               System.out.println(Item.getDescription());
+           }
+           
+           }
+           
+//line.insert(0, items.getDescription());
+            
+           System.out.println(line.toString());
+        }
+    
     }
 
    
