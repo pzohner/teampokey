@@ -14,6 +14,7 @@ import byui.cit260.pokemongame.model.Player;
 import byui.cit260.pokemongame.model.Pokeball;
 import byui.cit260.pokemongame.model.Potion;
 import byui.cit260.pokemongame.model.Scene;
+import java.util.ArrayList;
 import pokemongame.PokemonGame;
 
 /**
@@ -52,14 +53,14 @@ public class GameControl {
                
        //HOW DO WE IMPLEMENT THE ITEM OBJECTS WHEN ITEM CLASS RELATES TO CHARACTER CLASS
        
-       Map map = MapControl.createMap();
+      Map map = MapControl.createMap();
         game.setMap(map);
         
 
-        Item[] itemList = GameControl.createItemList();
-        item.setTotalItemList(itemList); 
+    //     ArrayList<Object> itemList = GameControl.createItemList();
+   //      item.setTotalItemList(itemList); 
         
-        MapControl.moveCharactersToStartingLocation(map);
+   //     MapControl.moveCharactersToStartingLocation(map);
         
     }
 
@@ -71,6 +72,7 @@ public class GameControl {
     }
 
     static void assignScenesToLocations(Map map, Scene[] scenes) {
+       
         Location[][] locations = map.getMapLocations();
         
         locations[0][0].setScene(scenes[SceneType.home.ordinal()]);
@@ -101,40 +103,35 @@ public class GameControl {
         
     }           
 
-    private static Item[] createItemList() {
+    private static ArrayList<Object> createItemList() {
         
-        Item[] itemList = new Item[5];
+        ArrayList<Object> itemList = new ArrayList<>();
         
-        Item[] pokeBall = new Item();
-        pokeBall.setDescription("PokeBall");
-        itemList[Item.pokeBall.ordinal()] = pokeBall;
-                
-                
-                
-        Pokeball pokeball = new Pokeball();
-        pokeball.setDescription("PokeBall");
-        pokeball.setIsMaster(false);
-        itemList[Item.pokeball.ordinal()];
         
-        Pokeball masterBall = new Pokeball();
-        pokeball.setDescription("MasterBall");
-        pokeball.setIsMaster(true);
-        itemList[Item.masterBall.ordinal()] = masterBall;
+        //Pokeball pokeball = new Pokeball();
+        //pokeball.setDescription("PokeBall");
+        //pokeball.setIsMaster(false);
+        //Pokeball pokeball = new Pokeball("Pokeball", false);
+        //itemList.add(pokeball);
         
-        Potion potion = new Potion();
-        potion.setDescription("Potion");
-        potion.setHealPower(20);
-        itemList[Item.potion.ordinal()];
         
-        Potion superPotion = new Potion();
-        superPotion.setDescription("SuperPotion");
-        superPotion.setHealPower(60);
-        itemList[Item.superPotion.ordinal()];
+        // pokeball in position 1
+        itemList.add(new Pokeball("Pokeball", false));
         
-        return itemList[];
+        // master ball in position 2
+        itemList.add(new Pokeball("MasterBall", true));
+       
+        // potion in position 3
+        itemList.add(new Potion("Potion", 20));
+        
+        // superPotion in position 4
+        itemList.add(new Potion("superPotion", 60));
+        
+        return itemList;
+        
     }
     
-    private enum Item {
+    private enum ItemList {
         
         pokeball,
         masterBall,

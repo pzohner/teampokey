@@ -70,7 +70,6 @@ public class GameMenuView extends View {
     private void displayItemList() {
        ItemListView listView = new ItemListView();
        listView.display();
-        
     }
 
     private void displayPokemonList() {

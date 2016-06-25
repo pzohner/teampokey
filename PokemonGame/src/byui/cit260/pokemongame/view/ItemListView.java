@@ -5,7 +5,11 @@
  */
 package byui.cit260.pokemongame.view;
 
+import byui.cit260.pokemongame.model.Game;
+import byui.cit260.pokemongame.model.Item;
+import java.util.ArrayList;
 import java.util.Scanner;
+import pokemongame.PokemonGame;
 
 /**
  *
@@ -73,7 +77,6 @@ public boolean doAction(String menuOption) {
 
     private void itemNumberOfPotions() {
        System.out.println("\n#PO *** itemNumberOfPotions() function called");
-       
     }
 
     private void itemNumberOfSuperPotions() {
@@ -98,10 +101,15 @@ public boolean doAction(String menuOption) {
 
     private void itemNumberOfMasterBalls() {
         System.out.println("\n *** itemNumberOfMasterBalls () function called");
-    
     }
 
-    
+    private void viewCurrentItemList() {
+        StringBuilder Line;
+        
+        Game game = PokemonGame.getCurrentGame();
+        ArrayList<Object> itemList = Item.getTotalItemList();
+        
+    }
     }
 
    

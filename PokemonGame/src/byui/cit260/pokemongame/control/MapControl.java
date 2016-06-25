@@ -32,38 +32,33 @@ public class MapControl {
         
         // Home Scene
         Scene homeScene = new Scene();
-        homeScene.setDescription( 
-        "Welcome to your home!");
+        homeScene.setDescription("Welcome to your home!");
         homeScene.setNameOfScene("Home");
         scenes[SceneType.home.ordinal()] = homeScene;
     
         // Tall Grass scene
         Scene tallGrassScene = new Scene();
-        tallGrassScene.setDescription( 
-        "Be wary of Pokemon!");
+        tallGrassScene.setDescription( "Be wary of Pokemon!");
         tallGrassScene.setNameOfScene("Tall Grass");
         scenes[SceneType.tallGrass.ordinal()] = tallGrassScene;
         
         
         // Forest Scene
         Scene forestScene = new Scene();
-        forestScene.setDescription( 
-        "Cover in the bushes");
+        forestScene.setDescription( "Cover in the bushes");
         forestScene.setNameOfScene("Forest");
         scenes[SceneType.forest.ordinal()] = forestScene;
         
         //mountain Scene
         Scene mountainScene = new Scene();
-        mountainScene.setDescription( 
-        "High on a mountain top");
+        mountainScene.setDescription("High on a mountain top");
         mountainScene.setNameOfScene("Mountain");
         scenes[SceneType.mountain.ordinal()] = mountainScene;
         
         
         // Boss scene
         Scene bossScene = new Scene();
-        bossScene.setDescription( 
-        "You have encountered Lance! Prepare yourself!");
+        bossScene.setDescription("You have encountered Lance! Prepare yourself!");
         bossScene.setNameOfScene("Boss");
         scenes[SceneType.boss.ordinal()] = bossScene;
         
