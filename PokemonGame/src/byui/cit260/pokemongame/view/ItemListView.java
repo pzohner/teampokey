@@ -5,7 +5,14 @@
  */
 package byui.cit260.pokemongame.view;
 
+import byui.cit260.pokemongame.model.Game;
+import byui.cit260.pokemongame.model.Item;
+import byui.cit260.pokemongame.model.Pokeball;
+import byui.cit260.pokemongame.model.Pokemon;
+import byui.cit260.pokemongame.model.Potion;
+import java.util.ArrayList;
 import java.util.Scanner;
+import pokemongame.PokemonGame;
 
 /**
  *
@@ -17,19 +24,17 @@ public class ItemListView extends View {
     
     ItemListView() {
         
+        
         super("\n"
                 + "\n--------------------------------------------"
                 + "\n| Item List                             |"
                 + "\n--------------------------------------------"
-                + "\n#P - Number Of Pokeballs"
-                + "\n#PO - Number Of Potions "
-                + "\n#SP - Number Super Potions"
-                + "\n#A - Number of Antidotes"
-                + "\n#M - Number of Master Balls"
+                + "\n" 
                 + "\nU - Use Items"
                 + "\nV - View Pokemon"
                 + "\nQ - Quit"
                 +" \n  -----------------------------------------");
+        viewCurrentItemList(); 
     }
     
     @Override
@@ -73,7 +78,6 @@ public boolean doAction(String menuOption) {
 
     private void itemNumberOfPotions() {
        System.out.println("\n#PO *** itemNumberOfPotions() function called");
-       
     }
 
     private void itemNumberOfSuperPotions() {
@@ -102,11 +106,42 @@ public boolean doAction(String menuOption) {
 
     private void itemNumberOfMasterBalls() {
         System.out.println("\n *** itemNumberOfMasterBalls () function called");
-    
     }
 
+    private void viewCurrentItemList() {
+        
+        StringBuilder line;
+        
+        Game game = PokemonGame.getCurrentGame();
+        ArrayList<Object> itemList = Item.getTotalItemList(); // in order for this to work, I had to 
+                                                              // change the item model layer class
+                                                              // getTotalItemList to static
+        System.out.println("\n  List of Items");
+        line = new StringBuilder("                                          ");
+        line.insert(0, "Description");
+        line.insert(20, "SuperPotion");
+        line.insert(30, "MasterPokeball");
+        System.out.println(line.toString());
+        
+        for (Object item: itemList) {
+           line = new StringBuilder("                                      ");
+            if (item.getClass() == Pokeball.class) {
+               Pokeball pokeball = (Pokeball) item;
+               System.out.println(pokeball.getDescription());
+           }
+           if (item.getClass() == Potion.class) {
+               Potion potion = (Potion) item;
+               System.out.println(potion.getDescription());
+           }
+           
+           }
+           
+//line.insert(0, items.getDescription());
+            
+           //System.out.println(line.toString());
+        }
+}
     
-    }
 
    
 

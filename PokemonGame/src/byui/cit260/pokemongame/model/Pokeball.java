@@ -19,6 +19,14 @@ private boolean isMaster;
 
     public Pokeball() {
     }
+    
+    public Pokeball(String description, boolean isMaster) {
+        
+        this.description = description;
+        this.isMaster = isMaster;
+    }
+    
+    
 
     
     public boolean IsMaster() {

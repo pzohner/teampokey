@@ -5,7 +5,13 @@
  */
 package byui.cit260.pokemongame.view;
 
+import byui.cit260.pokemongame.control.MapControl;
+import byui.cit260.pokemongame.control.MapControl.SceneType;
+import byui.cit260.pokemongame.model.Game;
+import byui.cit260.pokemongame.model.Location;
+import byui.cit260.pokemongame.model.Map;
 import java.util.Scanner;
+import pokemongame.PokemonGame;
 
 /**
  *
@@ -63,14 +69,41 @@ public class GameMenuView extends View {
 
     private void displayMap() {
         
+        Game game = new Game();
+        game = PokemonGame.getCurrentGame();
+      
+        Map map = new Map();
+        map = game.getMap();
+        
+        Location[][] locations = map.getMapLocations();
+        
+        System.out.println(" --- MAP --- ");
+        
+        System.out.println("      1                 2                   3                   4                   5");
+        for (int row = 0; row < 5; row++)
+        {
+            System.out.println("\n" + row + "------------------------");
+            for (int column = 0; column < 5; column++){
+                System.out.print("|   " + locations[row][column].getScene().getNameOfScene() + "  |  ");
+                                               
+            }
+            
+        }
+        
+        
+        
+        
+        
+        
+        
         MapMenuView mapMenu = new MapMenuView();
         mapMenu.display();
+        
     }
 
     private void displayItemList() {
        ItemListView listView = new ItemListView();
        listView.display();
-        
     }
 
     private void displayPokemonList() {

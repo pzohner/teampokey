@@ -6,14 +6,15 @@
 package byui.cit260.pokemongame.model;
 
 import java.io.Serializable; 
+import java.util.ArrayList;
 /**
  *
  * @author savannahkei
  */
 public class Item  implements Serializable {
     private int amountOfItem;
-    private Item[] totalItemList;
-    private String description;
+    private static ArrayList<Object> totalItemList;
+    protected String description;
     
     public Item() {
 
@@ -27,23 +28,20 @@ public class Item  implements Serializable {
         this.amountOfItem = amountOfItem;
     }
 
-    public Item[] getTotalItemList() {
+    public static ArrayList<Object> getTotalItemList() {
         return totalItemList;
     }
 
-    public void setTotalItemList(Item[] totalItemList) {
-        this.totalItemList = totalItemList;
+    public static void setTotalItemList(ArrayList<Object> totalItemList) {
+        Item.totalItemList = totalItemList;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description) { // changed this to Item.description to see if it works
         this.description = description;
     }
-    
-    
-    
     
 }

@@ -35,7 +35,7 @@ public class Map implements Serializable {
         
         this.mapLocations = new Location[numberOfRows][numberOfColumns];
         
-        for (int row = 0; row > numberOfRows; row++) {
+        for (int row = 0; row < numberOfRows; row++) {
             for (int column = 0; column < numberOfColumns; column++) {
                 Location location = new Location();
                 location.setColumn(column);

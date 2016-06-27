@@ -21,6 +21,13 @@ public class Potion extends Item implements Serializable {
     public Potion() {
     }
     
+    public Potion(String description, int healPower) {
+        
+        this.description = description;
+        this.healPower = healPower;
+        
+    }
+    
  
 
     public int getHealPower() {
