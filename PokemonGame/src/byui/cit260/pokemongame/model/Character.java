@@ -22,10 +22,11 @@ public class Character implements Serializable {
     private int numberOfPokemon;
     private int numberOfItems;
     private Pokemon[] pokemon;
-    private ArrayList<Item> itemList;
+    private ArrayList<Object> itemList;
     private Location[][] location;
     
     public Character() {
+        
     }
 
     public String getName() {
@@ -68,11 +69,11 @@ public class Character implements Serializable {
         this.pokemon = pokemon;
     }
 
-    public ArrayList<Item> getItemList() {
+    public ArrayList<Object> getItemList() {
         return itemList;
     }
 
-    public void setItemList(ArrayList<Item> itemList) {
+    public void setItemList(ArrayList<Object> itemList) {
         this.itemList = itemList;
     }
 
@@ -126,12 +127,5 @@ public class Character implements Serializable {
     @Override
     public String toString() {
         return "Character{" + "name=" + name + ", position=" + position + ", numberOfPokemon=" + numberOfPokemon + ", numberOfItems=" + numberOfItems + '}';
-    }
-
-   
-
-        
-    
-    
-    
+    }        
 }

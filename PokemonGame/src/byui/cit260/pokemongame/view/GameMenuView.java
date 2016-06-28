@@ -69,9 +69,11 @@ public class GameMenuView extends View {
 
     private void displayMap() {
         
+        // get the current game variable
         Game game = new Game();
         game = PokemonGame.getCurrentGame();
       
+        
         Map map = new Map();
         map = game.getMap();
         
@@ -89,12 +91,6 @@ public class GameMenuView extends View {
             }
             
         }
-        
-        
-        
-        
-        
-        
         
         MapMenuView mapMenu = new MapMenuView();
         mapMenu.display();

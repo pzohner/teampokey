@@ -129,12 +129,8 @@ public boolean doAction(String menuOption) {
                Potion potion = (Potion) item;
                System.out.println(potion.getDescription());
            }
-           
            }
-           
-//line.insert(0, items.getDescription());
-            
-           //System.out.println(line.toString());
+    
         }
 }
     

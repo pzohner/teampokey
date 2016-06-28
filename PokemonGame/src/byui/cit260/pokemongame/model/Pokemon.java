@@ -15,7 +15,7 @@ public class Pokemon implements Serializable {
     
     
  
-    private String type;
+    private String name;
     private String attackType;
     private int strength;
     private int defense;
@@ -25,14 +25,17 @@ public class Pokemon implements Serializable {
     
     public Pokemon() {
     }
-
     
-    public String getType() {
-        return type;
+    public Pokemon(String name, int strength, int defense, int health) {   
     }
 
-    public void setType(String type) {
-        this.type = type;
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String nam) {
+        this.name = name;
     }
 
     public int getStrength() {
@@ -71,7 +74,7 @@ public class Pokemon implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.type);
+        hash = 67 * hash + Objects.hashCode(this.name);
         hash = 67 * hash + this.strength;
         hash = 67 * hash + Objects.hashCode(this.attackType);
         hash = 67 * hash + this.defense;
@@ -105,7 +108,7 @@ public class Pokemon implements Serializable {
         if (this.health != other.health) {
             return false;
         }
-        if (!Objects.equals(this.type, other.type)) {
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         return true;
@@ -113,7 +116,7 @@ public class Pokemon implements Serializable {
 
     @Override
     public String toString() {
-        return "Pokemon{" + "type=" + type + ", strength=" + strength + ", attackType=" + attackType + ", defense=" + defense + ", health=" + health + '}';
+        return "Pokemon{" + "type=" + name + ", strength=" + strength + ", attackType=" + attackType + ", defense=" + defense + ", health=" + health + '}';
     }
 
 }
