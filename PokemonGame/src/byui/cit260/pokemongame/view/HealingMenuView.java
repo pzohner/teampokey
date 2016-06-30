@@ -21,7 +21,6 @@ public class HealingMenuView  extends View {
                 +"\n--------------------------------------------"
                 +"\nP-  Potions"
                 +"\nSP- Super Potions"
-                +"\nA-  Antidote"
                 +"\nB-  Back"
                 +"\n--------------------------------------------"); 
     }
@@ -37,9 +36,6 @@ public boolean doAction(String value) {
                 break;
             case "SP":
                 this.useSuperPotion();
-                break;
-            case "A":
-                this.useAntidote();
                 break;
             case "B":
                 this.useBack();
@@ -58,10 +54,6 @@ public void usePotion(){
 
 public void useSuperPotion()
 {       System.out.println("use the super potion, method being called");
-}
-
-public void useAntidote()
-{       System.out.println("use the Antidote, method beingcalled");
 }
 
 public void useBack()
