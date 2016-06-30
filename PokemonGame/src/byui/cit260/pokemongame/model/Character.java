@@ -75,6 +75,16 @@ public class Character implements Serializable {
     public void setItemList(ArrayList<Item> itemList) {
         this.itemList = itemList;
     }
+    
+    public void countItemList()
+    {
+        int count = 0;
+        
+        for (Object obj : itemList)
+            count++;
+        
+        System.out.println("The number of items in the item list are: " + count);
+    }
 
     public Location[][] getLocation() {
         return location;
