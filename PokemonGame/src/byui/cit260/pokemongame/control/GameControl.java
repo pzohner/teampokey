@@ -20,8 +20,8 @@ import byui.cit260.pokemongame.model.Character;
 
 import java.util.ArrayList;
 import pokemongame.PokemonGame;
-
-
+import byui.cit260.pokemongame.model.Character;
+import byui.cit260.pokemongame.model.Pokemon;
 /**
  *
  * @author savannahkei
@@ -130,7 +130,7 @@ public class GameControl {
         Character[] character = new Character[2];
         Location[][] startingLocation = new Location[0][0];
         Location[][] bossLocation = new Location[4][4];
-        ArrayList<Object> ashItemList = new ArrayList<>();
+        ArrayList<Object> ashItemList = createItemList(); //Changed this to actually populate list.
         Pokemon[] pokemonList = new Pokemon[5];
         
         // create ASh the player 
@@ -140,7 +140,6 @@ public class GameControl {
         
         // set ash's itemList
         ash.setItemList(ashItemList);
-        ash.countItemList();
         ash.setPokemon(pokemonList);
         character[CharacterList.Ash.ordinal()] = ash;
         
@@ -148,8 +147,6 @@ public class GameControl {
         Character lance = new Character();
         lance.setName("Lance");
         lance.setLocation(startingLocation);
-        lance.setItemList(ashItemList);
-        lance.countItemList();
         lance.setPokemon(pokemonList);
         character[CharacterList.Lance.ordinal()] = lance;
         
@@ -166,16 +163,7 @@ public class GameControl {
    
     private static ArrayList<Object> createItemList() {
         
-        ArrayList<Object> itemList = new ArrayList<>();
-        int count = 0;
-        
-        
-        //Pokeball pokeball = new Pokeball();
-        //pokeball.setDescription("PokeBall");
-        //pokeball.setIsMaster(false);
-        //Pokeball pokeball = new Pokeball("Pokeball", false);
-        //itemList.add(pokeball);
-        
+        ArrayList<Object> itemList = new ArrayList<>(); 
         
         // pokeball in position 1
         itemList.add(new Pokeball("Pokeball", false));
@@ -196,7 +184,7 @@ public class GameControl {
     }
     
     
-    private enum ItemList {
+    public enum ItemList {
         
         pokeball,
         masterBall,
@@ -204,6 +192,19 @@ public class GameControl {
         superPotion
         
     }
+    
+    public static int getAveragePokemonHealthValues(Pokemon[] arrayToSort)
+    {
+        int length = arrayToSort.length;
+        int average = 0;
+        
+        for (int m = 0; m < length - 1; m++)
+            average += arrayToSort[m].getHealth();
+        
+        average /= length;
+        return average;
+    }
+    
     
     public static Pokemon[] sortPokemonListAttackValues(Pokemon[] arrayToSort) {
         

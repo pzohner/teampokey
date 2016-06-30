@@ -21,7 +21,7 @@ public class Game implements Serializable {
     
     public Game() {
     }
-    
+ 
     
     public String getCharacterOnField() {
         return characterOnField;

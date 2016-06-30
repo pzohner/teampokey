@@ -77,15 +77,6 @@ public class Character implements Serializable {
         this.itemList = itemList;
     }
     
-    public void countItemList()
-    {
-        int count = 0;
-        
-        for (Object obj : itemList)
-            count++;
-        
-        System.out.println("The number of items in the item list are: " + count);
-    }
 
     public Location[][] getLocation() {
         return location;
@@ -139,3 +130,5 @@ public class Character implements Serializable {
         return "Character{" + "name=" + name + ", position=" + position + ", numberOfPokemon=" + numberOfPokemon + ", numberOfItems=" + numberOfItems + '}';
     }        
 }
+
+
