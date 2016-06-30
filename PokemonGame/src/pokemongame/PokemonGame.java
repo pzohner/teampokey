@@ -173,7 +173,7 @@ public class PokemonGame {
         
         Pokemon pokemon = new Pokemon();
         ///asked to set boolen instead///
-        pokemon.setType("false");
+        pokemon.setName("false");
         pokemon.setStrength(7); 
         pokemon.setAttackType("false");
         pokemon.setDefense(7);
