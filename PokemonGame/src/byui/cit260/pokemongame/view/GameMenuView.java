@@ -5,13 +5,16 @@
  */
 package byui.cit260.pokemongame.view;
 
+import byui.cit260.pokemongame.control.GameControl;
 import byui.cit260.pokemongame.control.MapControl;
 import byui.cit260.pokemongame.control.MapControl.SceneType;
 import byui.cit260.pokemongame.model.Game;
 import byui.cit260.pokemongame.model.Location;
 import byui.cit260.pokemongame.model.Map;
+import byui.cit260.pokemongame.model.Pokemon;
 import java.util.Scanner;
 import pokemongame.PokemonGame;
+import byui.cit260.pokemongame.model.Character;
 
 /**
  *
@@ -32,6 +35,7 @@ public class GameMenuView extends View {
                 + "\n E - Explore Square"
                 + "\n S - Save Game"
                 + "\n H - Help Menu"
+                + "\n SPL - Sort Pokemon List"
                 + "\n Q - Quit"
                 + "\n--------------------------------------------");
     }
@@ -58,6 +62,9 @@ public class GameMenuView extends View {
                 break;
             case"H":
                 this.displayHelpMenu();
+                break;
+            case"SPL":
+                this.displaySortedPokemonList();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -118,6 +125,32 @@ public class GameMenuView extends View {
     private void displayHelpMenu() {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
+    }
+
+    private void displaySortedPokemonList() {
+        
+        
+//        Pokemon[] pokemon = GameControl.createPokemon();
+//          byui.cit260.pokemongame.model.Character[] characterWithList = game.getCharacter();
+//          characterWithList[1].setPokemon(pokemon);
+          
+        Game game = PokemonGame.getCurrentGame();
+      
+        Character[] characterWithList = game.getCharacter();
+        
+       // Pokemon[] sortedList = characterWithList[1].getPokemon();
+        Pokemon[] sortedList = GameControl.sortPokemonListAttackValues(characterWithList[1].getPokemon());
+       
+        if (sortedList.length > 6) {
+            System.out.println("There are too many items in the array");
+        }
+        for (int i = 0; i < sortedList.length; i++) {
+            
+            System.out.println(sortedList[i].getName());
+            
+        }
+        
+        
     }
     
 }

@@ -45,13 +45,24 @@ public class GameControl {
         //Character character = new Character();
         Item item = new Item();
         
+        
+        
         PokemonGame.setCurrentGame(game);
         
         game.setPlayer(player);
         
         Character[] character = GameControl.createCharacters();
         game.setCharacter(character);
+        
+        
                
+        // create the pokemon
+          Pokemon[] pokemon = GameControl.createPokemon();
+          Character[] characterWithList = game.getCharacter();
+          characterWithList[1].setPokemon(pokemon);
+          //Character[] characterWithList = game.getCharacter();
+        
+        
         // create and set the map
         Map map = MapControl.createMap();
         game.setMap(map);
@@ -66,8 +77,8 @@ public class GameControl {
     
     public static Pokemon[] createPokemon() {
         
-        Pokemon[] pokemon  = new Pokemon[5]; // total of 6 pokemon
-        
+        Pokemon[] pokemon  = new Pokemon[6]; // total of 6 pokemon
+   
         Pokemon pikachu   = new Pokemon("Pikachu"  , 20, 5,  65); 
         Pokemon rattata   = new Pokemon("Rattata"  , 10, 1,  30); 
         Pokemon spearow   = new Pokemon("Spearow"  , 27, 4,  50); 
@@ -75,13 +86,26 @@ public class GameControl {
         Pokemon gayardos  = new Pokemon("Gayardos" , 32, 8,  90);
         Pokemon mewTwo    = new Pokemon("MewTwo"   , 35, 10, 100);
         
+        pokemon[5] = pikachu;
+        pokemon[4] = rattata;
+        pokemon[3] = spearow;
+        pokemon[2] = charizard;
+        pokemon[1] = gayardos;
+        pokemon[0] = mewTwo;
         
-        pokemon[PokemonList.Pikachu.ordinal()]   = pikachu;
-        pokemon[PokemonList.Rattata.ordinal()]   = rattata;
-        pokemon[PokemonList.Spearow.ordinal()]   = spearow;
-        pokemon[PokemonList.Charizard.ordinal()] = charizard;
-        pokemon[PokemonList.Gayardos.ordinal()]  = gayardos;
-        pokemon[PokemonList.MewTwo.ordinal()]    = mewTwo;
+//        pokemon[PokemonList.Pikachu.ordinal()]   = pikachu;
+//        pokemon[PokemonList.Rattata.ordinal()]   = rattata;
+//        pokemon[PokemonList.Spearow.ordinal()]   = spearow;
+//        pokemon[PokemonList.Charizard.ordinal()] = charizard;
+//        pokemon[PokemonList.Gayardos.ordinal()]  = gayardos;
+//        pokemon[PokemonList.MewTwo.ordinal()]    = mewTwo;
+        
+        for (int i = 0; i < pokemon.length; i++) {
+            
+            System.out.println(pokemon[i].getName());
+            
+        }
+        
         
         return pokemon;
     }
@@ -162,4 +186,54 @@ public class GameControl {
         superPotion
         
     }
+    
+    public static Pokemon[] sortPokemonListAttackValues(Pokemon[] arrayToSort) {
+        
+        
+        int n = arrayToSort.length;
+        int k;
+        for (int m = n; m >= 0; m--) {
+            for (int i = 0; i < n - 1; i++) {
+                k = i + 1;
+                if (arrayToSort[i].getStrength() > arrayToSort[k].getStrength()) {
+                                       
+                    swapNumbers(i, k, arrayToSort);
+                }
+            }
+            //printNumbers(arrayToSort);
+            
+            
+        }
+        return arrayToSort;
+    }
+
+
+     private static void swapNumbers(int i, int j, Pokemon[] array) {
+  
+         
+        Pokemon temp;
+        temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+
+    }
 }
+        
+//        for (int i = 0; i < arrayToSort.length - 1; i++)
+//        {
+//            int index = i;
+//            for (int j = i + 1; j < arrayToSort.length; j++)
+//                if (arrayToSort[j].getStrength() < arrayToSort[index].getStrength())
+//                    index = j;
+//      
+//            int smallerNumber = arrayToSort[index]; 
+//            arrayToSort[index] = arrayToSort[i];
+//            arrayToSort[i] = smallerNumber;
+//        }
+//        
+//        return arrayToSort;
+    
+        
+        
+    
+
