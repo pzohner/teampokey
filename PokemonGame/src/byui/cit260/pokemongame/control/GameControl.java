@@ -6,6 +6,7 @@
 package byui.cit260.pokemongame.control;
 
 import byui.cit260.pokemongame.control.MapControl.SceneType;
+import byui.cit260.pokemongame.exception.MapControlException;
 import byui.cit260.pokemongame.model.Game;
 import byui.cit260.pokemongame.model.Item;
 import byui.cit260.pokemongame.model.Location;
@@ -43,8 +44,9 @@ public class GameControl {
    
     }
 
-    public static void createNewGame(Player player) {
-     
+    public static void createNewGame(Player player) 
+    throws MapControlException {
+          
         Game game = new Game();
         //Character character = new Character();
         Item item = new Item();
@@ -67,9 +69,11 @@ public class GameControl {
           //Character[] characterWithList = game.getCharacter();
         
         
-        // create and set the map
-        Map map = MapControl.createMap();
-        game.setMap(map);
+       // create and set the map
+     
+       Map map = MapControl.createMap(); 
+       game.setMap(map) ; 
+       
         
         // create and set the totalItemList
         ArrayList<Object> itemList = GameControl.createItemList();

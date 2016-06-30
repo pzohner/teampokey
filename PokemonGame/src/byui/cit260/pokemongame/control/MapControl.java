@@ -5,6 +5,7 @@
  */
 package byui.cit260.pokemongame.control;
 
+import byui.cit260.pokemongame.exception.MapControlException;
 import byui.cit260.pokemongame.model.Location;
 import byui.cit260.pokemongame.model.Map;
 import byui.cit260.pokemongame.model.Scene;
@@ -15,7 +16,9 @@ import byui.cit260.pokemongame.model.Scene;
  */
 public class MapControl {
 
-    public static Map createMap() {
+    public static Map createMap()
+                  throws MapControlException {
+       
         // creating the map
         Map map = new Map(5, 5);
         
@@ -79,10 +82,16 @@ public class MapControl {
         boss
     }
     
-    private static void assignScenesToLocations(Map map, Scene[] scenes) {
+    private static void assignScenesToLocations(Map map, Scene[] scenes) 
+                        throws MapControlException {
        
         Location[][] locations = map.getMapLocations();
         
+        if (locations == null) {
+            
+            throw new MapControlException("Location does not exist");
+        }
+       
         locations[0][0].setScene(scenes[SceneType.home.ordinal()]);
         locations[0][1].setScene(scenes[SceneType.forest.ordinal()]);
         locations[0][2].setScene(scenes[SceneType.tallGrass.ordinal()]);
@@ -108,7 +117,8 @@ public class MapControl {
         locations[4][2].setScene(scenes[SceneType.mountain.ordinal()]);
         locations[4][3].setScene(scenes[SceneType.tallGrass.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.boss.ordinal()]);
-        
+      
+  
     }           
     
     
