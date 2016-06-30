@@ -17,6 +17,7 @@ import byui.cit260.pokemongame.model.Scene;
 import java.util.ArrayList;
 import pokemongame.PokemonGame;
 
+
 /**
  *
  * @author savannahkei
@@ -76,6 +77,7 @@ public class GameControl {
     private static ArrayList<Object> createItemList() {
         
         ArrayList<Object> itemList = new ArrayList<>();
+        int count = 0;
         
         
         //Pokeball pokeball = new Pokeball();
@@ -97,8 +99,21 @@ public class GameControl {
          // superPotion in position 4
         itemList.add(new Potion("superPotion", 60));
         
+       
+            
         return itemList;
         
+    }
+    
+    private void count()
+    {
+        ArrayList<Object> list = createItemList();
+        int count = 0;
+        
+        for(Object obj : list)
+            count++;
+        
+        System.out.println("The total items in the object list is: " + count);
     }
     
     private enum ItemList {
