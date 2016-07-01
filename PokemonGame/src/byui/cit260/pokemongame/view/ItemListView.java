@@ -135,7 +135,36 @@ public boolean doAction(String menuOption) {
            }
            }
     
+        System.out.println("How man items do you think you will receive in this game?");
+        int selection = getInt();
+        System.out.println(" Jokes on you, you will only get 5 items total... sorry.");
+        
         }
+    
+    public int getInt(){
+        
+        
+       
+        
+        int number = 0;
+        
+        while(number == 0) {
+            String value = this.getInput();
+            value = value.trim().toUpperCase();
+
+        if (value.equals("Q")) 
+            break;
+        try {
+        number = Integer.parseInt(value);
+        }
+        catch(NumberFormatException nf) {
+            System.out.print("\n Please enter a valid number. Try again or press Q to quit.");
+        }
+        }
+        
+        
+        return number;
+    }
 }
     
 

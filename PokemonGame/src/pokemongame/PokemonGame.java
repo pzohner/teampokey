@@ -57,35 +57,37 @@ public class PokemonGame {
     public static void main(String[] args) {
         
         
-       int testValue = 5;
+//       int testValue = 5;
+//       
+//       if (testValue == 5) {
+//           
+//           System.out.println("Hey, if testValue = 5");
+//       }
+//       else if (testValue == 6) {
+//           
+//           System.out.println("testValue = 6");
+//           
+//       }
+//       else if (testValue == 7) {
+//           
+//           System.out.println("testValue = 7");
+//       }
+//       else {
+//           
+//           System.out.println("the else statement ran");
+//       }
        
-       if (testValue == 5) {
-           
-           System.out.println("Hey, if testValue = 5");
+          StartProgramView testView = new StartProgramView();  
+       
+        try {
+           testView.displayStartProgramView();
+        }
+       catch (Throwable te) {
+           System.out.println(te.getMessage());
+           te.printStackTrace();
+           testView.displayStartProgramView();
        }
-       else if (testValue == 6) {
-           
-           System.out.println("testValue = 6");
-           
-       }
-       else if (testValue == 7) {
-           
-           System.out.println("testValue = 7");
-       }
-       else {
-           
-           System.out.println("the else statement ran");
-       }
        
-       
-       
-       
-       
-       
-       
-       
-       StartProgramView testView = new StartProgramView();
-       testView.displayStartProgramView();
        
        
       
