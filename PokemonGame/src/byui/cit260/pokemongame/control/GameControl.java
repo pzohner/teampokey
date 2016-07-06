@@ -54,7 +54,6 @@ public class GameControl {
         
         
         PokemonGame.setCurrentGame(game);
-        
         game.setPlayer(player);
         
         Character[] character = GameControl.createCharacters();
@@ -66,6 +65,7 @@ public class GameControl {
           Pokemon[] pokemon = GameControl.createPokemon();
           Character[] characterWithList = game.getCharacter();
           characterWithList[1].setPokemon(pokemon);
+          
           //Character[] characterWithList = game.getCharacter();
         
         

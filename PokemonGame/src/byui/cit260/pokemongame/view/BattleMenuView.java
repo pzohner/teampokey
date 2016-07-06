@@ -52,7 +52,11 @@ public class BattleMenuView extends View {
     }
 
     private void attack() {
-        System.out.println("the Attack function was called");
+        
+        
+//        try {
+//            BattleControl.attack()
+//        }
     }
 
     private void throwPokeball() {

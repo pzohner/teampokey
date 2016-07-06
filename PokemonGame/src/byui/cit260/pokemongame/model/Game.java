@@ -12,6 +12,7 @@ import java.util.Objects;
  *
  * @author porterzohner
  */
+
 public class Game implements Serializable {
     
     private String characterOnField;

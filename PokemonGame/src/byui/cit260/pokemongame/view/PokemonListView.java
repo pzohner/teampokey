@@ -5,7 +5,9 @@
  */
 package byui.cit260.pokemongame.view;
 
+import byui.cit260.pokemongame.model.Game;
 import java.util.Scanner;
+import pokemongame.PokemonGame;
 
 /**
  *
@@ -39,6 +41,7 @@ public class PokemonListView extends View {
         switch (input) {
             case "P":
                 System.out.println("\n*** Youve selected Pikachu");
+               this.pikachuSelect();
                this.displayBattleMenu();
                 break;
             case "R":
@@ -73,6 +76,14 @@ public class PokemonListView extends View {
     private void displayBattleMenu() {
         BattleMenuView battleMenu = new BattleMenuView();
         battleMenu.display();
+    }
+
+    private void pikachuSelect() {
+        
+        //Game game = PokemonGame.getCurrentGame();
+        
+        
+        
     }
     
 }

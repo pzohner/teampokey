@@ -5,6 +5,7 @@
  */
 package byui.cit260.pokemongame.control;
 
+import byui.cit260.pokemongame.exception.BattleControlException;
 import byui.cit260.pokemongame.model.Pokemon;
 import byui.cit260.pokemongame.model.Potion;
 import java.util.Random;
@@ -15,16 +16,16 @@ import java.util.Random;
  */
 public class BattleControl {
 
-    public int attack(Pokemon pokemonAttacker, Pokemon pokemonDefender) {
+    public int attack(Pokemon pokemonAttacker, Pokemon pokemonDefender) throws BattleControlException {
 
         if (pokemonAttacker.getStrength() < 10 || pokemonAttacker.getStrength() > 35) {
-            return -1;
+            throw new BattleControlException("Pokemon strength is invalid");
         }
         if (pokemonDefender.getDefense() < 1 || pokemonDefender.getDefense() > 10) {
-            return -1;
+            throw new BattleControlException("Pokemon defense is invalid ");
         }
         if (pokemonDefender.getHealth() > 100) {
-            return -1;
+            throw new BattleControlException("Pokemon health is above 100");
         }
         
         Random rand = new Random();
@@ -35,18 +36,20 @@ public class BattleControl {
         pokemonDefender.setHealth(finalHealth);
 
         return 0;
+        
     }
 
-    public int usePotion(Potion potion, Pokemon pokemonHealed) {
+    public int usePotion(Potion potion, Pokemon pokemonHealed) throws BattleControlException {
 
         if (potion.getHealPower() < 1 || potion.getHealPower() > 50) {
 
-            return -1;
+            throw new BattleControlException("Potion Heal Power is invalid");
         }
 
         if (pokemonHealed.getHealth() > 100) {
-
-            return -1;
+            
+            throw new BattleControlException("Pokemon health after heal is over 100");
+     
         }
 
         Random rand = new Random();
@@ -65,22 +68,23 @@ public class BattleControl {
 
     }
 
-    public int captureSuccess (Pokemon captured){
+    public int captureSuccess (Pokemon captured) throws BattleControlException {
             
-            if (captured.getHealth()<0 || captured.getHealth() >100) {
-            
-                return -1; 
+            if (captured.getHealth() < 0 || captured.getHealth() > 100) {
+                
+                throw new BattleControlException("Pokemon captured health is invalid");
+                    
             } 
       
      Random rand = new Random();
      int randomValue = rand.nextInt(25) + 1;       
         
-        if (captured.getHealth() + randomValue <50) {
+        if (captured.getHealth() + randomValue < 50) {
             return 0;
         }
         
         else {
-            return 1;
+            throw new BattleControlException("Pokemon Cannot be captured");
         }
         }
     
