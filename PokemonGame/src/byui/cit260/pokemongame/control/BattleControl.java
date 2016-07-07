@@ -16,16 +16,16 @@ import java.util.Random;
  */
 public class BattleControl {
 
-    public int attack(Pokemon pokemonAttacker, Pokemon pokemonDefender) throws BattleControlException {
+    public static void attack(Pokemon pokemonAttacker, Pokemon pokemonDefender) throws BattleControlException {
 
         if (pokemonAttacker.getStrength() < 10 || pokemonAttacker.getStrength() > 35) {
-            throw new BattleControlException("Pokemon strength is invalid");
+            throw new BattleControlException("ERROR - Pokemon strength is invalid");
         }
         if (pokemonDefender.getDefense() < 1 || pokemonDefender.getDefense() > 10) {
-            throw new BattleControlException("Pokemon defense is invalid ");
+            throw new BattleControlException("ERROR - Pokemon defense is invalid ");
         }
         if (pokemonDefender.getHealth() > 100) {
-            throw new BattleControlException("Pokemon health is above 100");
+            throw new BattleControlException("ERROR - Pokemon health is above 100");
         }
         
         Random rand = new Random();
@@ -35,7 +35,7 @@ public class BattleControl {
         int finalHealth = pokemonDefender.getHealth() - damageDealt;
         pokemonDefender.setHealth(finalHealth);
 
-        return 0;
+        
         
     }
 
