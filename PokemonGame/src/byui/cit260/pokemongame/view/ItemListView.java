@@ -143,9 +143,6 @@ public boolean doAction(String menuOption) {
     
     public int getInt(){
         
-        
-       
-        
         int number = 0;
         
         while(number == 0) {

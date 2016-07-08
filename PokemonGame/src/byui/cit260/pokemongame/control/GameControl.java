@@ -6,6 +6,7 @@
 package byui.cit260.pokemongame.control;
 
 import byui.cit260.pokemongame.control.MapControl.SceneType;
+import byui.cit260.pokemongame.exception.GameControlException;
 import byui.cit260.pokemongame.exception.MapControlException;
 import byui.cit260.pokemongame.model.Game;
 import byui.cit260.pokemongame.model.Item;
@@ -43,9 +44,9 @@ public class GameControl {
         return player;
    
     }
-
+///START SAV"S Propagating///
     public static void createNewGame(Player player) 
-    throws MapControlException {
+        throws MapControlException,GameControlException {
           
         Game game = new Game();
         //Character character = new Character();
@@ -61,11 +62,19 @@ public class GameControl {
         game.setCharacter(character);
         
         
-               
+             
+             
         // create the pokemon
           Pokemon[] pokemon = GameControl.createPokemon();
           Character[] characterWithList = game.getCharacter();
+          if (characterWithList == null) { 
+          
+              throw new GameControlException("You can't do that ") ; 
+          }  
           characterWithList[1].setPokemon(pokemon);
+          
+          
+          
           //Character[] characterWithList = game.getCharacter();
         
         
@@ -131,7 +140,7 @@ public class GameControl {
 
     public static Character[] createCharacters() {
         
-        Character[] character = new Character[2];
+       Character[] character = new Character[2];
         Location[][] startingLocation = new Location[0][0];
         Location[][] bossLocation = new Location[4][4];
         ArrayList<Object> ashItemList = createItemList(); //Changed this to actually populate list.

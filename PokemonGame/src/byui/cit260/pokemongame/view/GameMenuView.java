@@ -8,6 +8,7 @@ package byui.cit260.pokemongame.view;
 import byui.cit260.pokemongame.control.GameControl;
 import byui.cit260.pokemongame.control.MapControl;
 import byui.cit260.pokemongame.control.MapControl.SceneType;
+import byui.cit260.pokemongame.exception.GameControlException;
 import byui.cit260.pokemongame.model.Game;
 import byui.cit260.pokemongame.model.Location;
 import byui.cit260.pokemongame.model.Map;
@@ -23,7 +24,7 @@ import byui.cit260.pokemongame.model.Character;
 public class GameMenuView extends View {
 
     
-    public GameMenuView() {
+    public GameMenuView()  {
         
         super("\n"
                 + "\n--------------------------------------------"

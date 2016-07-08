@@ -6,8 +6,11 @@
 package byui.cit260.pokemongame.view;
 
 import byui.cit260.pokemongame.control.GameControl;
+import byui.cit260.pokemongame.exception.GameControlException;
 import byui.cit260.pokemongame.exception.MapControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pokemongame.PokemonGame;
 
 /**
@@ -39,7 +42,13 @@ public class MainMenuView extends View {
         
         switch (choice) {
             case "N":
+        {
+//            try {
                 this.startNewGame();
+//            } catch (GameControlException ex) {
+//                Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+        }
                 break;
             case "G":
                 this.startExistingGame();
@@ -58,14 +67,16 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startNewGame() {
-        
+    private void startNewGame()  { 
         try { 
            GameControl.createNewGame(PokemonGame.getPlayer());
-       } catch (MapControlException me) {
+       } catch (GameControlException me) {
            System.out.println(me.getMessage()); 
        }
-        
+        catch (MapControlException mce) {
+            System.out.println(mce.getMessage());
+        }
+           
         GameMenuView gameMenu = new GameMenuView();
         
         gameMenu.display();
