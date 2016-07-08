@@ -53,12 +53,40 @@ public void usePotion(){
 }
 
 public void useSuperPotion()
-{       System.out.println("use the super potion, method being called");
+{       
+ 
+    System.out.println("How many Super Potions do you think you're going to get?");
+    double SuperPotion = getDoubleNumber();
+    
+    if (SuperPotion < 5) 
+     System.out.print("You're not allowed a super potion unless you're a real witch"); 
+
 }
 
-public void useBack()
-{       System.out.println("use the Back, method being called"); 
-}
+public Double getDoubleNumber() {
+    
+    Double number = null;
+        
+        while(number == null) {
+            String value = this.getInput();
+            value = value.trim().toUpperCase();
+
+        if (value.equals("Q")) 
+            break;
+        try {
+        number = Double.parseDouble(value);
+        }
+        catch(NumberFormatException nf) {
+            System.out.print("\n You're not allowed a super potion unless you're a real witch");
+        }
+        }
+        
+        return number;
+    }
+
+public void useBack() {       
+    System.out.println("use the Back, method being called"); 
+        }
 };
 
 
