@@ -74,7 +74,7 @@ public class GameControl {
           characterWithList[1].setPokemon(pokemon);
           
           
-          
+
           //Character[] characterWithList = game.getCharacter();
         
         
@@ -101,7 +101,7 @@ public class GameControl {
         Pokemon spearow   = new Pokemon("Spearow"  , 27, 4,  50); 
         Pokemon charizard = new Pokemon("Charizard", 30, 7,  85);
         Pokemon gayardos  = new Pokemon("Gayardos" , 32, 8,  90);
-        Pokemon mewTwo    = new Pokemon("MewTwo"   , 35, 10, 100);
+        Pokemon mewTwo    = new Pokemon("MewTwo"   , 35, 10, 101);
         
         pokemon[5] = pikachu;
         pokemon[4] = rattata;
