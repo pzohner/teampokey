@@ -159,10 +159,7 @@ public class GameMenuView extends View {
             System.out.println(sortedList[i].getName());
             
         }
-        
-       
-        
-        
+         
     }
     
     private void displayAveragedPokemonHealth() {
