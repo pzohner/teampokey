@@ -55,7 +55,6 @@ public class GameControl {
         
         
         PokemonGame.setCurrentGame(game);
-        
         game.setPlayer(player);
         
         Character[] character = GameControl.createCharacters();
