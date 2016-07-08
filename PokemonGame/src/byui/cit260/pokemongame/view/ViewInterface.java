@@ -5,6 +5,8 @@
  */
 package byui.cit260.pokemongame.view;
 
+import byui.cit260.pokemongame.exception.MapControlException;
+
 /**
  *
  * @author porterzohner

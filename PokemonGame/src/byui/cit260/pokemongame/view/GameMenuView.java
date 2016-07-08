@@ -9,6 +9,7 @@ import byui.cit260.pokemongame.control.GameControl;
 import byui.cit260.pokemongame.control.MapControl;
 import byui.cit260.pokemongame.control.MapControl.SceneType;
 import byui.cit260.pokemongame.exception.GameControlException;
+import byui.cit260.pokemongame.exception.MapControlException;
 import byui.cit260.pokemongame.model.Game;
 import byui.cit260.pokemongame.model.Location;
 import byui.cit260.pokemongame.model.Map;
@@ -33,6 +34,7 @@ public class GameMenuView extends View {
                 + "\n V - View Map"
                 + "\n L - Item list"
                 + "\n P - Pokemon list"
+                + "\n HM - Healing Menu"
                 + "\n E - Explore Square"
                 + "\n S - Save Game"
                 + "\n H - Help Menu"
@@ -62,6 +64,9 @@ public class GameMenuView extends View {
             case"S":
                 this.saveGame();
                 break;
+            case "HM":
+                this.displayHealingMenu();
+                break;
             case"H":
                 this.displayHelpMenu();
                 break;
@@ -90,6 +95,7 @@ public class GameMenuView extends View {
         map = game.getMap();
         
         Location[][] locations = map.getMapLocations();
+        
         
         System.out.println(" --- MAP --- ");
         
@@ -171,6 +177,13 @@ public class GameMenuView extends View {
         average = GameControl.getAveragePokemonHealthValues(list);
         
         System.out.println("The average health of the Pokemon is: " + average);
+        
+    }
+
+    private void displayHealingMenu() {
+        
+        HealingMenuView healingMenuView = new HealingMenuView();
+        healingMenuView.display();
         
     }
     

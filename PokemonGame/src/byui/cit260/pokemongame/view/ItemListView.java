@@ -137,8 +137,17 @@ public boolean doAction(String menuOption) {
     
         System.out.println("How man items do you think you will receive in this game?");
         int selection = getInt();
-        System.out.println(" Jokes on you, you will only get 5 items total... sorry.");
         
+        if (selection > 5) {
+        System.out.println(" Jokes on you, you will only get 5 items total... sorry.");
+        }
+        else if (selection == 5) {
+            System.out.println("Hey you guessed right! you will get 5 items");
+        }
+        else {
+            System.out.println("Hey you guessed right! you will get 5 items");
+            
+        }
         }
     
     public int getInt(){

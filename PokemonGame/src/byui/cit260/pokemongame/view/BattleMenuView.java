@@ -6,6 +6,11 @@
 package byui.cit260.pokemongame.view;
 
 import byui.cit260.pokemongame.control.BattleControl;
+import byui.cit260.pokemongame.exception.BattleControlException;
+import byui.cit260.pokemongame.model.Game;
+import byui.cit260.pokemongame.model.Character;
+import byui.cit260.pokemongame.model.Pokemon;
+import pokemongame.PokemonGame;
 
 /**
  *
@@ -52,7 +57,26 @@ public class BattleMenuView extends View {
     }
 
     private void attack() {
-        System.out.println("the Attack function was called");
+        
+        Game game = PokemonGame.getCurrentGame();
+        Character[] character = game.getCharacter();
+        Pokemon[] pokemonList = character[1].getPokemon();
+             
+        
+        try {
+            
+            BattleControl.attack(pokemonList[5], pokemonList[0]);
+                    
+        } catch (BattleControlException bce) {
+            
+            System.out.println(bce.getMessage());
+            
+        }
+        
+        for (Pokemon pokemon: pokemonList) {
+            System.out.println(pokemon.getName() + "-----" + pokemon.getHealth());
+        }
+        
     }
 
     private void throwPokeball() {

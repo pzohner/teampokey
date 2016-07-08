@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author porterzohner
  */
-public class StartProgramView {
+public class StartProgramView extends View{
     
     private String promptMessage;
     
@@ -94,7 +94,8 @@ public class StartProgramView {
      return value;   
 }
 
-    private boolean doAction(String playersName) {
+    @Override
+    public boolean doAction(String playersName) {
       
         
         if (playersName.length() < 2) {
@@ -125,11 +126,60 @@ public class StartProgramView {
                          + "\n We hope you have a lot of fun!"
                          + "\n======================================");
        
+        getAge();
+        
                 //create mainmenu object
                 MainMenuView mainMenuView = new MainMenuView(); 
                 
                 //display main menu view
                 mainMenuView.display();
+                
+            
     }
+
+    private void getAge() {
+
+        System.out.println("How old are you? ");
+        int selection = getInt();
+        
+        if (selection > 30) {
+            System.out.println("Maybe you should find something better to do with your time...");
+        }
+        else if (selection < 13) {
+            System.out.println("Enjoy the game youngster!");
+        }
+        else {
+            System.out.println("Thank you for your age");
+            
+        }
+        }
+    
+    public int getInt(){
+        
+        int number = 0;
+        
+        while(number == 0) {
+            String value = this.getInput();
+            value = value.trim().toUpperCase();
+
+        if (value.equals("Q")) 
+            break;
+        try {
+        number = Integer.parseInt(value);
+        }
+        catch(NumberFormatException nf) {
+            System.out.print("\n Please enter a valid number. Try again or press Q to quit.");
+        }
+        }
+        
+        
+        return number;
+    }
+
 }
+
+       
+    
+    
+
 

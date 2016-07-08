@@ -24,6 +24,8 @@ public class Character implements Serializable {
     private Pokemon[] pokemon;
     private ArrayList<Object> itemList;
     private Location[][] location;
+    private Pokemon selectedPokemonAttacker;
+    private Pokemon selectedPokemonDefender;
     
     public Character() {
         
