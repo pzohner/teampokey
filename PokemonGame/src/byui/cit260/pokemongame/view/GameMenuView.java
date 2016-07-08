@@ -33,6 +33,7 @@ public class GameMenuView extends View {
                 + "\n V - View Map"
                 + "\n L - Item list"
                 + "\n P - Pokemon list"
+                + "\n HM - Healing Menu"
                 + "\n E - Explore Square"
                 + "\n S - Save Game"
                 + "\n H - Help Menu"
@@ -61,6 +62,9 @@ public class GameMenuView extends View {
                 break;
             case"S":
                 this.saveGame();
+                break;
+            case "HM":
+                this.displayHealingMenu();
                 break;
             case"H":
                 this.displayHelpMenu();
@@ -172,6 +176,13 @@ public class GameMenuView extends View {
         average = GameControl.getAveragePokemonHealthValues(list);
         
         System.out.println("The average health of the Pokemon is: " + average);
+        
+    }
+
+    private void displayHealingMenu() {
+        
+        HealingMenuView healingMenuView = new HealingMenuView();
+        healingMenuView.display();
         
     }
     
