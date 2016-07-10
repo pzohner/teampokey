@@ -58,17 +58,17 @@ public boolean doAction(String menuOption) {
     }
 
     private void mapMoveNorth() {
-      System.out.println("\nMN *** moveNorth() function called"); 
+      this.console.println("\nMN *** moveNorth() function called"); 
     }
     private void mapMoveSouth() {
-       System.out.println("\nMS *** moveSouth() function called"); 
+      this.console.println("\nMS *** moveSouth() function called"); 
     }
 
     private void mapMoveEast() {
-        System.out.println("\nME *** moveEast() function called"); 
+        this.console.println("\nME *** moveEast() function called"); 
     }
 
     private void mapMoveWest() {
-        System.out.println("\nMW *** moveWest() function called"); 
+        this.console.println("\nMW *** moveWest() function called"); 
     }
    }

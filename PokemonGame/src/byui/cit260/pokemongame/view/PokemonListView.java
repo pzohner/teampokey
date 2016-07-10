@@ -40,32 +40,32 @@ public class PokemonListView extends View {
         
         switch (input) {
             case "P":
-                System.out.println("\n*** Youve selected Pikachu");
+                this.console.println("\n*** Youve selected Pikachu");
                this.pikachuSelect();
                this.displayBattleMenu();
                 break;
             case "R":
-                System.out.println("\n*** Youve selected Rattata");
+                this.console.println("\n*** Youve selected Rattata");
                this.displayBattleMenu();
                 break;
             case "S":
-                System.out.println("\n*** You've selected Spearow");
+                this.console.println("\n*** You've selected Spearow");
                 this.displayBattleMenu();
                 break;
             case "C":
-                System.out.println("\n*** You've selected Charizard");
+                this.console.println("\n*** You've selected Charizard");
                 this.displayBattleMenu();
                 break;
             case "G":
-                System.out.println("\n*** You've selected Gayardos");
+               this.console.println("\n*** You've selected Gayardos");
                 this.displayBattleMenu();
                 break;
             case "M":
-                System.out.println("\n*** You've selected Mewtwo");
+                this.console.println("\n*** You've selected Mewtwo");
                 this.displayBattleMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+               this.console.println("\n*** Invalid selection *** Try again");
                 this.displayBattleMenu();
                 break;
             

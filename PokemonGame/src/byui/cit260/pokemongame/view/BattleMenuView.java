@@ -80,15 +80,15 @@ public class BattleMenuView extends View {
     }
 
     private void throwPokeball() {
-        System.out.println("the throwPokeball function was called");
+        this.console.println("the throwPokeball function was called");
     }
 
     private void useItem() {
-        System.out.println("the useItem function was called");
+        this.console.println("the useItem function was called");
     }
 
     private void runaway() {
-        System.out.println("the runaway function was called");
+        this.console.println("the runaway function was called");
     }
     
     

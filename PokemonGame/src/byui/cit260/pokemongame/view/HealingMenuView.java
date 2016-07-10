@@ -55,11 +55,11 @@ public void usePotion(){
 public void useSuperPotion()
 {       
  
-    System.out.println("How many Super Potions do you think you're going to get?");
+    this.console.println("How many Super Potions do you think you're going to get?");
     double SuperPotion = getDoubleNumber();
     
     if (SuperPotion < 5) 
-     System.out.print("You're not allowed a super potion unless you're a real witch"); 
+     this.console.print("You're not allowed a super potion unless you're a real witch"); 
 
 }
 
@@ -77,7 +77,7 @@ public Double getDoubleNumber() {
         number = Double.parseDouble(value);
         }
         catch(NumberFormatException nf) {
-            System.out.print("\n You're not allowed a super potion unless you're a real witch");
+           this.console.print("\n You're not allowed a super potion unless you're a real witch");
         }
         }
         
@@ -85,7 +85,7 @@ public Double getDoubleNumber() {
     }
 
 public void useBack() {       
-    System.out.println("use the Back, method being called"); 
+    this.console.println("use the Back, method being called"); 
         }
 };
 

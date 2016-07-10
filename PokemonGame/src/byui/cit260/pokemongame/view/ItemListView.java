@@ -73,23 +73,23 @@ public boolean doAction(String menuOption) {
     }
 
     private void itemNumberOfPokeballs() {
-       System.out.println("\n#P *** itemNumberOfPokeballs() function called");
+       this.console.println("\n#P *** itemNumberOfPokeballs() function called");
     }
 
     private void itemNumberOfPotions() {
-       System.out.println("\n#PO *** itemNumberOfPotions() function called");
+       this.console.println("\n#PO *** itemNumberOfPotions() function called");
     }
 
     private void itemNumberOfSuperPotions() {
-       System.out.println("\n#SP *** itemNumberOfSuperPotions() function called"); 
+       this.console.println("\n#SP *** itemNumberOfSuperPotions() function called"); 
     }
 
     private void itemNumberOfAntidotes() {
-        System.out.println("\n#A *** itemNumberOfAntidotes() function called");
+        this.console.println("\n#A *** itemNumberOfAntidotes() function called");
     }
 
     private void useItem() {
-       System.out.println("\nU *** useItem() function called");
+       this.console.println("\nU *** useItem() function called");
                HealingMenuView healingMenu = new HealingMenuView(); 
                
                healingMenu.display(); 
@@ -105,7 +105,7 @@ public boolean doAction(String menuOption) {
     }
 
     private void itemNumberOfMasterBalls() {
-        System.out.println("\n *** itemNumberOfMasterBalls () function called");
+        this.console.println("\n *** itemNumberOfMasterBalls () function called");
     }
 
     private void viewCurrentItemList() {
@@ -116,36 +116,36 @@ public boolean doAction(String menuOption) {
         ArrayList<Object> itemList = Item.getTotalItemList(); // in order for this to work, I had to 
                                                               // change the item model layer class
                                                               // getTotalItemList to static
-        System.out.println("\n  List of Items");
+        this.console.println("\n  List of Items");
         line = new StringBuilder("                                          ");
         line.insert(0, "Description");
         line.insert(20, "SuperPotion");
         line.insert(30, "MasterPokeball");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         for (Object item: itemList) {
            line = new StringBuilder("                                      ");
             if (item.getClass() == Pokeball.class) {
                Pokeball pokeball = (Pokeball) item;
-               System.out.println(pokeball.getDescription());
+               this.console.println(pokeball.getDescription());
            }
            if (item.getClass() == Potion.class) {
                Potion potion = (Potion) item;
-               System.out.println(potion.getDescription());
+               this.console.println(potion.getDescription());
            }
            }
     
-        System.out.println("How man items do you think you will receive in this game?");
+        this.console.println("How man items do you think you will receive in this game?");
         int selection = getInt();
         
         if (selection > 5) {
-        System.out.println(" Jokes on you, you will only get 5 items total... sorry.");
+        this.console.println(" Jokes on you, you will only get 5 items total... sorry.");
         }
         else if (selection == 5) {
-            System.out.println("Hey you guessed right! you will get 5 items");
+            this.console.println("Hey you guessed right! you will get 5 items");
         }
         else {
-            System.out.println("Hey you guessed right! you will get 5 items");
+           this.console.println("Hey you guessed right! you will get 5 items");
             
         }
         }
@@ -164,7 +164,7 @@ public boolean doAction(String menuOption) {
         number = Integer.parseInt(value);
         }
         catch(NumberFormatException nf) {
-            System.out.print("\n Please enter a valid number. Try again or press Q to quit.");
+            this.console.print("\n Please enter a valid number. Try again or press Q to quit.");
         }
         }
         

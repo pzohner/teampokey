@@ -86,7 +86,7 @@ public class StartProgramView extends View{
             
         while(!valid) {
             
-                System.out.println("\n" + this.promptMessage);
+                this.console.println("\n" + this.promptMessage);
                 
                 value = keyboard.readLine();
                 value = value.trim();
@@ -131,7 +131,7 @@ public class StartProgramView extends View{
 
     private void displayNextView(Player player) {
         
-        System.out.println("\n======================================"
+        this.console.println("\n======================================"
                          + "\n Welcome to the game " + player.getName() 
                          + "\n We hope you have a lot of fun!"
                          + "\n======================================");
@@ -149,17 +149,17 @@ public class StartProgramView extends View{
 
     private void getAge() {
 
-        System.out.println("How old are you? ");
+        this.console.println("How old are you? ");
         int selection = getInt();
         
         if (selection > 30) {
-            System.out.println("Maybe you should find something better to do with your time...");
+            this.console.println("Maybe you should find something better to do with your time...");
         }
         else if (selection < 13) {
-            System.out.println("Enjoy the game youngster!");
+            this.console.println("Enjoy the game youngster!");
         }
         else {
-            System.out.println("Thank you for your age");
+            this.console.println("Thank you for your age");
             
         }
         }
