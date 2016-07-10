@@ -7,7 +7,10 @@ package byui.cit260.pokemongame.view;
 
 import byui.cit260.pokemongame.control.GameControl;
 import byui.cit260.pokemongame.model.Player;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -75,21 +78,28 @@ public class StartProgramView extends View{
     private String getPlayerName() {
         
         
-        Scanner keyboard = new Scanner(System.in);
+        
         String value = "";
         boolean valid = false;
         
+        try {
+            
         while(!valid) {
-            System.out.println("\n" + this.promptMessage);
-        
-        value = keyboard.nextLine();
-        value = value.trim();
-        
-        if(value.length() < 1) {
-            System.out.println("\n Invalid value: value cannot be blank");
-            continue;         
-        }
-       break;
+            
+                System.out.println("\n" + this.promptMessage);
+                
+                value = keyboard.readLine();
+                value = value.trim();
+                
+                if(value.length() < 1) {
+                    System.out.println("\n Invalid value: value cannot be blank");
+                    continue;
+                }
+                break;
+            } 
+        } catch (IOException e) {
+                System.out.println("Error reading input" + e.getMessage());
+            
     }
      return value;   
 }

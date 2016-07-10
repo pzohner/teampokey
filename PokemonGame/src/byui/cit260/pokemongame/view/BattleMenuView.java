@@ -49,7 +49,7 @@ public class BattleMenuView extends View {
                 this.runaway();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
             
         }
@@ -69,12 +69,12 @@ public class BattleMenuView extends View {
                     
         } catch (BattleControlException bce) {
             
-            System.out.println(bce.getMessage());
+            this.console.println(bce.getMessage());
             
         }
         
         for (Pokemon pokemon: pokemonList) {
-            System.out.println(pokemon.getName() + "-----" + pokemon.getHealth());
+            this.console.println(pokemon.getName() + "-----" + pokemon.getHealth());
         }
         
     }
