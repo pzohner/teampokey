@@ -65,7 +65,7 @@ public class PokemonListView extends View {
                 this.displayBattleMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display("\n*** Invalid selection *** Try again");
                 this.displayBattleMenu();
                 break;
             

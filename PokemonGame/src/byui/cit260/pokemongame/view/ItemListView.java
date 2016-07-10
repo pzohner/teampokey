@@ -139,7 +139,7 @@ public boolean doAction(String menuOption) {
         int selection = getInt();
         
         if (selection > 5) {
-        System.out.println(" Jokes on you, you will only get 5 items total... sorry.");
+        //ErrorView.display System.out.println(" Jokes on you, you will only get 5 items total... sorry.");
         }
         else if (selection == 5) {
             System.out.println("Hey you guessed right! you will get 5 items");
@@ -164,7 +164,7 @@ public boolean doAction(String menuOption) {
         number = Integer.parseInt(value);
         }
         catch(NumberFormatException nf) {
-            System.out.print("\n Please enter a valid number. Try again or press Q to quit.");
+            ErrorView.display("\n Please enter a valid number. Try again or press Q to quit.");
         }
         }
         

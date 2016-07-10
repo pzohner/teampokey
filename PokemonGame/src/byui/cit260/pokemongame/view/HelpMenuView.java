@@ -41,7 +41,7 @@ public class HelpMenuView extends View {
                 this.displayHowToMoveView();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display("\n*** Invalid selection *** Try again");
                 break;
             
         }

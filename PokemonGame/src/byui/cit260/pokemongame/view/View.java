@@ -64,7 +64,7 @@ public abstract class View implements ViewInterface {
         value = value.trim();
         
         if(value.length() < 1) {
-            System.out.println("\n Invalid value: value cannot be blank");
+           ErrorView.display("\n Invalid value: value cannot be blank");
             continue;
             
         }
