@@ -107,9 +107,10 @@ public class MainMenuView extends View {
         String filePath = this.getInput();
         
         try {
+            
             GameControl.saveGame(PokemonGame.getCurrentGame(), filePath);
             
-        }catch (Exception ex) {
+        } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
     }

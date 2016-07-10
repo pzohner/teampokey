@@ -62,18 +62,18 @@ public class StartProgramView extends View{
         
     }
 
-    public void displayStartProgramView() {
-       
-        boolean done = false;
-        do {
-            
-            String playersName = this.getPlayerName();
-            if(playersName.toUpperCase().equals("Q"))
-                return;
-            done = this.doAction(playersName);
-            
-        } while (!done);
-    }
+//    public void displayStartProgramView() {
+//       
+//        boolean done = false;
+//        do {
+//            
+//            String playersName = this.getPlayerName();
+//            if(playersName.toUpperCase().equals("Q"))
+//                return;
+//            done = this.doAction(playersName);
+//            
+//        } while (!done);
+//    }
 
     private String getPlayerName() {
         

@@ -139,12 +139,12 @@ public class PokemonGame {
           StartProgramView testView = new StartProgramView();  
        
         try {
-           testView.displayStartProgramView();
+           testView.display();
         }
        catch (Throwable te) {
            System.out.println(te.getMessage());
            te.printStackTrace();
-           testView.displayStartProgramView();
+           testView.display();
        }
        
        
