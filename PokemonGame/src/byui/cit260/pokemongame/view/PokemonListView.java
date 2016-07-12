@@ -5,6 +5,7 @@
  */
 package byui.cit260.pokemongame.view;
 
+import byui.cit260.pokemongame.control.GameControl;
 import byui.cit260.pokemongame.model.Game;
 import java.util.Scanner;
 import pokemongame.PokemonGame;
@@ -23,13 +24,14 @@ public class PokemonListView extends View {
                 + "\n--------------------------------------------"
                 + "\n| Pokemon List                             |"
                 + "\n--------------------------------------------"
-                + "\nP - Pikachu   -  40"
-                + "\nR - Rattata   -  80"
-                + "\nS - Spearow   -  20"
-                + "\nC - Charizard - 100"
-                + "\nG - Gayardos  - 100"
-                + "\nM - MewTwo    - 100"
-                + "\nQ - Quit"
+                + "\nP  - Pikachu   -  40"
+                + "\nR  - Rattata   -  80"
+                + "\nS  - Spearow   -  20"
+                + "\nC  - Charizard - 100"
+                + "\nG  - Gayardos  - 100"
+                + "\nM  - MewTwo    - 100"
+                + "\nSP - Save pokemon list to file"
+                + "\nQ  - Quit"
                 + "\n--------------------------------------------");
     }
     
@@ -64,6 +66,8 @@ public class PokemonListView extends View {
                 this.console.println("\n*** You've selected Mewtwo");
                 this.displayBattleMenu();
                 break;
+            case "SP":
+                this.savePokemonListToFile();
             default:
                this.console.println("\n*** Invalid selection *** Try again");
                 this.displayBattleMenu();
@@ -85,5 +89,28 @@ public class PokemonListView extends View {
         
         
     }
+
+    private void savePokemonListToFile() {
+          this.console.println("\n\n Enter the file path for the file where the game is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            
+            GameControl.saveGame(PokemonGame.getCurrentGame(), filePath);
+            
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+    }
     
+   // private void printPokemonListReport(Pokemon)
 }
+
+//    private void displayPokemonListFromFile() {
+//        
+//        
+//    }
+    
+    
+    
+

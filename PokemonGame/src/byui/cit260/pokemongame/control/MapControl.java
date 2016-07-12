@@ -8,7 +8,10 @@ package byui.cit260.pokemongame.control;
 import byui.cit260.pokemongame.exception.MapControlException;
 import byui.cit260.pokemongame.model.Location;
 import byui.cit260.pokemongame.model.Map;
+import byui.cit260.pokemongame.model.Pokemon;
 import byui.cit260.pokemongame.model.Scene;
+import java.awt.Point;
+import pokemongame.PokemonGame;
 
 /**
  *
@@ -82,6 +85,25 @@ public class MapControl {
         boss
     }
     
+    public static void moveCharacterToLocation(Character character, Point coordinates) 
+            throws MapControlException {
+        
+        Map map = PokemonGame.getCurrentGame().getMap();
+        
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        
+        if (newRow < 0 || newRow >= map.getNumberOfRows() ||
+            newColumn < 0 || newColumn >= map.getNumberOfColumns()) {
+            
+            throw new MapControlException("Cannot move actor to location " + coordinates.x + ", "
+                                            + coordinates.y + " because that location is outside"
+                                            + " the bounds of the map.");
+                                            
+        }
+        
+    }
+    
     private static void assignScenesToLocations(Map map, Scene[] scenes) 
                         throws MapControlException {
        
@@ -119,8 +141,53 @@ public class MapControl {
         locations[4][4].setScene(scenes[SceneType.boss.ordinal()]);
       
   
-    }           
+    }     
     
+    private static void assignPokemonToLocations(Map map, Pokemon[] pokemon) {
+        
+        Location[][] locations = map.getMapLocations();
+        
+        
+                           
+//        locations[0][0].                          
+        locations[0][1].setPokemon(pokemon[5]);
+//        locations[0][2].
+//        locations[0][3].
+//        locations[0][4].
+//        locations[1][0].
+//        locations[1][1].
+        locations[1][2].setPokemon(pokemon[4]);
+//        locations[1][3].
+//        locations[1][4].
+//        locations[2][0].
+        locations[2][1].setPokemon(pokemon[2]);
+//        locations[2][2].
+//        locations[2][3].
+//        locations[2][4].
+//        locations[3][0].
+//        locations[3][1].
+        locations[3][2].setPokemon(pokemon[1]);
+//        locations[3][3].
+//        locations[3][4].
+//        locations[4][0].
+//        locations[4][1].
+//        locations[4][2].
+//        locations[4][3].
+        locations[4][4].setPokemon(pokemon[0]);
+        
+        
+        
+    }
     
+    /*
     
+     getCoordinates of character
+      get current location of char
+      calculate coordinates of new location
+      get new location
+      remove character from old location
+      add character to new location.
+      set character's coordiante point ot new x,y
+
+    */
 }

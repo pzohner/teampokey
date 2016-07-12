@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author porterzohner
  */
-public class StartProgramView extends View{
+public class StartProgramView extends View {
     
     private String promptMessage;
     
@@ -30,6 +30,7 @@ public class StartProgramView extends View{
     }
 
     private void displayBanner() {
+        
         System.out.println(
         "\n ***************************************************************"
       + "\n This game is a text based role-playing game. In this game, you will "
@@ -62,18 +63,18 @@ public class StartProgramView extends View{
         
     }
 
-//    public void displayStartProgramView() {
-//       
-//        boolean done = false;
-//        do {
-//            
-//            String playersName = this.getPlayerName();
-//            if(playersName.toUpperCase().equals("Q"))
-//                return;
-//            done = this.doAction(playersName);
-//            
-//        } while (!done);
-//    }
+    public void displayStartProgramView() {
+       
+        boolean done = false;
+        do {
+            
+            String playersName = this.getPlayerName();
+            if(playersName.toUpperCase().equals("Q"))
+                return;
+            done = this.doAction(playersName);
+            
+        } while (!done);
+    }
 
     private String getPlayerName() {
         

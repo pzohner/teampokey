@@ -102,7 +102,7 @@ public class PokemonGame {
             PokemonGame.logFile = new PrintWriter(filePath);
             
             StartProgramView startProgramView = new StartProgramView();
-            startProgramView.display();
+            startProgramView.displayStartProgramView();
             
             return;
         }
@@ -136,16 +136,16 @@ public class PokemonGame {
             
         }
        
-          StartProgramView testView = new StartProgramView();  
-       
-        try {
-           testView.display();
-        }
-       catch (Throwable te) {
-           System.out.println(te.getMessage());
-           te.printStackTrace();
-           testView.display();
-       }
+//          StartProgramView testView = new StartProgramView();  
+//       
+//        try {
+//           testView.display();
+//        }
+//       catch (Throwable te) {
+//           System.out.println(te.getMessage());
+//           te.printStackTrace();
+//           testView.display();
+//       }
        
        
        

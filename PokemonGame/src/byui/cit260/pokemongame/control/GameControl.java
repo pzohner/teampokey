@@ -281,6 +281,21 @@ public class GameControl {
              throw new GameControlException(e.getMessage());
          }
      }
+     
+     public static void savePokemonList(Game game, String filepath) throws GameControlException {
+         
+         
+         try (FileOutputStream fops = new FileOutputStream(filepath)) {
+             ObjectOutputStream output = new ObjectOutputStream(fops);
+             
+             output.writeObject(game);
+            
+             
+         } catch (Exception e) {
+             throw new GameControlException(e.getMessage());
+         }
+         
+     }
 }
         
 //        for (int i = 0; i < arrayToSort.length - 1; i++)

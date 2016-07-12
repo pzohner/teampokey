@@ -19,9 +19,9 @@ public class Location implements Serializable{
     private boolean visited;
     private Scene scene;
     private Pokemon pokemon;
-    private ArrayList<Character> characters;
+    private ArrayList<Character> characters = new ArrayList<>();
     
-    public Location() {
+public Location() {
     }
     
     public Location(int row, int column) {

@@ -60,6 +60,7 @@ public boolean doAction(String menuOption) {
     private void mapMoveNorth() {
       this.console.println("\nMN *** moveNorth() function called"); 
     }
+    
     private void mapMoveSouth() {
       this.console.println("\nMS *** moveSouth() function called"); 
     }
