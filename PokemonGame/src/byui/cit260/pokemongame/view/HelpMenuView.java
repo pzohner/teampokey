@@ -41,7 +41,7 @@ public class HelpMenuView extends View {
                 this.displayHowToMoveView();
                 break;
             default:
-                ErrorView.display("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
             
         }
@@ -49,11 +49,11 @@ public class HelpMenuView extends View {
     }    
 
     private void displayGoalView() {
-        System.out.println("\n The function displayGoalView was called!");
+        this.console.println("\n The function displayGoalView was called!");
     }
 
     private void displayHowToMoveView() {
-        System.out.println("\n The function displayHowToMoveView was called!");
+        this.console.println("\n The function displayHowToMoveView was called!");
     }
     
 }

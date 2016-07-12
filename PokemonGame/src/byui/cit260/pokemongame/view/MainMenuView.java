@@ -84,11 +84,35 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGame() {
-        System.out.println("\n *** startExisting() function called");
+        
+        this.console.println("\n\n Enter the file path for the file where the game is saved");
+        
+        String filePath = this.getInput();
+        
+        try {
+            
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+        
+        
     }
 
     private void saveGame() {
-        System.out.println("\n *** saveGame() function called");
+        this.console.println("\n\n Enter the file path for the file wher ethe game is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            
+            GameControl.saveGame(PokemonGame.getCurrentGame(), filePath);
+            
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void displayHelpMenu() {

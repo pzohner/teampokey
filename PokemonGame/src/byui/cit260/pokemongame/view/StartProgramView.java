@@ -7,7 +7,10 @@ package byui.cit260.pokemongame.view;
 
 import byui.cit260.pokemongame.control.GameControl;
 import byui.cit260.pokemongame.model.Player;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -59,37 +62,44 @@ public class StartProgramView extends View{
         
     }
 
-    public void displayStartProgramView() {
-       
-        boolean done = false;
-        do {
-            
-            String playersName = this.getPlayerName();
-            if(playersName.toUpperCase().equals("Q"))
-                return;
-            done = this.doAction(playersName);
-            
-        } while (!done);
-    }
+//    public void displayStartProgramView() {
+//       
+//        boolean done = false;
+//        do {
+//            
+//            String playersName = this.getPlayerName();
+//            if(playersName.toUpperCase().equals("Q"))
+//                return;
+//            done = this.doAction(playersName);
+//            
+//        } while (!done);
+//    }
 
     private String getPlayerName() {
         
         
-        Scanner keyboard = new Scanner(System.in);
+        
         String value = "";
         boolean valid = false;
         
+        try {
+            
         while(!valid) {
-            System.out.println("\n" + this.promptMessage);
-        
-        value = keyboard.nextLine();
-        value = value.trim();
-        
-        if(value.length() < 1) {
-            ErrorView.display ("\n Invalid value: value cannot be blank");
-            continue;         
-        }
-       break;
+            
+                this.console.println("\n" + this.promptMessage);
+                
+                value = keyboard.readLine();
+                value = value.trim();
+                
+                if(value.length() < 1) {
+                    System.out.println("\n Invalid value: value cannot be blank");
+                    continue;
+                }
+                break;
+            } 
+        } catch (IOException e) {
+                System.out.println("Error reading input" + e.getMessage());
+            
     }
      return value;   
 }
@@ -123,7 +133,7 @@ public class StartProgramView extends View{
 
     private void displayNextView(Player player) {
         
-        System.out.println("\n======================================"
+        this.console.println("\n======================================"
                          + "\n Welcome to the game " + player.getName() 
                          + "\n We hope you have a lot of fun!"
                          + "\n======================================");
@@ -141,17 +151,17 @@ public class StartProgramView extends View{
 ///do we do it with the ba answers that we dont want or that wont work
     private void getAge() {
 
-        System.out.println("How old are you? ");
+        this.console.println("How old are you? ");
         int selection = getInt();
         
         if (selection > 30) {
-            System.out.println("Maybe you should find something better to do with your time...");
+            this.console.println("Maybe you should find something better to do with your time...");
         }
         else if (selection < 13) {
-            System.out.println("Enjoy the game youngster!");
+            this.console.println("Enjoy the game youngster!");
         }
         else {
-            System.out.println("Thank you for your age");
+            this.console.println("Thank you for your age");
             
         }
         }

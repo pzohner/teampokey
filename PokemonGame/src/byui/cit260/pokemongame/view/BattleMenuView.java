@@ -69,26 +69,26 @@ public class BattleMenuView extends View {
                     
         } catch (BattleControlException bce) {
             
-            System.out.println(bce.getMessage());
+            this.console.println(bce.getMessage());
             
         }
         
         for (Pokemon pokemon: pokemonList) {
-            System.out.println(pokemon.getName() + "-----" + pokemon.getHealth());
+            this.console.println(pokemon.getName() + "-----" + pokemon.getHealth());
         }
         
     }
 
     private void throwPokeball() {
-        System.out.println("the throwPokeball function was called");
+        this.console.println("the throwPokeball function was called");
     }
 
     private void useItem() {
-        System.out.println("the useItem function was called");
+        this.console.println("the useItem function was called");
     }
 
     private void runaway() {
-        System.out.println("the runaway function was called");
+        this.console.println("the runaway function was called");
     }
     
     

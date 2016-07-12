@@ -55,11 +55,12 @@ public void usePotion(){
 public void useSuperPotion()
 {       
  
-    System.out.println("How many Super Potions do you think you're going to get?");
+    this.console.println("How many Super Potions do you think you're going to get?");
     double SuperPotion = getDoubleNumber();
     
     if (SuperPotion < 5) 
      ErrorView.display("You're not allowed a super potion unless you're a real witch"); 
+     
 
 }
 
@@ -77,17 +78,18 @@ public Double getDoubleNumber() {
         number = Double.parseDouble(value);
         }
         catch(NumberFormatException nf) {
-            ErrorView.display ("\n You're not allowed a super potion unless you're a real witch");
-        }
-        }
-        
-        return number;
-    }
 
-public void useBack() {       
-    System.out.println("use the Back, method being called"); 
-        }
-};
+            ErrorView.display ("\n You're not allowed a super potion unless you're a real witch");
+
+            }
+        }  
+        return number;        
+
+  }
+      public void useBack() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      } 
+}
 
 
  

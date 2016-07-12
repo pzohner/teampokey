@@ -18,6 +18,12 @@ import byui.cit260.pokemongame.model.Potion;
 import byui.cit260.pokemongame.model.Scene;
 import byui.cit260.pokemongame.view.StartProgramView;
 import java.awt.Point; 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -29,7 +35,11 @@ public class PokemonGame {
     
     private static Game currentGame = null;
     private static Player player = null;
-
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null; 
+        
     public static Game getCurrentGame() {
         return currentGame;
     }
@@ -45,6 +55,32 @@ public class PokemonGame {
     public static void setPlayer(Player player) {
         PokemonGame.player = player;
     }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        PokemonGame.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        PokemonGame.inFile = inFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        PokemonGame.logFile = logFile;
+    }
+    
+    
     
     public int examplePassByValue(int value) {
         
@@ -55,37 +91,60 @@ public class PokemonGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        
-//       int testValue = 5;
-//       
-//       if (testValue == 5) {
-//           
-//           System.out.println("Hey, if testValue = 5");
-//       }
-//       else if (testValue == 6) {
-//           
-//           System.out.println("testValue = 6");
-//           
-//       }
-//       else if (testValue == 7) {
-//           
-//           System.out.println("testValue = 7");
-//       }
-//       else {
-//           
-//           System.out.println("the else statement ran");
-//       }
+       
+        try {
+            
+            PokemonGame.inFile = new BufferedReader(new InputStreamReader(System.in));
+            
+            PokemonGame.outFile = new PrintWriter(System.out, true);
+         
+            String filePath = "log.txt";
+            PokemonGame.logFile = new PrintWriter(filePath);
+            
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.display();
+            
+            return;
+        }
+        catch (Throwable e) {
+            
+            System.out.println("Exception: " + e.toString() + "\nCause: " 
+                                             + e.getCause() + "\n Message: " 
+                                             + e.getMessage());
+           
+            e.printStackTrace();
+            
+        } finally {
+            
+            try {
+                
+                if (PokemonGame.inFile != null)
+                    PokemonGame.inFile.close();
+                
+                if (PokemonGame.outFile != null)
+                    PokemonGame.outFile.close();
+                
+                if (PokemonGame.logFile != null)
+                    PokemonGame.logFile.close();
+                
+                
+            } catch (IOException ex) {
+                System.out.println("Error closing files");
+                return;
+            }
+            
+            
+        }
        
           StartProgramView testView = new StartProgramView();  
        
         try {
-           testView.displayStartProgramView();
+           testView.display();
         }
        catch (Throwable te) {
            System.out.println(te.getMessage());
            te.printStackTrace();
-           testView.displayStartProgramView();
+           testView.display();
        }
        
        

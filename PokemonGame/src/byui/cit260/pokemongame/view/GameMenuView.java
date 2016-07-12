@@ -97,9 +97,9 @@ public class GameMenuView extends View {
         Location[][] locations = map.getMapLocations();
         
         
-        System.out.println(" --- MAP --- ");
+        this.console.println(" --- MAP --- ");
         
-        System.out.println("      1                 2                   3                   4                   5");
+        this.console.println("      1                 2                   3                   4                   5");
         for (int row = 0; row < 5; row++)
         {
             System.out.println("\n" + row + "------------------------");
@@ -126,11 +126,11 @@ public class GameMenuView extends View {
     }
 
     private void displayExploreSquare() {
-        System.out.println("\n*** displayExploreSquare");
+        this.console.println("\n*** displayExploreSquare");
     }
 
     private void saveGame() {
-        System.out.println("\n*** saveGame");
+        this.console.println("\n*** saveGame");
     }
 
     private void displayHelpMenu() {
@@ -153,17 +153,14 @@ public class GameMenuView extends View {
         Pokemon[] sortedList = GameControl.sortPokemonListAttackValues(characterWithList[1].getPokemon());
        
         if (sortedList.length > 6) {
-            System.out.println("There are too many items in the array");
+            this.console.println("There are too many items in the array");
         }
         for (int i = 0; i < sortedList.length; i++) {
             
-            System.out.println(sortedList[i].getName());
+            this.console.println(sortedList[i].getName());
             
         }
-        
-       
-        
-        
+         
     }
     
     private void displayAveragedPokemonHealth() {
@@ -176,7 +173,7 @@ public class GameMenuView extends View {
         
         average = GameControl.getAveragePokemonHealthValues(list);
         
-        System.out.println("The average health of the Pokemon is: " + average);
+        this.console.println("The average health of the Pokemon is: " + average);
         
     }
 

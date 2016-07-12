@@ -5,7 +5,10 @@
  */
 package byui.cit260.pokemongame.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import pokemongame.PokemonGame;
 
 /**
  *
@@ -14,6 +17,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
  
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = PokemonGame.getInFile();
+    protected final PrintWriter console = PokemonGame.getOutFile();
     
     public View() {
     }
@@ -30,6 +36,7 @@ public abstract class View implements ViewInterface {
      boolean done = false;
         do {
             
+            this.console.println(this.displayMessage);
             String value = this.getInput();
             
             if(value.toUpperCase().equals("Q")) {
@@ -52,24 +59,34 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput() {
         
-        Scanner keyboard = new Scanner(System.in);
+        
         String value = "";
         boolean valid = false;
         
+        try {
+            
         while(!valid) {
             //MainMenuView mainMenuView = new MainMenuView();
             System.out.println(this.displayMessage);
         
-        value = keyboard.nextLine();
+        value = keyboard.readLine();
         value = value.trim();
         
         if(value.length() < 1) {
            ErrorView.display("\n Invalid value: value cannot be blank");
             continue;
-            
-        }
+           
+        }    
+        
         break;
-    }
+        }
+        }
+        catch (Exception e) {
+              System.out.println("Error reading input: " + e.getMessage());
+                }
+    
      return value;  
-    }   
+     
+
+    }
 }
