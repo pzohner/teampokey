@@ -110,7 +110,8 @@ public class StartProgramView extends View {
       
         
         if (playersName.length() < 2) {
-            System.out.println("\nInvalid players name: "
+            //ErrorView.display 
+            ErrorView.display("\nInvalid players name: "
             +  "The name must be greater than one character in length");
             return false;
         }
@@ -120,7 +121,8 @@ public class StartProgramView extends View {
         
         if (player == null) {
             
-            System.out.println("\n Error creating the player");
+            //ErrorView.display 
+            ErrorView.display("\n Error creating the player");
             return false;
         }
         
@@ -147,7 +149,7 @@ public class StartProgramView extends View {
                 
             
     }
-
+///do we do it with the ba answers that we dont want or that wont work
     private void getAge() {
 
         this.console.println("How old are you? ");
@@ -179,7 +181,8 @@ public class StartProgramView extends View {
         number = Integer.parseInt(value);
         }
         catch(NumberFormatException nf) {
-            System.out.print("\n Please enter a valid number. Try again or press Q to quit.");
+            // ErrorView.display 
+            ErrorView.display("\n Please enter a valid number. Try again or press Q to quit.");
         }
         }
         

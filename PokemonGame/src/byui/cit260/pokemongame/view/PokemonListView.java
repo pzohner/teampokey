@@ -69,7 +69,7 @@ public class PokemonListView extends View {
             case "SP":
                 this.savePokemonListToFile();
             default:
-               this.console.println("\n*** Invalid selection *** Try again");
+               ErrorView.display("\n*** Invalid selection *** Try again");
                 this.displayBattleMenu();
                 break;
             

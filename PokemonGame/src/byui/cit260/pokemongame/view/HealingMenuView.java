@@ -41,7 +41,7 @@ public boolean doAction(String value) {
                 this.useBack();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+               ErrorView.display("\n*** Invalid selection *** Try again");
                 break;
             
         }
@@ -59,7 +59,8 @@ public void useSuperPotion()
     double SuperPotion = getDoubleNumber();
     
     if (SuperPotion < 5) 
-     this.console.print("You're not allowed a super potion unless you're a real witch"); 
+     ErrorView.display("You're not allowed a super potion unless you're a real witch"); 
+     
 
 }
 
@@ -77,17 +78,18 @@ public Double getDoubleNumber() {
         number = Double.parseDouble(value);
         }
         catch(NumberFormatException nf) {
-           this.console.print("\n You're not allowed a super potion unless you're a real witch");
-        }
-        }
-        
-        return number;
-    }
 
-public void useBack() {       
-    this.console.println("use the Back, method being called"); 
-        }
-};
+            ErrorView.display ("\n You're not allowed a super potion unless you're a real witch");
+
+            }
+        }  
+        return number;        
+
+  }
+      public void useBack() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      } 
+}
 
 
  

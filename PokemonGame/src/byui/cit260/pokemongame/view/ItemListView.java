@@ -65,7 +65,7 @@ public boolean doAction(String menuOption) {
                 this.viewPokemon() ;
                 break; 
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display("\n*** Invalid selection *** Try again");
                 break;
             
         }
@@ -164,7 +164,7 @@ public boolean doAction(String menuOption) {
         number = Integer.parseInt(value);
         }
         catch(NumberFormatException nf) {
-            this.console.print("\n Please enter a valid number. Try again or press Q to quit.");
+            ErrorView.display("\n Please enter a valid number. Try again or press Q to quit.");
         }
         }
         

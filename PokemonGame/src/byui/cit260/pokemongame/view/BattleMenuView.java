@@ -49,7 +49,7 @@ public class BattleMenuView extends View {
                 this.runaway();
                 break;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                ErrorView.Display ("\n*** Invalid selection *** Try again");
                 break;
             
         }

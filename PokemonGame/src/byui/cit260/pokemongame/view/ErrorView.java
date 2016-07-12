@@ -26,6 +26,14 @@ public class ErrorView {
     
     logFile.println(className + " - " + errorMessage);
 }
+
+    static void Display(String _Invalid_selection__Try_again) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    static void display(String _Invalid_selection__Try_again) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

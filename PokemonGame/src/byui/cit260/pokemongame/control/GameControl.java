@@ -80,7 +80,7 @@ public class GameControl {
 
           //Character[] characterWithList = game.getCharacter();
         
-        
+       
        // create and set the map
      
        Map map = MapControl.createMap(); 
