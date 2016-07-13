@@ -102,10 +102,17 @@ public class GameMenuView extends View {
         this.console.println("      1                 2                   3                   4                   5");
         for (int row = 0; row < 5; row++)
         {
-            System.out.println("\n" + row + "------------------------");
+            this.console.println("\n" + row + "------------------------");
             for (int column = 0; column < 5; column++){
-                System.out.print("|   " + locations[row][column].getScene().getNameOfScene() + "  |  ");
-                                               
+                
+                if (locations[row][column].isVisited() == false) {
+                    
+                    this.console.print("|   " + "??"  +  " |  ");
+                    
+                } else {
+                    
+                    this.console.print("|   " + locations[row][column].getScene().getNameOfScene() + "  |  ");
+                }                           
             }
             
         }

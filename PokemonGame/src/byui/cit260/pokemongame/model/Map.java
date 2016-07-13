@@ -41,6 +41,8 @@ public class Map implements Serializable {
                 location.setColumn(column);
                 location.setRow(row);
                 
+                location.setVisited(false);
+                
                 mapLocations[row][column] = location;
             }
             

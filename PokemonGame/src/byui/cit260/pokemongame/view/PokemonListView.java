@@ -7,8 +7,12 @@ package byui.cit260.pokemongame.view;
 
 import byui.cit260.pokemongame.control.GameControl;
 import byui.cit260.pokemongame.model.Game;
+import byui.cit260.pokemongame.model.Pokemon;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import pokemongame.PokemonGame;
+import byui.cit260.pokemongame.model.Character;
 
 /**
  *
@@ -96,14 +100,43 @@ public class PokemonListView extends View {
         
         try {
             
-            GameControl.saveGame(PokemonGame.getCurrentGame(), filePath);
+            GameControl.savePokemonList(PokemonGame.getCurrentGame(), filePath);
+            
+            
+            Character[] character = PokemonGame.getCurrentGame().getCharacter();
+            printPokemonListReport(character[1].getPokemon(), filePath);
+            console.printf(" The file " + filePath + " was written to successfully");
+            
             
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
     
-   // private void printPokemonListReport(Pokemon)
+    private void printPokemonListReport(Pokemon[] pokemon, String outputLocation) {
+        
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+            
+            out.println("\n\n           Pokemon List            ");
+            out.printf("%n%-20s%10s%10s%20s", "Name", "Strength", " Defense", " Current Health");
+            out.printf("%n%-20s%10s%10s%20s", "----", "--------", " ------- ", "---------------");
+            
+            for (Pokemon pokemonList: pokemon) {
+                
+                out.printf("%n%-20s%7d%7d%13d", pokemonList.getName()
+                                             , pokemonList.getStrength()
+                                             , pokemonList.getDefense()
+                                             , pokemonList.getHealth());
+            }  
+            
+            
+        
+        } catch (IOException ex) {
+            
+            System.out.println("I/) Error: " + ex.getMessage());
+        }
+        
+    }
 }
 
 //    private void displayPokemonListFromFile() {
