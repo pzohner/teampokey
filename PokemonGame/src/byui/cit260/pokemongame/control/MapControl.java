@@ -10,6 +10,7 @@ import byui.cit260.pokemongame.model.Location;
 import byui.cit260.pokemongame.model.Map;
 import byui.cit260.pokemongame.model.Pokemon;
 import byui.cit260.pokemongame.model.Scene;
+import byui.cit260.pokemongame.model.Character;
 import java.awt.Point;
 import pokemongame.PokemonGame;
 
@@ -73,9 +74,6 @@ public class MapControl {
         return scenes;
     }
 
-    static void moveCharactersToStartingLocation(Map map) {
-        System.out.println("The function moveCharactersToStartingLocation was called");
-    }
     
     public enum SceneType {
         home,
@@ -83,6 +81,21 @@ public class MapControl {
         forest,
         mountain,
         boss
+    }
+    
+    public static void moveCharactersToStartingLocation(Map map) {
+        
+        Character ash = PokemonGame.getCurrentGame().getCharacter()[1];
+        Location[][] locations = PokemonGame.getCurrentGame().getMap().getMapLocations();
+        
+        ash.setPosition(new Point(0,0));
+        
+        Location location = locations[0][0];
+        
+        location.getCharacters().add(ash);
+        
+        location.setVisited(true);
+        
     }
     
     public static void moveCharacterToLocation(Character character, Point coordinates) 
@@ -181,7 +194,7 @@ public class MapControl {
     
     /*
     
-     getCoordinates of character
+      getCoordinates of character
       get current location of char
       calculate coordinates of new location
       get new location

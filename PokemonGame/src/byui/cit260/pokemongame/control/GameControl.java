@@ -297,20 +297,7 @@ public class GameControl {
          
      }
 }
-        
-//        for (int i = 0; i < arrayToSort.length - 1; i++)
-//        {
-//            int index = i;
-//            for (int j = i + 1; j < arrayToSort.length; j++)
-//                if (arrayToSort[j].getStrength() < arrayToSort[index].getStrength())
-//                    index = j;
-//      
-//            int smallerNumber = arrayToSort[index]; 
-//            arrayToSort[index] = arrayToSort[i];
-//            arrayToSort[i] = smallerNumber;
-//        }
-//        
-//        return arrayToSort;
+
     
         
         
