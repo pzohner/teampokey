@@ -53,6 +53,9 @@ public boolean doAction(String menuOption) {
             case "MW":
                 this.mapMoveWest();
                 break;
+            case "e":
+                this.exploreSquare();
+                break;
             default:
                 ErrorView.display ("\n*** Invalid selection *** Try again");
                 break;
@@ -63,7 +66,7 @@ public boolean doAction(String menuOption) {
 
     private void mapMoveNorth()  {
       Character[] ash = PokemonGame.getCurrentGame().getCharacter();
-        Point currentPosition = ash[1].getPosition();
+        //Point currentPosition = ash[1].getPosition();
       
         try {
             MapControl.moveCharacterNorth(ash[1], "ME");
@@ -83,7 +86,7 @@ public boolean doAction(String menuOption) {
     private void mapMoveSouth() {
       
         Character[] ash = PokemonGame.getCurrentGame().getCharacter();
-        Point currentPosition = ash[1].getPosition();
+        //Point currentPosition = ash[1].getPosition();
       
         try {
             MapControl.moveCharacterSouth(ash[1], "MS");
@@ -102,7 +105,7 @@ public boolean doAction(String menuOption) {
     private void mapMoveEast() {
         
         Character[] ash = PokemonGame.getCurrentGame().getCharacter();
-        Point currentPosition = ash[1].getPosition();
+        //Point currentPosition = ash[1].getPosition();
       
         try {
             MapControl.moveCharacterEast(ash[1], "ME");
@@ -123,7 +126,7 @@ public boolean doAction(String menuOption) {
     private void mapMoveWest() {
         
         Character[] ash = PokemonGame.getCurrentGame().getCharacter();
-        Point currentPosition = ash[1].getPosition();
+        //Point currentPosition = ash[1].getPosition();
       
         try {
             MapControl.moveCharacterWest(ash[1], "MW");
@@ -138,5 +141,10 @@ public boolean doAction(String menuOption) {
         gameMenuView.displayMap();
         
     }
+
+    private void exploreSquare() {
+
+        
     }
+}
    

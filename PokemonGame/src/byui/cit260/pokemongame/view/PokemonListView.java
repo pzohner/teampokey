@@ -123,10 +123,10 @@ public class PokemonListView extends View {
             
             for (Pokemon pokemonList: pokemon) {
                 
-                out.printf("%n%-20s%7d%7d%13d",pokemonList.getName()
-                                             , pokemonList.getStrength()
-                                             , pokemonList.getDefense()
-                                             , pokemonList.getHealth());
+                out.printf("%n%-20s%7d%7d%13d", pokemonList.getName()
+                                              , pokemonList.getStrength()
+                                              , pokemonList.getDefense()
+                                              , pokemonList.getHealth());
             }  
             
             
