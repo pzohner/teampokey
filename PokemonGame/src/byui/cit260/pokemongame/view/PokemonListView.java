@@ -123,7 +123,7 @@ public class PokemonListView extends View {
             
             for (Pokemon pokemonList: pokemon) {
                 
-                out.printf("%n%-20s%7d%7d%13d", pokemonList.getName()
+                out.printf("%n%-20s%7d%7d%13d",pokemonList.getName()
                                              , pokemonList.getStrength()
                                              , pokemonList.getDefense()
                                              , pokemonList.getHealth());
@@ -135,14 +135,9 @@ public class PokemonListView extends View {
             
             System.out.println("I/) Error: " + ex.getMessage());
         }
-        
     }
 }
 
-//    private void displayPokemonListFromFile() {
-//        
-//        
-//    }
     
     
     

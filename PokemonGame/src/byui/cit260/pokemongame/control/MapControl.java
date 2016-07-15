@@ -12,6 +12,7 @@ import byui.cit260.pokemongame.model.Pokemon;
 import byui.cit260.pokemongame.model.Scene;
 import byui.cit260.pokemongame.model.Character;
 import java.awt.Point;
+import java.util.ArrayList;
 import pokemongame.PokemonGame;
 
 /**
@@ -86,19 +87,24 @@ public class MapControl {
     public static void moveCharactersToStartingLocation(Map map) {
         
         Character ash = PokemonGame.getCurrentGame().getCharacter()[1];
+        Character boss = PokemonGame.getCurrentGame().getCharacter()[0];
+        
         Location[][] locations = PokemonGame.getCurrentGame().getMap().getMapLocations();
         
         ash.setPosition(new Point(0,0));
+        boss.setPosition(new Point(4,4));
         
-        Location location = locations[0][0];
+        Location ashLocation = locations[0][0];
+        Location bossLocation = locations[4][4];
         
-        location.getCharacters().add(ash);
+        ashLocation.getCharacters().add(ash);
+        bossLocation.getCharacters().add(boss);
         
-        location.setVisited(true);
+        ashLocation.setVisited(true);
         
     }
     
-    public static void moveCharacterToLocation(Character character, Point coordinates) 
+    public static void moveCharacterToLocation(Point coordinates) 
             throws MapControlException {
         
         Map map = PokemonGame.getCurrentGame().getMap();
@@ -109,13 +115,210 @@ public class MapControl {
         if (newRow < 0 || newRow >= map.getNumberOfRows() ||
             newColumn < 0 || newColumn >= map.getNumberOfColumns()) {
             
-            throw new MapControlException("Cannot move actor to location " + coordinates.x + ", "
-                                            + coordinates.y + " because that location is outside"
-                                            + " the bounds of the map.");
+           
                                             
         }
         
     }
+    
+    public static void moveCharacterSouth(Character character, String direction) throws MapControlException {
+       
+          Map map = PokemonGame.getCurrentGame().getMap();
+//        get coordinates(position) of character
+          Character ash = PokemonGame.getCurrentGame().getCharacter()[1];
+          
+//        get 2d locations of array
+          Location[][] locations = PokemonGame.getCurrentGame().getMap().getMapLocations();
+//        get list of characters in old location
+          //Location oldLocation = new Location();
+          Point currentPosition = ash.getPosition();
+          
+          Location oldLocation = locations[currentPosition.y][currentPosition.x];
+          
+          oldLocation.getCharacters().remove(ash);
+          
+          Point newPosition = new Point();    
+          newPosition.y = currentPosition.y + 1;
+          newPosition.x = currentPosition.x;
+          
+       if (newPosition.y < 0 || newPosition.y >= map.getNumberOfRows() ||
+            newPosition.x < 0 || newPosition.x >= map.getNumberOfColumns()) {
+            
+           throw new MapControlException("Cannot move actor to location " + newPosition.x + ", "
+                                            + newPosition.y + " because that location is outside"
+                                            + " the bounds of the map.");
+                                            
+        
+             
+        }
+         // moveCharacterToLocation(newPosition);
+                            
+         
+          Location newLocation = locations[newPosition.y][newPosition.x];
+          ash.setPosition(newPosition);
+          newLocation.getCharacters().add(ash);
+          newLocation.setVisited(true);
+          
+          //get old location and remove him from the list
+          
+//        calculate coordinates of new location
+//        
+//        get new location and add him to the list
+//        
+//                
+//                
+   }
+    
+    public static void moveCharacterEast(Character character, String direction) throws MapControlException {
+       
+          Map map = PokemonGame.getCurrentGame().getMap();
+//        get coordinates(position) of character
+          Character ash = PokemonGame.getCurrentGame().getCharacter()[1];
+          
+//        get 2d locations of array
+          Location[][] locations = PokemonGame.getCurrentGame().getMap().getMapLocations();
+//        get list of characters in old location
+          //Location oldLocation = new Location();
+          Point currentPosition = ash.getPosition();
+          
+          Location oldLocation = locations[currentPosition.y][currentPosition.x];
+          
+          oldLocation.getCharacters().remove(ash);
+          
+          Point newPosition = new Point();    
+          newPosition.x = currentPosition.x + 1;
+          newPosition.y = currentPosition.y;
+          
+       if (newPosition.y < 0 || newPosition.y >= map.getNumberOfRows() ||
+            newPosition.x < 0 || newPosition.x >= map.getNumberOfColumns()) {
+            
+           throw new MapControlException("Cannot move actor to location " + newPosition.x + ", "
+                                            + newPosition.y + " because that location is outside"
+                                            + " the bounds of the map.");
+                                            
+        
+             
+        }
+         // moveCharacterToLocation(newPosition);
+                            
+         
+          Location newLocation = locations[newPosition.y][newPosition.x];
+          ash.setPosition(newPosition);
+          newLocation.getCharacters().add(ash);
+          newLocation.setVisited(true);
+          
+          //get old location and remove him from the list
+          
+//        calculate coordinates of new location
+//        
+//        get new location and add him to the list
+//        
+//                
+//                
+   }
+    
+    public static void moveCharacterWest(Character character, String direction) throws MapControlException {
+       
+          Map map = PokemonGame.getCurrentGame().getMap();
+//        get coordinates(position) of character
+          Character ash = PokemonGame.getCurrentGame().getCharacter()[1];
+          
+//        get 2d locations of array
+          Location[][] locations = PokemonGame.getCurrentGame().getMap().getMapLocations();
+//        get list of characters in old location
+          //Location oldLocation = new Location();
+          Point currentPosition = ash.getPosition();
+          
+          Location oldLocation = locations[currentPosition.y][currentPosition.x];
+          
+          oldLocation.getCharacters().remove(ash);
+          
+          Point newPosition = new Point();    
+          newPosition.x = currentPosition.x - 1;
+          newPosition.y = currentPosition.y;
+          
+       if (newPosition.y < 0 || newPosition.y >= map.getNumberOfRows() ||
+            newPosition.x < 0 || newPosition.x >= map.getNumberOfColumns()) {
+            
+           throw new MapControlException("Cannot move actor to location " + newPosition.x + ", "
+                                            + newPosition.y + " because that location is outside"
+                                            + " the bounds of the map.");
+                                            
+        
+             
+        }
+         // moveCharacterToLocation(newPosition);
+                            
+         
+          Location newLocation = locations[newPosition.y][newPosition.x];
+          ash.setPosition(newPosition);
+          newLocation.getCharacters().add(ash);
+          newLocation.setVisited(true);
+          
+          //get old location and remove him from the list
+          
+//        calculate coordinates of new location
+//        
+//        get new location and add him to the list
+//        
+//                
+//                
+   }
+    
+    public static void moveCharacterNorth(Character character, String direction) throws MapControlException {
+       
+          Map map = PokemonGame.getCurrentGame().getMap();
+//        get coordinates(position) of character
+          Character ash = PokemonGame.getCurrentGame().getCharacter()[1];
+          
+//        get 2d locations of array
+          Location[][] locations = PokemonGame.getCurrentGame().getMap().getMapLocations();
+//        get list of characters in old location
+          //Location oldLocation = new Location();
+          Point currentPosition = ash.getPosition();
+          
+          Location oldLocation = locations[currentPosition.y][currentPosition.x];
+          
+          oldLocation.getCharacters().remove(ash);
+          
+          Point newPosition = new Point();    
+          newPosition.y = currentPosition.y - 1;
+          newPosition.x = currentPosition.x;
+          
+       if (newPosition.y < 0 || newPosition.y >= map.getNumberOfRows() ||
+            newPosition.x < 0 || newPosition.x >= map.getNumberOfColumns()) {
+            
+           throw new MapControlException("Cannot move actor to location " + newPosition.x + ", "
+                                            + newPosition.y + " because that location is outside"
+                                            + " the bounds of the map.");
+                                            
+        
+             
+        }
+         // moveCharacterToLocation(newPosition);
+                            
+         
+          Location newLocation = locations[newPosition.y][newPosition.x];
+          ash.setPosition(newPosition);
+          newLocation.getCharacters().add(ash);
+          newLocation.setVisited(true);
+          
+          //get old location and remove him from the list
+          
+//        calculate coordinates of new location
+//        
+//        get new location and add him to the list
+//        
+//                
+//                
+   }
+    
+    //find out where tehy are at (coordiantes)
+    //Get location
+    //get items in location
+    // add items to characters item list.
+    
+    // ArrayList<Object> listOfItems = Item.getTotalItemList();
     
     private static void assignScenesToLocations(Map map, Scene[] scenes) 
                         throws MapControlException {

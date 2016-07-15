@@ -65,7 +65,10 @@ public class GameControl {
         game.setCharacter(character);
         
         
-             
+       // create and set the map
+     
+       Map map = MapControl.createMap(); 
+       game.setMap(map); 
              
         // create the pokemon
           Pokemon[] pokemon = GameControl.createPokemon();
@@ -76,16 +79,9 @@ public class GameControl {
           }  
           characterWithList[1].setPokemon(pokemon);
           
-          
+          MapControl.moveCharactersToStartingLocation(map);
 
           //Character[] characterWithList = game.getCharacter();
-        
-       
-       // create and set the map
-     
-       Map map = MapControl.createMap(); 
-       game.setMap(map) ; 
-       
         
         // create and set the totalItemList
         ArrayList<Object> itemList = GameControl.createItemList();
@@ -158,8 +154,8 @@ public class GameControl {
 
     public static Character[] createCharacters() {
         
-       Character[] character = new Character[2];
-        Location[][] startingLocation = new Location[0][0];
+        Character[] character = new Character[2];
+        //Location[][] startingLocation = new Location[0][0];
         Location[][] bossLocation = new Location[4][4];
         ArrayList<Object> ashItemList = createItemList(); //Changed this to actually populate list.
         Pokemon[] pokemonList = new Pokemon[5];
@@ -167,7 +163,7 @@ public class GameControl {
         // create ASh the player 
         Character ash = new Character();
         ash.setName("Ash");
-        ash.setLocation(startingLocation);
+        //ash.setLocation(startingLocation);
         
         // set ash's itemList
         ash.setItemList(ashItemList);
@@ -177,7 +173,7 @@ public class GameControl {
         // create LANCE the boss
         Character lance = new Character();
         lance.setName("Lance");
-        lance.setLocation(startingLocation);
+        //lance.setLocation(startingLocation);
         lance.setPokemon(pokemonList);
         character[CharacterList.Lance.ordinal()] = lance;
         

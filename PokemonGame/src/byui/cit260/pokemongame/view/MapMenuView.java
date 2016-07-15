@@ -5,8 +5,12 @@
  */
 package byui.cit260.pokemongame.view;
 
+import byui.cit260.pokemongame.control.MapControl;
+import byui.cit260.pokemongame.exception.MapControlException;
 import java.util.Scanner;
-
+import pokemongame.PokemonGame;
+import byui.cit260.pokemongame.model.Character;
+import java.awt.Point;
 /**
  *
  * @author savannahkei
@@ -57,19 +61,82 @@ public boolean doAction(String menuOption) {
         return false;
     }
 
-    private void mapMoveNorth() {
-      this.console.println("\nMN *** moveNorth() function called"); 
+    private void mapMoveNorth()  {
+      Character[] ash = PokemonGame.getCurrentGame().getCharacter();
+        Point currentPosition = ash[1].getPosition();
+      
+        try {
+            MapControl.moveCharacterNorth(ash[1], "ME");
+        
+            
+        } catch (MapControlException mce) {
+            
+            ErrorView.display("Cannot move to that location!");
+        }
+        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayMap();
+
+      
     }
     
     private void mapMoveSouth() {
-      this.console.println("\nMS *** moveSouth() function called"); 
+      
+        Character[] ash = PokemonGame.getCurrentGame().getCharacter();
+        Point currentPosition = ash[1].getPosition();
+      
+        try {
+            MapControl.moveCharacterSouth(ash[1], "MS");
+        
+            
+        } catch (MapControlException mce) {
+            
+            ErrorView.display("Cannot move to that location!");
+        }
+        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayMap();
+        
     }
 
     private void mapMoveEast() {
-        this.console.println("\nME *** moveEast() function called"); 
+        
+        Character[] ash = PokemonGame.getCurrentGame().getCharacter();
+        Point currentPosition = ash[1].getPosition();
+      
+        try {
+            MapControl.moveCharacterEast(ash[1], "ME");
+        
+            
+        } catch (MapControlException mce) {
+            
+            ErrorView.display("Cannot move to that location!");
+        }
+        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayMap();
+        
     }
+        
+    
 
     private void mapMoveWest() {
-        this.console.println("\nMW *** moveWest() function called"); 
+        
+        Character[] ash = PokemonGame.getCurrentGame().getCharacter();
+        Point currentPosition = ash[1].getPosition();
+      
+        try {
+            MapControl.moveCharacterWest(ash[1], "MW");
+        
+            
+        } catch (MapControlException mce) {
+            
+            ErrorView.display("Cannot move to that location!");
+        }
+        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayMap();
+        
     }
-   }
+    }
+   

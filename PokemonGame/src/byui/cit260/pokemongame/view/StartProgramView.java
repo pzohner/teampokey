@@ -18,11 +18,12 @@ import java.util.logging.Logger;
  */
 public class StartProgramView extends View {
     
-    private String promptMessage;
+    //private String promptMessage;
     
     public StartProgramView() {
         // prompt message
-        this.promptMessage = "\n Please enter your name: ";
+//        this.promptMessage 
+          super("\n Please enter your name: ");
         
         //display a banner
         this.displayBanner();
@@ -63,23 +64,21 @@ public class StartProgramView extends View {
         
     }
 
-    public void displayStartProgramView() {
-       
-        boolean done = false;
-        do {
-            
-            String playersName = this.getPlayerName();
-            if(playersName.toUpperCase().equals("Q"))
-                return;
-            done = this.doAction(playersName);
-            
-        } while (!done);
-    }
+//    public void displayStartProgramView() {
+//       
+//        boolean done = false;
+//        do {
+//            
+//            String playersName = this.getPlayerName();
+//            if(playersName.toUpperCase().equals("Q"))
+//                return;
+//            done = this.doAction(playersName);
+//            
+//        } while (!done);
+//    }
 
     private String getPlayerName() {
-        
-        
-        
+       
         String value = "";
         boolean valid = false;
         
@@ -87,7 +86,7 @@ public class StartProgramView extends View {
             
         while(!valid) {
             
-                this.console.println("\n" + this.promptMessage);
+                //this.console.println("\n" + this.promptMessage);
                 
                 value = keyboard.readLine();
                 value = value.trim();
@@ -165,10 +164,11 @@ public class StartProgramView extends View {
             this.console.println("Thank you for your age");
             
         }
-        }
+    }
     
     public int getInt(){
         
+        this.displayMessage = "";
         int number = 0;
         
         while(number == 0) {

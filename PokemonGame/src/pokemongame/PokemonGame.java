@@ -102,7 +102,7 @@ public class PokemonGame {
             PokemonGame.logFile = new PrintWriter(filePath);
             
             StartProgramView startProgramView = new StartProgramView();
-            startProgramView.displayStartProgramView();
+            startProgramView.display();
             
             return;
         }
