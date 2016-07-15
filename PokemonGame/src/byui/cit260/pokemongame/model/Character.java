@@ -23,7 +23,7 @@ public class Character implements Serializable {
     private int numberOfItems;
     private Pokemon[] pokemon;
     private ArrayList<Object> itemList;
-    private Location[][] location;
+    
     private Pokemon selectedPokemonAttacker;
     private Pokemon selectedPokemonDefender;
     
@@ -78,15 +78,7 @@ public class Character implements Serializable {
     public void setItemList(ArrayList<Object> itemList) {
         this.itemList = itemList;
     }
-    
-
-    public Location[][] getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location[][] location) {
-        this.location = location;
-    }
+  
     
     
 

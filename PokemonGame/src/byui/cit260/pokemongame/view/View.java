@@ -36,7 +36,7 @@ public abstract class View implements ViewInterface {
      boolean done = false;
         do {
             
-            this.console.println(this.displayMessage);
+            this.console.print(this.displayMessage);
             String value = this.getInput();
             
             if(value.toUpperCase().equals("Q")) {

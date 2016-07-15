@@ -84,7 +84,7 @@ public class GameMenuView extends View {
         return false;
     }
 
-    private void displayMap() {
+    public void displayMap() {
         
         // get the current game variable
         Game game = new Game();
@@ -95,24 +95,27 @@ public class GameMenuView extends View {
         map = game.getMap();
         
         Location[][] locations = map.getMapLocations();
+     
+        this.console.println("\n\n --- MAP --- ");
         
+        this.console.println("     1         2          3          4          5");
         
-        this.console.println(" --- MAP --- ");
-        
-        this.console.println("      1                 2                   3                   4                   5");
         for (int row = 0; row < 5; row++)
         {
-            this.console.println("\n" + row + "------------------------");
-            for (int column = 0; column < 5; column++){
+            //this.console.println(""); // if I remove this prinln statement, the map doesn't show up.
+            this.console.printf("\n ------------------------ "+ "\n" + row);
+            
+                for (int column = 0; column < 5; column++) {
                 
                 if (locations[row][column].isVisited() == false) {
                     
-                    this.console.print("|   " + "??"  +  " |  ");
+                    this.console.print("  ??  " + "    | " );
                     
                 } else {
                     
-                    this.console.print("|   " + locations[row][column].getScene().getNameOfScene() + "  |  ");
-                }                           
+                    this.console.print(" " + locations[row][column].getScene().getNameOfScene() + " " + "    | ");
+                } 
+                
             }
             
         }
