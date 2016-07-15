@@ -5,11 +5,15 @@
  */
 package byui.cit260.pokemongame.view;
 
+import byui.cit260.pokemongame.control.GameControl;
+import static byui.cit260.pokemongame.control.GameControl.ItemList.potion;
 import byui.cit260.pokemongame.model.Game;
 import byui.cit260.pokemongame.model.Item;
 import byui.cit260.pokemongame.model.Pokeball;
 import byui.cit260.pokemongame.model.Pokemon;
 import byui.cit260.pokemongame.model.Potion;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import pokemongame.PokemonGame;
@@ -32,9 +36,11 @@ public class ItemListView extends View {
                 + "\n" 
                 + "\nU - Use Items"
                 + "\nV - View Pokemon"
+                + "\nLR- Get List Reports"
+                + "\nSI- Save Item to List File"
                 + "\nQ - Quit"
                 +" \n  -----------------------------------------");
-        viewCurrentItemList(); 
+        
     }
     
     @Override
@@ -62,7 +68,11 @@ public boolean doAction(String menuOption) {
                 this.useItem();
                 break;
             case "V":
-                this.viewPokemon() ;
+                this.viewPokemon();
+                break;
+            case "SI":
+                System.out.println("SI was called");
+                this.saveItemListToFile();
                 break; 
             default:
                 ErrorView.display("\n*** Invalid selection *** Try again");
@@ -171,9 +181,68 @@ public boolean doAction(String menuOption) {
         
         return number;
     }
-}
+
+    private void saveItemListToFile() {
+       this.console.println("\n Enter the file path for the file where the game is to be saved.");
+        String filePath = this.getInput();
+
+    try {
+            
+            GameControl.saveItemList(PokemonGame.getCurrentGame(), filePath);
+            
+            ArrayList<Object> listOfItems = Item.getTotalItemList(); 
+            printItemListReport (listOfItems,filePath);
+            console.printf(" The file " + filePath + " was written to successfully");
+            
+            
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+    }
     
-
-   
-
- 
+ private void printItemListReport(ArrayList<Object> itemList, String outputLocation) {
+        
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+           
+            out.println("\n         Item List            ");
+            out.printf("%n%-20s%20s", " Potion", "Heal Power"); 
+            out.printf("%n%-20s%20s", "--------", "--------------"); 
+            
+            for (Object item: itemList) {
+                 if (item.getClass() == Potion.class) {
+                 Potion potion = (Potion) item;
+                 out.printf("%n%-20s%7d",potion.getDescription(),potion.getHealPower()); 
+               
+            }
+               // out.printf("%n%-20s",potion.getDescription()); 
+                     
+            }  
+            
+             
+            
+            
+            
+            
+            
+            
+//            out.println("\n         Item List            ");
+//            out.printf("%n%-20s%10s%10s%20s","Pokeballs", " Potion", " Super Potions", "Antidotes", "Master Balls");
+//            out.printf("%n%-20s%10s%10s%20s", "--------", "--------", " ------------ ", "---------", "-----------");
+//            
+//            for (Object item: itemList) {
+//                
+//                out.printf("%n%-20s%7d%7d%13d", itemList.getClass().getDescription(); 
+//                                             , itemList.getPotions()
+//                                             , itemList.getSuperPotions()
+//                                             , itemList.getAntidotes ()
+//                                             , itemList.getMasterBalls());
+//            }  
+//            
+            
+        
+        } catch (IOException ex) {
+            
+            System.out.println("I/) Error: " + ex.getMessage());
+        }
+ } 
+} 

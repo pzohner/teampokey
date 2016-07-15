@@ -129,7 +129,22 @@ public class GameControl {
         
         return pokemon;
     }
+
+    public static void saveItemList(Game currentGame, String filePath) throws GameControlException {
+        
+   
+         try (FileOutputStream fops = new FileOutputStream(filePath)) {
+             ObjectOutputStream output = new ObjectOutputStream(fops);
+             
+             output.writeObject(currentGame);
+         
+    }    
+         catch (Exception e) {
     
+             throw new GameControlException(e.getMessage());
+         
+    }   
+}
     private enum PokemonList {
         
         Pikachu,
