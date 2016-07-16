@@ -55,20 +55,26 @@ public class GameControl {
           
         Game game = new Game();
         //Character character = new Character();
+
         Item item = new Item();
-        
+    
         
         
         PokemonGame.setCurrentGame(game);
         game.setPlayer(player);
         
-        Character[] character = GameControl.createCharacters();
-        game.setCharacter(character);
+        //Character[] character = GameControl.createCharacters();
+        //game.setCharacter(character);
         
         
        // create and set the map
      
        Map map = MapControl.createMap(); 
+       
+       
+        
+        
+       
        game.setMap(map); 
              
         // create the pokemon
@@ -152,44 +158,38 @@ public class GameControl {
         
         
     }
-    
-    private enum PokemonList {
+    public static void saveItemList(Game currentGame, String filePath) throws GameControlException {
         
-        Pikachu,
-        Rattata,
-        Spearow,
-        Charizard,
-        Gayardos,
-        MewTwo
-        
+   
+         try (FileOutputStream fops = new FileOutputStream(filePath)) {
+             ObjectOutputStream output = new ObjectOutputStream(fops);
+             
+             output.writeObject(currentGame);
+         
+    }    
+         catch (Exception e) {
     }
+        
+//         Character[] character = PokemonGame.getCurrentGame().getCharacter();
+//         ArrayList<Object> ashItemList = new ArrayList();
+//         Pokemon[] pokemonList = new Pokemon[6];
+//         
+//         Character ash = character[1];
 
-    public static Character[] createCharacters() {
-        
-        Character[] character = new Character[2];
-        //Location[][] startingLocation = new Location[0][0];
-        Location[][] bossLocation = new Location[4][4];
-        ArrayList<Object> ashItemList = createItemList(); //Changed this to actually populate list.
-        Pokemon[] pokemonList = new Pokemon[5];
-        
-        // create ASh the player 
-        Character ash = new Character();
-        ash.setName("Ash");
-        //ash.setLocation(startingLocation);
-        
-        // set ash's itemList
-        ash.setItemList(ashItemList);
-        ash.setPokemon(pokemonList);
-        character[CharacterList.Ash.ordinal()] = ash;
-        
-        // create LANCE the boss
-        Character lance = new Character();
-        lance.setName("Lance");
-        //lance.setLocation(startingLocation);
-        lance.setPokemon(pokemonList);
-        character[CharacterList.Lance.ordinal()] = lance;
-        
-        return character;
+
+    // This appeared when I committed!!!! 
+//         ash.setItemList(ashItemList);
+//        ash.setPokemon(pokemonList);
+//        character[CharacterList.Ash.ordinal()] = ash;
+//        
+//        // create LANCE the boss
+//        Character lance = new Character();
+//        lance.setName("Lance");
+//        //lance.setLocation(startingLocation);
+//        lance.setPokemon(pokemonList);
+//        character[CharacterList.Lance.ordinal()] = lance;
+//        
+//        return character;
         
     }
     
@@ -215,6 +215,7 @@ public class GameControl {
         
          // superPotion in position 4
         itemList.add(new Potion("superPotion", 60));
+       
         
        
             

@@ -11,7 +11,10 @@ import byui.cit260.pokemongame.exception.MapControlException;
 import java.util.Scanner;
 import pokemongame.PokemonGame;
 import byui.cit260.pokemongame.model.Character;
+import byui.cit260.pokemongame.model.Item;
+import byui.cit260.pokemongame.model.Location;
 import java.awt.Point;
+import java.util.ArrayList;
 /**
  *
  * @author savannahkei
@@ -55,9 +58,8 @@ public boolean doAction(String menuOption) {
                 this.mapMoveWest();
                 break;
             case "E":
-                this.console.println("the exploreSquare function was called");
-                GameControl.exploreSquare();
-                break;
+                this.explore();
+
             default:
                 ErrorView.display ("\n*** Invalid selection *** Try again");
                 break;
@@ -120,6 +122,36 @@ public boolean doAction(String menuOption) {
         
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayMap();
+        
+    }
+    
+    private void explore() {
+        
+        Location[][] locations = PokemonGame.getCurrentGame().getMap().getMapLocations();
+        
+        Character ash = PokemonGame.getCurrentGame().getCharacter()[1];
+        
+        Point currentPoint = ash.getPosition();
+        
+        Location currentLocation = locations[currentPoint.y][currentPoint.x];
+        
+        
+        Item itemToAdd;
+        
+        itemToAdd = currentLocation.getItem();
+        
+        if (itemToAdd != null)
+        {
+           ArrayList<Object> listOfItems = Item.getTotalItemList(); 
+           
+           listOfItems.add(itemToAdd);
+           System.out.println("An item was found!");
+        }
+        else
+        {
+            System.out.println("No object found here!");
+        }
+        
         
     }
         
