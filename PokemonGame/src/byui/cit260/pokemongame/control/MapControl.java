@@ -165,8 +165,14 @@ public class MapControl {
 //        
 //        get new location and add him to the list
 //        
-//                
-//                
+           
+        // get currentPosition of the character
+        // remove the character from the current location
+        // create and calculate the newposition of the character
+        // set characters location to the newPosition
+        // add the character to the new position
+        // set visited to true
+
    }
     
     public static void moveCharacterEast(Character character, String direction) throws MapControlException {
@@ -362,9 +368,7 @@ public class MapControl {
     private static void assignPokemonToLocations(Map map, Pokemon[] pokemon) {
         
         Location[][] locations = map.getMapLocations();
-        
-        
-                           
+       
 //        locations[0][0].                          
         locations[0][1].setPokemon(pokemon[5]);
 //        locations[0][2].
@@ -395,15 +399,4 @@ public class MapControl {
         
     }
     
-    /*
-    
-      getCoordinates of character
-      get current location of char
-      calculate coordinates of new location
-      get new location
-      remove character from old location
-      add character to new location.
-      set character's coordiante point ot new x,y
-
-    */
 }

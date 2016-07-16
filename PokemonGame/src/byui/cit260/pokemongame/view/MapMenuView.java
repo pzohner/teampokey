@@ -5,6 +5,7 @@
  */
 package byui.cit260.pokemongame.view;
 
+import byui.cit260.pokemongame.control.GameControl;
 import byui.cit260.pokemongame.control.MapControl;
 import byui.cit260.pokemongame.exception.MapControlException;
 import java.util.Scanner;
@@ -53,8 +54,9 @@ public boolean doAction(String menuOption) {
             case "MW":
                 this.mapMoveWest();
                 break;
-            case "e":
-                this.exploreSquare();
+            case "E":
+                this.console.println("the exploreSquare function was called");
+                GameControl.exploreSquare();
                 break;
             default:
                 ErrorView.display ("\n*** Invalid selection *** Try again");
@@ -142,9 +144,6 @@ public boolean doAction(String menuOption) {
         
     }
 
-    private void exploreSquare() {
-
-        
-    }
+    
 }
    

@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author porterzohner
  */
-public class Location implements Serializable{
+public class Location implements Serializable {
  
     private int row;
     private int column;

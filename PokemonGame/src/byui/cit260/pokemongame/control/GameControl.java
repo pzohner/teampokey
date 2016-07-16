@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import pokemongame.PokemonGame;
 import byui.cit260.pokemongame.model.Character;
 import byui.cit260.pokemongame.model.Pokemon;
+import java.awt.Point;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -124,6 +125,32 @@ public class GameControl {
         
         
         return pokemon;
+    }
+
+    public static void exploreSquare() {
+        
+        // get location where the character is
+        Character ash[] = PokemonGame.getCurrentGame().getCharacter();
+        
+        Location[][] location = PokemonGame.getCurrentGame().getMap().getMapLocations();
+                
+        Point currentPosition = ash[1].getPosition();
+        
+        
+        Pokemon pokemonAtLocation = location[currentPosition.y][currentPosition.x].getPokemon();
+        //System.out.println("explore square function is running " + pokemonAtLocation.getName());
+       if (pokemonAtLocation != null) {
+        
+           System.out.println("Theres a " + pokemonAtLocation.getName() + " here!");
+           
+       }
+        
+                // find out what items are there
+        // add them to the character pokemon array.
+        
+        
+        
+        
     }
     
     private enum PokemonList {

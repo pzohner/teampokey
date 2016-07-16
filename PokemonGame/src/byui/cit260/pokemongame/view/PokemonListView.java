@@ -100,7 +100,7 @@ public class PokemonListView extends View {
         
         try {
             
-            GameControl.savePokemonList(PokemonGame.getCurrentGame(), filePath);
+            //GameControl.savePokemonList(PokemonGame.getCurrentGame(), filePath);
             
             
             Character[] character = PokemonGame.getCurrentGame().getCharacter();
@@ -134,6 +134,7 @@ public class PokemonListView extends View {
         } catch (IOException ex) {
             
             System.out.println("I/) Error: " + ex.getMessage());
+            
         }
     }
 }
