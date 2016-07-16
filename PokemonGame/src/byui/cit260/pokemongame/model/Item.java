@@ -17,7 +17,7 @@ public class Item  implements Serializable {
     protected String description;
     
     public Item() {
-
+            
         }
 
     public int getAmountOfItem() {

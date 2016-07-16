@@ -11,6 +11,9 @@ import byui.cit260.pokemongame.model.Map;
 import byui.cit260.pokemongame.model.Pokemon;
 import byui.cit260.pokemongame.model.Scene;
 import byui.cit260.pokemongame.model.Character;
+import byui.cit260.pokemongame.model.Item;
+import byui.cit260.pokemongame.model.Pokeball;
+import byui.cit260.pokemongame.model.Potion;
 import java.awt.Point;
 import java.util.ArrayList;
 import pokemongame.PokemonGame;
@@ -30,7 +33,16 @@ public class MapControl {
         //create a list of the different scenes in the game
         Scene[] scenes = createScenes();
         
+         Item[] items = new Item[5];
+        
+        items[0] = new Pokeball("Pokeball", false);
+        items[1] = new Potion("SuperPotion", 60);
+        items[2] = new Pokeball("Masterball", true);
+        items[3] = new Potion("Potion", 20);
+        items[4] = new Pokeball("Pokeball", false);
+        
         MapControl.assignScenesToLocations(map, scenes);
+        MapControl.assignItemToLocations(map, items);
         
         return map;
     }
@@ -406,4 +418,22 @@ public class MapControl {
       set character's coordiante point ot new x,y
 
     */
-}
+
+
+private static void assignItemToLocations(Map map, Item item[]) {
+        
+        Location[][] locations = map.getMapLocations();
+
+locations[0][1].setItem(item[4]);
+
+locations[1][2].setItem(item[3]);
+
+locations[2][1].setItem(item[2]);
+
+locations[3][2].setItem(item[1]);
+
+locations[4][4].setItem(item[0]);
+
+} 
+
+} 

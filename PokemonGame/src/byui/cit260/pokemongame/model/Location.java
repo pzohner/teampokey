@@ -20,6 +20,7 @@ public class Location implements Serializable{
     private Scene scene;
     private Pokemon pokemon;
     private ArrayList<Character> characters = new ArrayList<>();
+    private Item item; 
     
 public Location() {
     }
@@ -78,7 +79,13 @@ public Location() {
     public void setCharacters(ArrayList<Character> characters) {
         this.characters = characters;
     }
+    public Item getItem() {
+            return item;
+    }
 
+    public void setItem(Item item) {
+        this.item = item;
+    }
     
     @Override
     public int hashCode() {
@@ -117,6 +124,7 @@ public Location() {
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
     }
+
 
 
     

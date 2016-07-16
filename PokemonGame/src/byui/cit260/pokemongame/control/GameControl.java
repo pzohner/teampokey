@@ -54,8 +54,9 @@ public class GameControl {
           
         Game game = new Game();
         //Character character = new Character();
+
         Item item = new Item();
-        
+    
         
         
         PokemonGame.setCurrentGame(game);
@@ -68,6 +69,11 @@ public class GameControl {
        // create and set the map
      
        Map map = MapControl.createMap(); 
+       
+       
+        
+        
+       
        game.setMap(map); 
              
         // create the pokemon
@@ -160,6 +166,11 @@ public class GameControl {
         ArrayList<Object> ashItemList = createItemList(); //Changed this to actually populate list.
         Pokemon[] pokemonList = new Pokemon[5];
         
+       
+        
+        
+        
+        
         // create ASh the player 
         Character ash = new Character();
         ash.setName("Ash");
@@ -203,6 +214,7 @@ public class GameControl {
         
          // superPotion in position 4
         itemList.add(new Potion("superPotion", 60));
+       
         
        
             

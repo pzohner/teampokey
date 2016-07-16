@@ -71,7 +71,7 @@ public boolean doAction(String menuOption) {
                 this.viewPokemon();
                 break;
             case "SI":
-                System.out.println("SI was called");
+                
                 this.saveItemListToFile();
                 break; 
             default:
@@ -183,7 +183,7 @@ public boolean doAction(String menuOption) {
     }
 
     private void saveItemListToFile() {
-       this.console.println("\n Enter the file path for the file where the game is to be saved.");
+       System.out.println("\n Enter the file path for the file where the game is to be saved.");
         String filePath = this.getInput();
 
     try {
