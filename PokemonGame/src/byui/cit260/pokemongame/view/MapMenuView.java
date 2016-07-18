@@ -5,7 +5,6 @@
  */
 package byui.cit260.pokemongame.view;
 
-import byui.cit260.pokemongame.control.GameControl;
 import byui.cit260.pokemongame.control.MapControl;
 import byui.cit260.pokemongame.exception.MapControlException;
 import java.util.Scanner;
@@ -13,6 +12,7 @@ import pokemongame.PokemonGame;
 import byui.cit260.pokemongame.model.Character;
 import byui.cit260.pokemongame.model.Item;
 import byui.cit260.pokemongame.model.Location;
+import byui.cit260.pokemongame.model.Pokemon;
 import java.awt.Point;
 import java.util.ArrayList;
 /**
@@ -137,8 +137,30 @@ public boolean doAction(String menuOption) {
         
         
         Item itemToAdd;
+        Pokemon pokemonToCapture = currentLocation.getPokemon();
         
         itemToAdd = currentLocation.getItem();
+      
+        
+        if (pokemonToCapture != null) {
+            
+            ArrayList<Pokemon> ashPokemon = new ArrayList<Pokemon>();
+                   ashPokemon = ash.getCharacterPokemonArrayList();
+                   
+              // Pokemon[] ashPokemon = ash.getPokemon();
+               
+            ashPokemon.add(pokemonToCapture);
+            
+           // if (currentLocation.getPokemon())
+                
+            System.out.println("You captured a " + pokemonToCapture.getName()+ ".");
+            
+        }
+        else
+        {
+            
+            System.out.println(" You didnt find any pokemon! ");
+        }
         
         if (itemToAdd != null)
         {
@@ -155,8 +177,6 @@ public boolean doAction(String menuOption) {
         
     }
         
-    
-
     private void mapMoveWest() {
         
         Character[] ash = PokemonGame.getCurrentGame().getCharacter();
@@ -176,6 +196,5 @@ public boolean doAction(String menuOption) {
         
     }
 
-    
 }
    

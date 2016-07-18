@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import pokemongame.PokemonGame;
 import byui.cit260.pokemongame.model.Character;
 import byui.cit260.pokemongame.model.Pokemon;
-import java.awt.Point;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -63,8 +62,8 @@ public class GameControl {
         PokemonGame.setCurrentGame(game);
         game.setPlayer(player);
         
-        //Character[] character = GameControl.createCharacters();
-        //game.setCharacter(character);
+        Character[] character = GameControl.createCharacters();
+        game.setCharacter(character);
         
         
        // create and set the map
@@ -80,11 +79,14 @@ public class GameControl {
         // create the pokemon
           Pokemon[] pokemon = GameControl.createPokemon();
           Character[] characterWithList = game.getCharacter();
+          ArrayList<Pokemon> characterWithPokemon = createCharacterPokemon();
+          
           if (characterWithList == null) { 
           
               throw new GameControlException("You can't do that ") ; 
           }  
-          characterWithList[1].setPokemon(pokemon);
+          //characterWithList[1].setPokemon(pokemon);
+          characterWithList[1].setCharacterPokemonArrayList(characterWithPokemon);
           
           MapControl.moveCharactersToStartingLocation(map);
 
@@ -98,12 +100,39 @@ public class GameControl {
         
     }
     
+    public static ArrayList<Pokemon> createCharacterPokemon() {
+        
+        ArrayList<Pokemon> pokemon = new ArrayList<>(); 
+        Character ash = PokemonGame.getCurrentGame().getCharacter()[1];
+     
+        pokemon.add(new Pokemon("Pikachu"  , 20, 5,  65));
+        
+        ash.setCharacterPokemonArrayList(pokemon);
+        
+        return pokemon;
+    }
+    
     public static Pokemon[] createPokemon() {
+        
+        
+//        ArrayList<Pokemon> pokemon = new ArrayList<>(); 
+//        
+//     
+//        pokemon.add(new Pokemon("Pikachu"  , 20, 5,  65));
+//        pokemon.add(new Pokemon("Rattata"  , 10, 1,  30));
+//        pokemon.add(new Pokemon("Spearow"  , 27, 4,  50));
+//        pokemon.add(new Pokemon("Charizard", 30, 7,  85)); 
+//        pokemon.add(new Pokemon("MewTwo"   , 35, 10, 101));
+//        
+         
+         
+    
+        
         
         Pokemon[] pokemon  = new Pokemon[6]; // total of 6 pokemon
    
         Pokemon pikachu   = new Pokemon("Pikachu"  , 20, 5,  65); 
-        Pokemon rattata   = new Pokemon("Rattata"  , 10, 1,  30); 
+       Pokemon rattata   = new Pokemon("Rattata"  , 10, 1,  30); 
         Pokemon spearow   = new Pokemon("Spearow"  , 27, 4,  50); 
         Pokemon charizard = new Pokemon("Charizard", 30, 7,  85);
         Pokemon gayardos  = new Pokemon("Gayardos" , 32, 8,  90);
@@ -116,12 +145,12 @@ public class GameControl {
         pokemon[1] = gayardos;
         pokemon[0] = mewTwo;
         
-//        pokemon[PokemonList.Pikachu.ordinal()]   = pikachu;
-//        pokemon[PokemonList.Rattata.ordinal()]   = rattata;
-//        pokemon[PokemonList.Spearow.ordinal()]   = spearow;
-//        pokemon[PokemonList.Charizard.ordinal()] = charizard;
-//        pokemon[PokemonList.Gayardos.ordinal()]  = gayardos;
-//        pokemon[PokemonList.MewTwo.ordinal()]    = mewTwo;
+        pokemon[PokemonList.Pikachu.ordinal()]   = pikachu;
+        pokemon[PokemonList.Rattata.ordinal()]   = rattata;
+        pokemon[PokemonList.Spearow.ordinal()]   = spearow;
+        pokemon[PokemonList.Charizard.ordinal()] = charizard;
+        pokemon[PokemonList.Gayardos.ordinal()]  = gayardos;
+        pokemon[PokemonList.MewTwo.ordinal()]    = mewTwo;
         
         for (int i = 0; i < pokemon.length; i++) {
             
@@ -133,31 +162,6 @@ public class GameControl {
         return pokemon;
     }
 
-    public static void exploreSquare() {
-        
-        // get location where the character is
-        Character ash[] = PokemonGame.getCurrentGame().getCharacter();
-        
-        Location[][] location = PokemonGame.getCurrentGame().getMap().getMapLocations();
-                
-        Point currentPosition = ash[1].getPosition();
-        
-        
-        Pokemon pokemonAtLocation = location[currentPosition.y][currentPosition.x].getPokemon();
-        //System.out.println("explore square function is running " + pokemonAtLocation.getName());
-       if (pokemonAtLocation != null) {
-        
-           System.out.println("Theres a " + pokemonAtLocation.getName() + " here!");
-           
-       }
-        
-                // find out what items are there
-        // add them to the character pokemon array.
-        
-        
-        
-        
-    }
     public static void saveItemList(Game currentGame, String filePath) throws GameControlException {
         
    
@@ -168,28 +172,48 @@ public class GameControl {
          
     }    
          catch (Exception e) {
-    }
+    
+             throw new GameControlException(e.getMessage());
+         
+    }   
+}
+    private enum PokemonList {
         
-//         Character[] character = PokemonGame.getCurrentGame().getCharacter();
-//         ArrayList<Object> ashItemList = new ArrayList();
-//         Pokemon[] pokemonList = new Pokemon[6];
-//         
-//         Character ash = character[1];
+        Pikachu,
+        Rattata,
+        Spearow,
+        Charizard,
+        Gayardos,
+        MewTwo
+        
+    }
 
+    public static Character[] createCharacters() {
+        
+        Character[] character = new Character[2];
+        //Location[][] startingLocation = new Location[0][0];
+        Location[][] bossLocation = new Location[4][4];
+        ArrayList<Object> ashItemList = createItemList(); //Changed this to actually populate list.
+        Pokemon[] pokemonList = new Pokemon[5];
 
-    // This appeared when I committed!!!! 
-//         ash.setItemList(ashItemList);
-//        ash.setPokemon(pokemonList);
-//        character[CharacterList.Ash.ordinal()] = ash;
-//        
-//        // create LANCE the boss
-//        Character lance = new Character();
-//        lance.setName("Lance");
-//        //lance.setLocation(startingLocation);
-//        lance.setPokemon(pokemonList);
-//        character[CharacterList.Lance.ordinal()] = lance;
-//        
-//        return character;
+        // create ASh the player 
+        Character ash = new Character();
+        ash.setName("Ash");
+        //ash.setLocation(startingLocation);
+        
+        // set ash's itemList
+        ash.setItemList(ashItemList);
+        ash.setPokemon(pokemonList);
+        character[CharacterList.Ash.ordinal()] = ash;
+        
+        // create LANCE the boss
+        Character lance = new Character();
+        lance.setName("Lance");
+        //lance.setLocation(startingLocation);
+        lance.setPokemon(pokemonList);
+        character[CharacterList.Lance.ordinal()] = lance;
+        
+        return character;
         
     }
     

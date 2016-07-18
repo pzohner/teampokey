@@ -17,6 +17,7 @@ import byui.cit260.pokemongame.model.Pokemon;
 import java.util.Scanner;
 import pokemongame.PokemonGame;
 import byui.cit260.pokemongame.model.Character;
+import java.util.ArrayList;
 
 /**
  *
@@ -34,6 +35,7 @@ public class GameMenuView extends View {
                 + "\n V - View Map"
                 + "\n L - Item list"
                 + "\n P - Pokemon list"
+                + "\n CPL - View current Pokemon List"
                 + "\n HM - Healing Menu"
                 + "\n E - Explore Square"
                 + "\n S - Save Game"
@@ -63,6 +65,9 @@ public class GameMenuView extends View {
                 break;
             case"S":
                 this.saveGame();
+                break;
+            case"CPL":
+                this.viewCurrentPokemonList();
                 break;
             case "HM":
                 this.displayHealingMenu();
@@ -156,6 +161,7 @@ public class GameMenuView extends View {
 //          characterWithList[1].setPokemon(pokemon);
           
         Game game = PokemonGame.getCurrentGame();
+        
       
         Character[] characterWithList = game.getCharacter();
         
@@ -193,5 +199,18 @@ public class GameMenuView extends View {
         healingMenuView.display();
         
     }
+
+    private void viewCurrentPokemonList() {
+        
+        Character ash = PokemonGame.getCurrentGame().getCharacter()[1];
+        
+        ArrayList<Pokemon> characterListToDisplay = ash.getCharacterPokemonArrayList();
+        
+        for (Pokemon pokemon : characterListToDisplay) {
+            
+            System.out.println(pokemon.getName());
+        
+    }
     
+    }
 }

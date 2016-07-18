@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,6 +22,7 @@ public class Character implements Serializable {
     private int numberOfPokemon;
     private int numberOfItems;
     private Pokemon[] pokemon;
+    private ArrayList<Pokemon> characterPokemonArrayList;
     private ArrayList<Object> itemList;
     
     private Pokemon selectedPokemonAttacker;
@@ -71,6 +71,22 @@ public class Character implements Serializable {
     public void setPokemon(Pokemon[] pokemon) {
         this.pokemon = pokemon;
     }
+    
+    
+
+    public ArrayList<Pokemon> getCharacterPokemonArrayList() {
+        return characterPokemonArrayList;
+    }
+
+    public void setCharacterPokemonArrayList(ArrayList<Pokemon> characterPokemonArrayList) {
+        this.characterPokemonArrayList = characterPokemonArrayList;
+    }
+
+    
+
+   
+    
+    
 
     public ArrayList<Object> getItemList() {
         return itemList;

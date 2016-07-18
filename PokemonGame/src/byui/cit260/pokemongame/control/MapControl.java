@@ -33,7 +33,7 @@ public class MapControl {
         //create a list of the different scenes in the game
         Scene[] scenes = createScenes();
         
-         Item[] items = new Item[5];
+        Item[] items = new Item[5];
         
         items[0] = new Pokeball("Pokeball", false);
         items[1] = new Potion("SuperPotion", 60);
@@ -41,7 +41,12 @@ public class MapControl {
         items[3] = new Potion("Potion", 20);
         items[4] = new Pokeball("Pokeball", false);
         
+        //ArrayList<Pokemon> pokemon = GameControl.createCharacterPokemon();
+        
+        Pokemon[] pokemon = GameControl.createPokemon();
+        
         MapControl.assignScenesToLocations(map, scenes);
+        MapControl.assignPokemonToLocations(map, pokemon);
         MapControl.assignItemToLocations(map, items);
         
         return map;
@@ -177,14 +182,8 @@ public class MapControl {
 //        
 //        get new location and add him to the list
 //        
-           
-        // get currentPosition of the character
-        // remove the character from the current location
-        // create and calculate the newposition of the character
-        // set characters location to the newPosition
-        // add the character to the new position
-        // set visited to true
-
+//                
+//                
    }
     
     public static void moveCharacterEast(Character character, String direction) throws MapControlException {
@@ -377,10 +376,13 @@ public class MapControl {
   
     }     
     
+    
+    // changed the incoming pokemon to an array as oppose to an arrayList
+    
     private static void assignPokemonToLocations(Map map, Pokemon[] pokemon) {
         
         Location[][] locations = map.getMapLocations();
-       
+            
 //        locations[0][0].                          
         locations[0][1].setPokemon(pokemon[5]);
 //        locations[0][2].
@@ -405,10 +407,7 @@ public class MapControl {
 //        locations[4][1].
 //        locations[4][2].
 //        locations[4][3].
-        locations[4][4].setPokemon(pokemon[0]);
-        
-        
-        
+        locations[4][4].setPokemon(pokemon[0]);  
     }
     
     /*
