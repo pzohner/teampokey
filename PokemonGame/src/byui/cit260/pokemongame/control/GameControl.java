@@ -196,6 +196,12 @@ public class GameControl {
         ArrayList<Object> ashItemList = createItemList(); //Changed this to actually populate list.
         Pokemon[] pokemonList = new Pokemon[5];
 
+        
+       
+        
+        
+        
+        
         // create ASh the player 
         Character ash = new Character();
         ash.setName("Ash");

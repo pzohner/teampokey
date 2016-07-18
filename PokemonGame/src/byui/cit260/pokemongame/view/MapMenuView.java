@@ -125,6 +125,36 @@ public boolean doAction(String menuOption) {
         
     }
     
+//    private void explore() {
+//        Location[][] locations = PokemonGame.getCurrentGame().getMap().getMapLocations();
+//        
+//        Character ash = PokemonGame.getCurrentGame().getCharacter()[1];
+//        
+//        Point currentPoint = ash.getPosition();
+//        
+//        Location currentLocation = locations[currentPoint.y][currentPoint.x];
+//        
+//        
+//        Item itemToAdd;
+//        
+//        itemToAdd = currentLocation.getItem();
+//        
+//        if (itemToAdd != null)
+//        {
+//           ArrayList<Object> listOfItems = Item.getTotalItemList(); 
+//           
+//           listOfItems.add(itemToAdd);
+//           System.out.println("An item was found!");
+//        }
+//        else
+//        {
+//            System.out.println("No object found here!");
+//        }
+//        
+//        
+//    }
+        
+    
     private void explore() {
         
         Location[][] locations = PokemonGame.getCurrentGame().getMap().getMapLocations();
