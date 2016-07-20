@@ -85,7 +85,7 @@ public class GameControl {
           
               throw new GameControlException("You can't do that ") ; 
           }  
-          //characterWithList[1].setPokemon(pokemon);
+          characterWithList[1].setPokemon(pokemon);
           characterWithList[1].setCharacterPokemonArrayList(characterWithPokemon);
           
           MapControl.moveCharactersToStartingLocation(map);
